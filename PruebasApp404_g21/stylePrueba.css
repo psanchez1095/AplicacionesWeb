@@ -13,7 +13,7 @@ body{
 }
 
 footer {
-    background-color: black;
+
     text-align:center;
     margin-bottom: 2px;
     width: 100%;
@@ -32,16 +32,18 @@ footer {
 /*******************************/
 
 #encabezado {
-    top: 0;
-    width: 40%;
-    height: 130px;
+    display: flex;
     position: fixed;
-    background-color: black;
+    z-index:9999;
+    top: 0;
+    margin-left: 29%;
+    width: 100%;
+    height: 130px;
+    background-color: transparent;
+
 }
 
 #titulo {
-
-    display: flex;
     float: left;
     font-size: 40px;
     margin-top: 25px;
@@ -53,7 +55,7 @@ footer {
 }
 h1:hover{
     animation: shake 0.8s;
-    color: yellow;
+    color: black;
 }
 
 @keyframes shake {
@@ -75,11 +77,10 @@ h1:hover{
 }
 /*******************************/
 .reloj{
+    position: fixed;
     display: grid;
-    position: absolute;
     top:0;
     right:0;
-
     font-family: 'Miriam Libre', sans-serif;
     color: coral;
     font-weight: bold;
@@ -122,5 +123,73 @@ h1:hover{
     margin-bottom: 0.2%;
     margin-right: 0.5%;
     background-color:  rgba(0,0,0,.0); /*Para que no haya background*/
+
+}
+/*Style CSS3 for body -> login*/
+
+#contenido{
+    position: absolute;
+    width: 35%;
+    top:160px;
+    margin-left:31%;
+    font-family: 'Miriam Libre', sans-serif;
+    font-weight: bold;
+}
+#loginCreate{
+    margin-top: 10%;
+}
+#contenido >form > div > input {
+    padding: 0.3%;
+
+}
+#contenido >form > span {
+    font-size: 20px;
+
+}
+#loginCreate>div{
+    text-align: center;
+}
+#loginCreate>div>input{
+    padding: 0.6%;
+    font-family: 'Miriam Libre', sans-serif;
+    font-size:15px;
+
+}
+#loginCreate>div>input:hover{
+    background: black;
+    color: coral;
+    border: 6px solid coral;
+
+}
+#contraseñaFormInput{
+    margin-top: 6%;
+}
+#loginEmailButton{
+    background: coral;
+    color: black;
+    width: 70%;
+
+}
+#createAccountButton{
+    background: coral;
+    color: black;
+    width: 70%;
+}
+
+#textoFormCorreo{
+    width: 100%;
+    text-align: center;
+
+}
+#textoFormContraseña{
+    width: 100%;
+    text-align: center;
+
+}
+
+div > input{
+    font-weight: bold;
+    border: 6px solid black;
+    border-radius: 11%;
 
 }
