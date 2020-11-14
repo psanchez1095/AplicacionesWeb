@@ -136,11 +136,10 @@ h1:hover{
     font-weight: bold;
 }
 #loginCreate{
-    margin-top: 10%;
+    margin-top: 7%;
 }
 #contenido >form > div > input {
     padding: 0.3%;
-
 }
 #contenido >form > span {
     font-size: 20px;
@@ -162,7 +161,7 @@ h1:hover{
 
 }
 #contraseñaFormInput{
-    margin-top: 6%;
+    margin-top: 3%;
 }
 #loginEmailButton{
     background: coral;
@@ -186,10 +185,58 @@ h1:hover{
     text-align: center;
 
 }
+#textoFormConfirmarContraseña{
+    width: 100%;
+    text-align: center;
+}
+#textoFormNickname{
+    width: 100%;
+    text-align: center;
+}
 
 div > input{
     font-weight: bold;
     border: 6px solid black;
     border-radius: 11%;
+    font-family: 'Miriam Libre', sans-serif;
 
+}
+
+#inputImg{
+    opacity: 0;
+    overflow: hidden;
+    width: 0.1px;
+    height: 0.1px;
+
+}
+
+label{
+    position: absolute;
+    top:266px;
+    width: 27%;
+
+    padding-top: 6px;
+    padding-bottom:6px;
+    border: 5px solid black;
+    border-radius: 9%;
+
+    background-color: wheat;
+    color: black;
+
+    font-family: 'Miriam Libre', sans-serif;
+    font-weight: bold;
+    text-align: left;
+
+}
+label>span{
+    margin-left: 3%;
+}
+label>img{
+    position: absolute;
+    margin-left: 1%;
+    margin-top: -5px;
+
+}
+label:hover {
+    cursor:pointer;
 }
