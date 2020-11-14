@@ -10,8 +10,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -25,7 +25,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PracticasVoluntarias/Practica1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -36,6 +36,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\PruebasApp404_g21\cssPrueba" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\style" />
     </key>
@@ -56,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605126619468</updated>
       <workItem from="1605126623420" duration="7152000" />
-      <workItem from="1605190514363" duration="11336000" />
+      <workItem from="1605190514363" duration="12341000" />
     </task>
     <servers />
   </component>
@@ -68,5 +69,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605211830152" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1605367294335">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1605367294335" />
   </component>
 </project>
