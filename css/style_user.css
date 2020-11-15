@@ -1,0 +1,168 @@
+/***************BASICO*****************/
+
+@import url('https://fonts.googleapis.com/css2?family=Miriam+Libre&family=Xanh+Mono&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    border: 1px solid red;
+}
+
+body{
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+/***********CABECERA******************/
+
+#encabezado {
+    display: flex;
+    position: fixed;
+    z-index:9999;
+    top: 0;
+    /*margin-left: 29%;*/
+    width: 100%;
+    height: 130px;
+    background-color: transparent;
+
+}
+.columna{
+    width: 33%;
+    float: left;
+}
+
+#titulo {
+    float: left;
+    position: fixed;
+    font-size: 40px;
+    margin-top: 25px;
+    color: whitesmoke;
+    font-family: 'Big Shoulders Stencil Text', cursive;
+    text-shadow: 2px 4px gray;
+}
+
+h1:hover{
+    animation: shake 0.8s;
+    color: black;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/********CABECERA-BOTONES**********/
+#Button{
+    background: coral;
+    color: black;
+    width: 70%;
+}
+
+/*******SEARCH*****************/
+.search{
+    margin-top: 131px;
+    width: 100%;
+    height: 30px;
+}
+
+#idButton{
+    width: 70%;
+    height: 25px;
+    float: left;
+    position: fixed;
+    margin-left: 25%;
+}
+
+#search{
+    background: coral;
+    color: black;
+    width: 20%;
+    height: 24px;
+    font-size: 20px;
+}
+
+#searchterm{
+  width: 40%;
+  height: 24px;
+  font-size: 20px;
+}
+
+
+/********CONTENIDO***************/
+
+#contenido{
+    margin-top: 20px;
+    position: absolute;
+    width: 750px;
+    height: 500px;
+    top:160px;
+    margin-left:20%;
+    font-family: 'Miriam Libre', sans-serif;
+    font-weight: bold;
+}
+
+.columnaHead{
+    width: 49%;
+    height: 100%;
+    float: left;
+}
+
+#infoUsuario {
+    width: 200px;
+    margin-left: 20px;
+}
+
+#fotoPerfil {
+    float:left;
+}
+
+#fotoPerfil > img {
+    width: 80px;
+    height: 80px;
+}
+
+#textoPerfil{
+    width: 300px;
+    height: 30px;
+    font-size: 10px;
+}
+
+.columnaBody{
+    width: 33%;
+    height: 100%;
+    float: left;
+}
+
+
+/***********FOOTER***************/
+footer {
+
+    text-align:center;
+    margin-bottom: 2px;
+    width: 100%;
+    height: 4%;
+    bottom:0;
+    position:fixed;
+    left:0;
+    font-family: neon;
+    color: white;
+    font-size: 0.5cm;
+    padding-bottom: 0.5%;
+    padding-top:0.5% ;
+
+}
