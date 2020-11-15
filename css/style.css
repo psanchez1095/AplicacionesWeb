@@ -148,10 +148,31 @@ h1:hover{
 #loginCreate>div{
     text-align: center;
 }
+#loginCreate>a{
+    text-align: center;
+}
 #loginCreate>div>input{
     padding: 0.6%;
     font-family: 'Miriam Libre', sans-serif;
     font-size:15px;
+
+
+}
+#loginCreate>a>input{
+    padding: 0.6%;
+    font-family: 'Miriam Libre', sans-serif;
+    font-size:15px;
+    font-weight: bold;
+    border: 6px solid black;
+    border-radius: 11%;
+    margin-left: 15%;
+    margin-top: 3%;
+
+}
+#loginCreate>a>input:hover{
+    background: black;
+    color: coral;
+    border: 6px solid coral;
 
 }
 #loginCreate>div>input:hover{
