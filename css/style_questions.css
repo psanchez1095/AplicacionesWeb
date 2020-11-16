@@ -4,7 +4,7 @@
 * {
     margin: 0;
     padding: 0;
-
+    border:1px solid red;
 }
 
 body{
@@ -117,33 +117,48 @@ h1:hover{
 
 /*******SEARCH*****************/
 .search{
+    position: fixed;
     margin-top: 141px;
     width: 100%;
     height: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5%;
+}
+#lupa{
+
+    object-fit: cover;
+    object-position: center center;
 }
 
-#idButton{
-    width: 70%;
-    height: 25px;
-    float: left;
-    position: fixed;
-    margin-left: 25%;
-}
 
-#search{
+#searchButton{
+    opacity: 0;
+    overflow: hidden;
+    width: 0.1px;
+    height: 0.1px;
+
+}
+label{
     background: coral;
     color: black;
-    width: 20%;
-    height: 24px;
-    font-size: 20px;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 5%;
+    font-weight: bold;
+    text-align: center;
+    padding: 1px;
 }
-
-#searchterm{
-    width: 40%;
-    height: 24px;
-    font-size: 20px;
+#textForm{
+    background: white;
+    color: black;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 5%;
+    font-weight: bold;
+    width: 50%;
+    text-align: center;
 }
-
 
 /********CONTENIDO***************/
 
@@ -152,7 +167,7 @@ h1:hover{
     position: absolute;
     width: 750px;
     height: 500px;
-    top:140px;
+    top:    199px;
     margin-left:20%;
     font-family: 'Miriam Libre', sans-serif;
     font-weight: bold;
