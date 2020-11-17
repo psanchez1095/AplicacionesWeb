@@ -4,7 +4,7 @@
 * {
     margin: 0;
     padding: 0;
-    border:1px solid red;
+    /*border:1px solid red;*/
 }
 
 body{
@@ -102,9 +102,23 @@ h1:hover{
 }
 #botonDesconectar{
     width: 25%;
-    margin-left: 76%;
+    margin-left: 40%;
+    margin-top: 60px;
     height: 10%;
 }
+
+#botonPreguntas{
+    margin-left: 30%;
+}
+
+#botonSinResponder{
+    margin-left: 30%;
+}
+
+#botonUsuarios{
+    margin-left: 30%;
+}
+
 #botonDesconectar:hover{
     color: white;
 }
@@ -131,18 +145,31 @@ h1:hover{
     margin-left: 25%;
 }
 
-#search{
+#botonBuscar{
+    margin-left: 1%;
     background: coral;
     color: black;
     width: 20%;
-    height: 24px;
-    font-size: 20px;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-left: 2%;
+    border-radius: 11%;
+    font-weight: bold;
+}
+
+#botonBuscar:hover{
+    background-color: black;
+    color: coral;
 }
 
 #searchterm{
-  width: 40%;
-  height: 24px;
-  font-size: 20px;
+    margin-left: 1%;
+    background: white;
+    color: coral;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 11%;
 }
 
 
@@ -191,6 +218,117 @@ h1:hover{
     float: left;
 }
 
+.estadisticas{
+    width:100%;
+    height:35px;
+    line-height:35px;
+    border:1px solid coral;
+    text-align:center;
+    background-color: black;
+    color: coral;
+}
+.estadisticas>span {
+	display:inline-block;
+	vertical-align:middle;
+	line-height:normal;
+}
+
+.espacio{
+    width:100%;
+    height:15px;
+    background-color: transparent;
+}
+
+.puntos{
+    width:40%;
+    height:35px;
+    line-height:35px;
+    border:1px solid coral;
+    text-align:center;
+    background-color: black;
+    color: coral;
+    margin-left: 30%;
+}
+.puntos>span {
+	display:inline-block;
+	vertical-align:middle;
+	line-height:normal;
+}
+
+.fotoPerfil{
+    margin-top: 10px;
+    text-align:center;
+    background-color: transparent;
+   
+}
+.fotoPerfil>span {
+	display:inline-block;
+	vertical-align:middle;
+	line-height:normal;
+}
+
+.info{
+    width:100%;
+    height:35px;
+    line-height:35px;
+    border:1px solid coral;
+    text-align:center;
+    background-color: black;
+    color: coral;
+}
+.info>span {
+	display:inline-block;
+	vertical-align:middle;
+	line-height:normal;
+}
+
+/*********************MEDALLAS*******/
+.medallas{
+    width:100%;
+    height:35px;
+    margin-top: 30%;
+    line-height:35px;
+    border:1px solid coral;
+    text-align:center;
+    background-color: black;
+    color: coral;
+}
+.medallas>span {
+	display:inline-block;
+	vertical-align:middle;
+	line-height:normal;
+}
+
+.metales{
+    width:100%;
+    height:35px;
+    line-height:35px;
+    border:1px solid coral;
+    text-align:center;
+    background-color: black;
+    color: coral;
+}
+.metales>span {
+	display:inline-block;
+	vertical-align:middle;
+	line-height:normal;
+}
+
+.tags{
+    width:80%;
+    height:30px;
+    line-height:30px;
+    margin-left: 10%;
+    border:1px solid black;
+    text-align:center;
+    background-color: coral;
+    color: white;
+}
+.tags>span {
+	display:inline-block;
+	vertical-align:middle;
+	line-height:normal;
+}
 
 /***********FOOTER***************/
 footer {
