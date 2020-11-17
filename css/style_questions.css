@@ -187,6 +187,7 @@ h1:hover{
     height: 0.1px;
 
 }
+
 label{
     background: coral;
     color: black;
@@ -197,6 +198,7 @@ label{
     text-align: center;
     padding: 1px;
 }
+
 #textForm{
     background: white;
     color: black;
@@ -264,6 +266,7 @@ label{
     background-color: white;
     border-radius: 11%;
     margin-right: 1.5%;
+    margin-left: 1%;
 
 }
 .nuevaPreguntaUsuario{
@@ -273,6 +276,7 @@ label{
 .nuevaPreguntaUsuario>span {
     color: darkred;
     width: 100%;
+    margin-left: 2%;
 
 }
 .nuevaPreguntaUsuario>span2 {
@@ -294,18 +298,25 @@ label{
 
 }
 .nuevaPregunta>p{
-     width:60%;
-    margin-top: 1.5%;
+    width:60%;
+    margin:1.5%;
 
 }
 .nuevaPregunta>span {
     color: darkred;
+    margin-left: 1.5%;
+
 
 }
 .nuevaPregunta>tag{
     margin-left: 2%;
+    margin-bottom: 2%;
     background:black;
-    color:coral
+    color:coral;
+    border-radius: 15%;
+    padding-left: 2%;
+    padding-right: 2%;
+
 
 }
 .newQuestion{
