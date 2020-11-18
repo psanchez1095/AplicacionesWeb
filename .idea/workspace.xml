@@ -25,7 +25,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -60,7 +60,8 @@
       <option name="presentableId" value="Default" />
       <updated>1605126619468</updated>
       <workItem from="1605126623420" duration="7152000" />
-      <workItem from="1605190514363" duration="38607000" />
+      <workItem from="1605190514363" duration="38773000" />
+      <workItem from="1605648140718" duration="4052000" />
     </task>
     <servers />
   </component>
