@@ -1,0 +1,313 @@
+/***************BASICO*****************/
+
+@import url('https://fonts.googleapis.com/css2?family=Miriam+Libre&family=Xanh+Mono&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    /*border:1px solid red;*/
+}
+
+body{
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+/***********CABECERA******************/
+
+#encabezado {
+    display: flex;
+    position: fixed;
+    z-index:9999;
+    top: 0;
+    /*margin-left: 29%;*/
+    width: 100%;
+    height: 130px;
+    background-color: transparent;
+
+}
+.columna{
+    width: 33%;
+    float: left;
+}
+
+#titulo {
+    float: left;
+    position: fixed;
+    font-size: 40px;
+    margin-top: 25px;
+    color: whitesmoke;
+    font-family: 'Big Shoulders Stencil Text', cursive;
+    text-shadow: 2px 4px gray;
+}
+
+h1:hover{
+    animation: shake 0.8s;
+    color: black;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/***********FOOTER***************/
+footer {
+
+    text-align:center;
+    margin-bottom: 2px;
+    width: 100%;
+    height: 4%;
+    bottom:0;
+    position:fixed;
+    left:0;
+    font-family: neon;
+    color: white;
+    font-size: 0.5cm;
+    padding-bottom: 0.5%;
+    padding-top:0.5% ;
+
+}
+.licenseImg{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 75%;
+    object-fit: cover;
+    object-position: center center;
+    margin-bottom: 0.2%;
+    margin-right: 0.5%;
+    background-color:  transparent; /*Para que no haya background*/
+
+}
+
+/********CABECERA-BOTONES**********/
+#divPreguntas{
+    height: 33.3%;
+}
+#divUsuarios{
+    height: 33.3%;
+}
+#divSinResponder{
+    height: 33.3%;
+}
+#divDesconectar{
+    margin-top: -1%;
+}
+.columna>div> input{
+    margin-left: 1%;
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-top: 3%;
+    margin-left: 2%;
+    border-radius: 11%;
+    font-weight: bold;
+}
+.columna>div> input:hover{
+    background: black;
+    color: coral;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 11%;
+    font-weight: bold;
+}
+#botonDesconectar{
+    width: 25%;
+    margin-left: 40%;
+    margin-top: 60px;
+    height: 10%;
+}
+
+#botonPreguntas{
+    margin-left: 30%;
+}
+
+#botonSinResponder{
+    margin-left: 30%;
+}
+
+#botonUsuarios{
+    margin-left: 30%;
+}
+
+#botonDesconectar:hover{
+    color: white;
+}
+
+#Button{
+    background: coral;
+    color: black;
+    width: 70%;
+}
+
+/*******SEARCH*****************/
+.search{
+
+    margin-top: 131px;
+    width: 100%;
+    height: 30px;
+}
+
+#idButton{
+    width: 70%;
+    height: 25px;
+    float: left;
+    position: fixed;
+    margin-left: 25%;
+}
+
+#botonBuscar{
+    margin-left: 1%;
+    background: coral;
+    color: black;
+    width: 20%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-left: 2%;
+    border-radius: 11%;
+    font-weight: bold;
+}
+
+#botonBuscar:hover{
+    background-color: black;
+    color: coral;
+}
+
+#searchterm{
+    margin-left: 1%;
+    background: white;
+    color: coral;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 11%;
+}
+
+/********CONTENIDO***************/
+
+#contenido{
+    margin-top: 20px;
+    position: absolute;
+    width: 1000px;
+    height: 500px;
+    top:180px;
+    margin-left:15%;
+    font-family: 'Miriam Libre', sans-serif;
+    font-weight: bold;
+}
+
+.search2{
+    width: 100%;
+    height: 30px;
+}
+
+#idButton2{
+    width: 70%;
+    height: 25px;
+    float: left;
+    position: fixed;
+}
+
+#botonBuscar2{
+    margin-left: 1%;
+    background: coral;
+    color: black;
+    width: 20%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-left: 2%;
+    border-radius: 11%;
+    font-weight: bold;
+}
+
+#botonBuscar2:hover{
+    background-color: black;
+    color: coral;
+}
+
+#searchterm2{
+    margin-left: 1%;
+    background: white;
+    color: coral;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 11%;
+}
+
+.espacio{
+
+    width:100%;
+    height:15px;
+    background-color: transparent;
+}
+
+/****************TABLA**********************/
+
+.grid {
+    display: grid;
+    grid-template-columns: [x0] 1fr [x1] 1fr [x2] 1fr [x3];
+    grid-template-rows: [y0] 1fr [y1] 1fr [y2] 1fr [y3];
+  }
+
+.columnaHead{
+    width: 49%;
+    height: 90%;
+    float: left;
+    margin-left: 20%;
+}
+#infoLeft{
+    background: papayawhip;
+    border-top-left-radius:15%;
+    border-top-right-radius:15%;
+}
+
+#infoUsuario {
+    width: 150px;
+    margin-left: 20px;
+}
+
+.fotoPerfil{
+    margin-top: 2px;
+    text-align:center;
+    background-color: transparent;
+
+}
+.fotoPerfil>span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
+}
+
+.info{
+    line-height:35px;
+    border:1px solid coral;
+    text-align:center;
+    background-color: lightsalmon;
+    color: black;
+
+}
+.info>span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
+}
