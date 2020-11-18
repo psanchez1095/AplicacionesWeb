@@ -249,6 +249,10 @@ label{
     text-align: center;
     padding: 1px;
 }
+#formTextPublicarRespuesta>input:hover{
+    background: black;
+    color: coral;
+}
 #tituloContenido{
     font-size: 40px;
     margin-left: 20%;

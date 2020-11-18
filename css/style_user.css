@@ -191,7 +191,27 @@ h1:hover{
     height: 100%;
     float: left;
 }
+#infoLeft{
+    background: papayawhip;
+    border-top-left-radius:15%;
+    border-top-right-radius:15%;
+}
+#infoRigth{
+    margin-left: 2%;
+    background: wheat;
+    border-bottom-left-radius:15%;
+    border-bottom-right-radius:15%;
 
+}
+#infoRigth>div{
+    margin-top: 2%;
+
+}
+#infoRigth>div:hover{
+    color: white;
+    border:none
+
+}
 #infoUsuario {
     width: 200px;
     margin-left: 20px;
@@ -218,11 +238,12 @@ h1:hover{
     float: left;
 }
 
+
 .estadisticas{
-    width:100%;
+
     height:35px;
     line-height:35px;
-    border:1px solid coral;
+    border:5px solid coral;
     text-align:center;
     background-color: black;
     color: coral;
@@ -234,6 +255,7 @@ h1:hover{
 }
 
 .espacio{
+
     width:100%;
     height:15px;
     background-color: transparent;
@@ -241,9 +263,8 @@ h1:hover{
 
 .puntos{
     width:40%;
-    height:35px;
     line-height:35px;
-    border:1px solid coral;
+    border:1.8px solid coral;
     text-align:center;
     background-color: black;
     color: coral;
@@ -268,13 +289,16 @@ h1:hover{
 }
 
 .info{
-    width:100%;
-    height:35px;
     line-height:35px;
     border:1px solid coral;
     text-align:center;
-    background-color: black;
-    color: coral;
+    background-color: lightsalmon;
+    color: black;
+
+}
+#infoFechaAltaUsuario{
+
+    height: 100px;
 }
 .info>span {
     display:inline-block;
@@ -283,51 +307,53 @@ h1:hover{
 }
 
 /*********************MEDALLAS*******/
-.medallas{
+
+#medallas{
     width:100%;
     height:35px;
-    margin-top: 30%;
+    margin-top: 32%;
     line-height:35px;
-    border:1px solid coral;
+    border:5px solid coral;
     text-align:center;
     background-color: black;
     color: coral;
-}
-.medallas>span {
-    display:inline-block;
-    vertical-align:middle;
-    line-height:normal;
+    border-radius: 5%;
 }
 
 .metales{
     width:100%;
     height:35px;
     line-height:35px;
-    border:1px solid coral;
+    border:5px solid coral;
     text-align:center;
     background-color: black;
     color: coral;
 }
+
 .metales>span {
     display:inline-block;
     vertical-align:middle;
     line-height:normal;
 }
+#medallas:hover + #infoRigth{
+    background: black;
+}
 
 .tags{
-    width:80%;
-    height:30px;
-    line-height:30px;
-    margin-left: 10%;
-    border:1px solid black;
+    width: 80%;
+    margin-left: 9%;
+    border:3.5px solid black;
     text-align:center;
     background-color: coral;
     color: white;
+    border-radius: 15%;
+    margin-bottom: 3%;
 }
 .tags>span {
     display:inline-block;
     vertical-align:middle;
     line-height:normal;
+
 }
 
 /***********FOOTER***************/

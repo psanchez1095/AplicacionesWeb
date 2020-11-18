@@ -25,7 +25,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../JavaScript/TasksJavaScript" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -42,11 +42,11 @@
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\imagenes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\text" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\js" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\_PruebasApp404_g21" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\PruebasApp404_g21\cssPrueba" />
-      <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\style" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -61,7 +61,7 @@
       <updated>1605126619468</updated>
       <workItem from="1605126623420" duration="7152000" />
       <workItem from="1605190514363" duration="38773000" />
-      <workItem from="1605648140718" duration="6263000" />
+      <workItem from="1605648140718" duration="10111000" />
     </task>
     <servers />
   </component>
@@ -69,10 +69,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1605626509865">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1605716199103">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605626509865" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605716199103" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1605373051542">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
