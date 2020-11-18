@@ -228,9 +228,9 @@ h1:hover{
     color: coral;
 }
 .estadisticas>span {
-	display:inline-block;
-	vertical-align:middle;
-	line-height:normal;
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
 }
 
 .espacio{
@@ -250,21 +250,21 @@ h1:hover{
     margin-left: 30%;
 }
 .puntos>span {
-	display:inline-block;
-	vertical-align:middle;
-	line-height:normal;
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
 }
 
 .fotoPerfil{
     margin-top: 10px;
     text-align:center;
     background-color: transparent;
-   
+
 }
 .fotoPerfil>span {
-	display:inline-block;
-	vertical-align:middle;
-	line-height:normal;
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
 }
 
 .info{
@@ -277,9 +277,9 @@ h1:hover{
     color: coral;
 }
 .info>span {
-	display:inline-block;
-	vertical-align:middle;
-	line-height:normal;
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
 }
 
 /*********************MEDALLAS*******/
@@ -294,9 +294,9 @@ h1:hover{
     color: coral;
 }
 .medallas>span {
-	display:inline-block;
-	vertical-align:middle;
-	line-height:normal;
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
 }
 
 .metales{
@@ -309,9 +309,9 @@ h1:hover{
     color: coral;
 }
 .metales>span {
-	display:inline-block;
-	vertical-align:middle;
-	line-height:normal;
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
 }
 
 .tags{
@@ -325,9 +325,9 @@ h1:hover{
     color: white;
 }
 .tags>span {
-	display:inline-block;
-	vertical-align:middle;
-	line-height:normal;
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
 }
 
 /***********FOOTER***************/
@@ -345,5 +345,17 @@ footer {
     font-size: 0.5cm;
     padding-bottom: 0.5%;
     padding-top:0.5% ;
+
+}
+.licenseImg{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 75%;
+    object-fit: cover;
+    object-position: center center;
+    margin-bottom: 0.2%;
+    margin-right: 0.5%;
+    background-color:  rgba(0,0,0,.0); /*Para que no haya background*/
 
 }
