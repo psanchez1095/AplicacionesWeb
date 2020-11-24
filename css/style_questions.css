@@ -31,7 +31,12 @@ body{
     width: 33%;
     float: left;
 }
-
+#divImgPerfil{
+    margin-right: 3%;
+}
+#divNombrePerfil{
+    margin-right: 3%;
+}
 #titulo {
     float: left;
     position: fixed;
@@ -137,7 +142,7 @@ h1:hover{
 #botonDesconectar{
 
     width: 25%;
-    margin-left: 75%;
+    margin-left: 73.5%;
     background: black;
     color: white;
 
@@ -257,6 +262,7 @@ label{
     text-align: center;
 }
 #mainContenido{
+    max-height: 400px;
     overflow-y: scroll;
     background: whitesmoke;
     margin-top: 3%;
@@ -275,13 +281,17 @@ label{
     background: lightcoral;
 }
 .nuevaPreguntaUsuario>span {
-    color: darkred;
-    width: 100%;
-    margin-left: 2%;
+     color: darkred;
+     width: 100%;
+     margin-left: 2%;
 
-}
+ }
+
 .nuevaPreguntaUsuario>span2 {
     margin-left: 33%;
+
+}
+.nuevaPreguntaUsuario>span2>img {
 
 }
 .nuevaPreguntaUsuario>tag {
