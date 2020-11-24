@@ -31,12 +31,7 @@ body{
     width: 33%;
     float: left;
 }
-#divImgPerfil{
-    margin-right: 3%;
-}
-#divNombrePerfil{
-    margin-right: 3%;
-}
+
 #titulo {
     float: left;
     position: fixed;
@@ -142,7 +137,7 @@ h1:hover{
 #botonDesconectar{
 
     width: 25%;
-    margin-left: 73.5%;
+    margin-left: 76%;
     background: black;
     color: white;
 
@@ -220,7 +215,6 @@ label{
 #contenido{
     padding: 2%;
     border: 4px solid black;
-    border-bottom: none;
     border-top-right-radius: 5%;
     border-top-left-radius: 5%;
     background: wheat;
@@ -231,6 +225,36 @@ label{
     font-family: 'Miriam Libre', sans-serif;
     font-weight: bold;
 
+}
+#formularioCreateQuestion>div>input{
+    width: 60%;
+    padding-left: 10px;
+}
+#textoFormCuerpo{
+    height: 200px;
+}
+#formTextPublicarRespuesta{
+    width: 40%;
+}
+#formTextPublicarRespuesta>input{
+    margin-left: 95%;
+    margin-top: 4%;
+    background: coral;
+    color: black;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 5%;
+    font-weight: bold;
+    text-align: center;
+    padding: 1px;
+}
+#formTextPublicarRespuesta>input:hover{
+    background: black;
+    color: coral;
+}
+#tituloContenido{
+    font-size: 40px;
+    margin-left: 20%;
 }
 #contenido>span{
 
@@ -250,7 +274,6 @@ label{
     border: 6px solid black;
 }
 #botonFormularPregunta{
-    text-decoration: none;
     width: 40%;
     float: right;
     background: coral;
@@ -262,7 +285,6 @@ label{
     text-align: center;
 }
 #mainContenido{
-    max-height: 400px;
     overflow-y: scroll;
     background: whitesmoke;
     margin-top: 3%;
@@ -281,17 +303,13 @@ label{
     background: lightcoral;
 }
 .nuevaPreguntaUsuario>span {
-     color: darkred;
-     width: 100%;
-     margin-left: 2%;
-
- }
-
-.nuevaPreguntaUsuario>span2 {
-    margin-left: 33%;
+    color: darkred;
+    width: 100%;
+    margin-left: 2%;
 
 }
-.nuevaPreguntaUsuario>span2>img {
+.nuevaPreguntaUsuario>span2 {
+    margin-left: 33%;
 
 }
 .nuevaPreguntaUsuario>tag {

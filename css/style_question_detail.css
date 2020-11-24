@@ -31,12 +31,7 @@ body{
     width: 33%;
     float: left;
 }
-#divImgPerfil{
-    margin-right: 3%;
-}
-#divNombrePerfil{
-    margin-right: 3%;
-}
+
 #titulo {
     float: left;
     position: fixed;
@@ -140,16 +135,16 @@ h1:hover{
     font-weight: bold;
 }
 #botonDesconectar{
-
     width: 25%;
-    margin-left: 73.5%;
+    margin-left: 76%;
     background: black;
     color: white;
-
 }
+
 #botonDesconectar:hover{
     color: white;
 }
+
 #imgPerfil{
     margin-left: 80.5%;
     background: black;
@@ -157,11 +152,13 @@ h1:hover{
     margin-bottom: 1%;
     margin-top: 1%;
 }
+
 #imgPerfil:hover{
     background: ghostwhite;
     animation: shake 0.8s;
 
 }
+
 #Button{
     background: coral;
     color: black;
@@ -170,7 +167,6 @@ h1:hover{
 
 /*******SEARCH*****************/
 .search{
-
     position: fixed;
     margin-top: 141px;
     width: 100%;
@@ -178,12 +174,12 @@ h1:hover{
     flex-direction: column;
     margin-left: 0.5%;
 }
+
 #lupa{
 
     object-fit: cover;
     object-position: center center;
 }
-
 
 #searchButton{
     opacity: 0;
@@ -220,7 +216,6 @@ label{
 #contenido{
     padding: 2%;
     border: 4px solid black;
-    border-bottom: none;
     border-top-right-radius: 5%;
     border-top-left-radius: 5%;
     background: wheat;
@@ -232,15 +227,61 @@ label{
     font-weight: bold;
 
 }
+
+#formularioCreateQuestion>div>input{
+    width: 60%;
+    padding-left: 10px;
+}
+
+#textoFormCuerpo{
+    height: 200px;
+}
+
+#formTextPublicarRespuesta{
+    width: 40%;
+}
+
+#formTextPublicarRespuesta>input{
+    margin-left: 95%;
+    margin-top: 4%;
+    background: coral;
+    color: black;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 5%;
+    font-weight: bold;
+    text-align: center;
+    padding: 1px;
+}
+
+#formTextPublicarRespuesta>input:hover{
+    background: black;
+    color: coral;
+}
+#tituloContenido{
+    font-size: 22px;
+    margin-left: 20%;
+}
 #contenido>span{
 
     margin-left: 33%;
     font-size: 28px;
 
 }
+
+#votosPregunta{
+    padding: 0.1%;
+    padding-left: 1.5%;
+    margin-bottom: 0.7%;
+    margin-top: 0.5%;
+    background: lightcoral;
+    width: 90%;
+}
+
 #cabeceraContenido{
     margin-top: 1%;
 }
+
 #cabeceraContenido>span{
     margin-left:3%;
     padding-bottom: 2%;
@@ -249,8 +290,8 @@ label{
     background-color: coral;
     border: 6px solid black;
 }
+
 #botonFormularPregunta{
-    text-decoration: none;
     width: 40%;
     float: right;
     background: coral;
@@ -261,13 +302,14 @@ label{
     font-weight: bold;
     text-align: center;
 }
+
 #mainContenido{
-    max-height: 400px;
     overflow-y: scroll;
     background: whitesmoke;
     margin-top: 3%;
     width:100%
 }
+
 .nuevaPregunta{
     margin-top: 1%;
     background-color: white;
@@ -276,49 +318,54 @@ label{
     margin-left: 1%;
 
 }
+
 .nuevaPreguntaUsuario{
     margin-top: 1%;
     background: lightcoral;
 }
-.nuevaPreguntaUsuario>span {
-     color: darkred;
-     width: 100%;
-     margin-left: 2%;
 
- }
+.nuevaPreguntaUsuario>span {
+    color: darkred;
+    width: 100%;
+    margin-left: 2%;
+
+}
 
 .nuevaPreguntaUsuario>span2 {
     margin-left: 33%;
 
 }
-.nuevaPreguntaUsuario>span2>img {
 
-}
 .nuevaPreguntaUsuario>tag {
     margin-left: 35%;
 
 }
+
 #imgPreguntaPerfil{
     background: black;
     border-radius: 45%;
 
 }
+
 #imgPreguntaPerfil:hover{
     background: ghostwhite;
     animation: shake 0.8s;
 
 }
+
 .nuevaPregunta>p{
     width:60%;
     margin:1.5%;
 
 }
+
 .nuevaPregunta>span {
     color: darkred;
     margin-left: 1.5%;
 
 
 }
+
 .nuevaPregunta>tag{
     margin-left: 2%;
     margin-bottom: 2%;
@@ -330,6 +377,7 @@ label{
 
 
 }
+
 .newQuestion{
     display: flex;
     flex-direction: row;
@@ -340,8 +388,6 @@ label{
     height: 100%;
     float: left;
 }
-
-
 
 #fotoPerfil {
     float:left;
@@ -364,10 +410,8 @@ label{
     float: left;
 }
 
-
 /***********FOOTER***************/
 footer {
-
     text-align:center;
     margin-bottom: 2px;
     width: 100%;
@@ -380,8 +424,8 @@ footer {
     font-size: 0.5cm;
     padding-bottom: 0.5%;
     padding-top:0.5% ;
-
 }
+
 .licenseImg{
     position: absolute;
     right: 0;
@@ -392,5 +436,4 @@ footer {
     margin-bottom: 0.2%;
     margin-right: 0.5%;
     background-color:  rgba(0,0,0,.0); /*Para que no haya background*/
-
 }
