@@ -1,0 +1,19 @@
+{
+  "name": "cuatrozerocuatro",
+  "version": "1.0.0",
+  "description": "Proyecto Aplicacion Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aw",
+    "node",
+    "js"
+  ],
+  "author": "Pedro Sanchez",
+  "license": "MIT",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
