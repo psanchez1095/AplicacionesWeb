@@ -2,26 +2,44 @@
 //          Joel  Garcia Aparicio
 //          Pedro Sánchez Escribano
 "use strict";
-//Previamente introdujimos un usuario en la base de datos tareas con:
-//email ->pedrojoel@ucm.es
-//password ->admin
-//img ->AWImages
 const mysql = require("mysql");
-
-const DAOTask = require("./DAOTasks");
 const DAOUser = require("./DAOUsers");
+const config = require("./config");
+const path = require("path");
+const express = require("express");
+const app = express();
+const morgan = require("morgan");
 
-const mysql = require("mysql");
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "cuatrozerocuatro"
+app.use(morgan("dev"))
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+
+
+app.listen(3000, function(err) {
+    if (err) {
+        console.error("No se pudo inicializar el servidor
+            + err.message);
+    } else {
+        console.log("Servidor arrancado en puerto 3000"
+    }
 });
 
+const pool = mysql.createPool(config.mysqlConfig);
 
-let oDAOTask = new DAOTask(pool);
 let oDAOUser = new DAOUser(pool);
+
+let user = {
+    email: "xx@gmail.com",
+    pass: "ucm",
+    img: null
+};
+let up_user = {
+    email: "xx@gmail.com",
+    id : 3,
+    pass: "ucm",
+    img: null
+};
 
 let completeTask0 = {
     text: "Crear Servidor Node",
@@ -45,55 +63,11 @@ let uncompleteTask3 = {
     done: 0,
     tags: ["NODE", "HTML5", "CSS3","JS","JQuery" ]
 };
-
-oDAOUser.isUserCorrect("pedro@ucm.es", "admin", cb_isUserCorrect);
-/*//Work Done
-oDAOTask.insertTask("pedrojoel@ucm.es", completeTask0, cb_insertTask);
-oDAOTask.insertTask("pedrojoel@ucm.es", uncompleteTask1, cb_insertTask);
-oDAOTask.insertTask("pedrojoel@ucm.es", completeTask2, cb_insertTask);
-oDAOTask.insertTask("pedrojoel@ucm.es", uncompleteTask3, cb_insertTask);
-*/
-
-
-/*
-// OK's
-oDAOUser.isUserCorrect("pedro@ucm.es", "pedro", cb_isUserCorrect);
-oDAOUser.isUserCorrect("pedro@ucm.es", "2", cb_isUserCorrect);
-// KO's
-oDAOUser.isUserCorrect("analacor@ucm.es", "1234", cb_isUserCorrect);
-oDAOUser.isUserCorrect("gdelga@ucm.es", "1234", cb_isUserCorrect);
-
-// OK's
-oDAOUser.getUserImageName("mangue01@ucm.es", cb_getUserImageName);
-oDAOUser.getUserImageName("fatimag@ucm.es", cb_getUserImageName);
-oDAOUser.getUserImageName("natrod@ucm.es", cb_getUserImageName);
-// KO's
-oDAOUser.getUserImageName("analacor@ucm.es", cb_getUserImageName);
-oDAOUser.getUserImageName("gdelga@ucm.es", cb_getUserImageName);
-
-// OK's
-oDAOTask.insertTask("fatimag@ucm.es", completeTask0, cb_insertTask);
-oDAOTask.insertTask("fatimag@ucm.es", uncompleteTask1, cb_insertTask);
-oDAOTask.insertTask("mangue01@ucm.es", completeTask1, cb_insertTask);
-oDAOTask.insertTask("mangue01@ucm.es", uncompleteTask0, cb_insertTask);
-
-// OK's
-oDAOTask.getAllTasks("mangue01@ucm.es", cb_getAllTask);
-oDAOTask.getAllTasks("fatimag@ucm.es", cb_getAllTask);
-// KO's
-oDAOTask.getAllTasks("analacor@ucm.es", cb_getAllTask);
-oDAOTask.getAllTasks("gdelga@ucm.es", cb_getAllTask);
-oDAOTask.getAllTasks("natrod@ucm.es", cb_getAllTask);
-
-// OK's
-oDAOTask.markTaskDone(54, cb_markTaskDone);
-oDAOTask.markTaskDone(56, cb_markTaskDone);
-
-// OK's
-oDAOTask.deleteCompleted("fatimag@ucm.es", cb_deleteCompleted);
-oDAOTask.deleteCompleted("mangue01@ucm.es", cb_deleteCompleted);
-
-*/
+//Pruebas
+//oDAOUser.isUserCorrect("xx@gmail.com", "123", cb_isUserCorrect);  // probada
+//oDAOUser.getUserImageName("p@gmail.com",cb_getUserImageName);     //probada
+//oDAOUser.createUser(user, cb_createUser);                         // probada
+//oDAOUser.modifyUser(up_user, cb_modifyUser);                      // probada
 
 // **** CALLBACKS ********************************************************************************
 
@@ -102,10 +76,35 @@ function cb_isUserCorrect(err, result) {
     if (err) {
         console.log(err.message);
     } else if (result) {
-        console.log("Usuario y contraseña correctos.");
+        console.log("Usuario " + result.email + " y contraseña " + result.user_password +" correctos.");
     } else {
         console.log("Usuario y/o contraseña incorrectos.");
     }
+
+}
+function cb_createUser(err,create) {
+
+    if (err) {
+        console.log(err.message);
+    }
+    else if (create) {
+        console.log("Usuario con ID " + create + " creado .");
+    }
+
+
+
+}
+
+function cb_modifyUser(err,modificado_id) {
+
+    if (err) {
+        console.log(err.message);
+    }
+    else if (modificado_id) {
+        console.log("Usuario con id " + modificado_id + " modificado");
+    }
+
+
 
 }
 

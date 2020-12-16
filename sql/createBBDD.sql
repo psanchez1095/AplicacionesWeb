@@ -2,6 +2,7 @@ CREATE TABLE users
 (id integer,
 email varchar(30),
 user_password varchar(30),
+user_img mediumblob,
 PRIMARY KEY (ID));
 ALTER TABLE users
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
