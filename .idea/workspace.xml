@@ -29,7 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/WebstormProjects/PracticaVoluntaria4" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -49,11 +49,11 @@
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\imagenes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ps95s\OneDrive\Documentos\Universidad\GitHub_Repositorios\AplicacionesWeb\public" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\PracticasObligatorias\App404_g21" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\css" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\text" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2" />
-      <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\js" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -78,24 +78,12 @@
       <workItem from="1607098256972" duration="281000" />
       <workItem from="1607685442154" duration="13026000" />
       <workItem from="1608581601510" duration="3278000" />
+      <workItem from="1608738579570" duration="1827000" />
+      <workItem from="1608826505743" duration="1419000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="437" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608048577962">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="437" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1608048577962" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1607966146080">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1607966146080" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1605373051542">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1605373051542" />
   </component>
 </project>
