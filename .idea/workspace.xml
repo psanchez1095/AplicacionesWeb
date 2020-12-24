@@ -12,20 +12,24 @@
       <list>
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1k9xTyBbfVjmnqNWJ2GPDMDSia0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../JavaScript/CalculadoraJavaScript" />
+    <property name="last_opened_file_path" value="$USER_HOME$/WebstormProjects/PracticaVoluntaria4" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -33,22 +37,26 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\js" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\App404_g21\Pruebas" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\App404_g21\Pruebas\imagenesPrueba" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\imagenes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ps95s\OneDrive\Documentos\Universidad\GitHub_Repositorios\AplicacionesWeb\public" />
+      <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\PracticasObligatorias\App404_g21" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\css" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\text" />
       <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2" />
-      <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\js" />
-      <recent name="C:\Users\ps95s\WebstormProjects\AplicacionesWeb\Entregas\Practica2\_PruebasApp404_g21" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -61,23 +69,27 @@
       <updated>1605126619468</updated>
       <workItem from="1605126623420" duration="7152000" />
       <workItem from="1605190514363" duration="38773000" />
+<<<<<<< HEAD
       <workItem from="1605648140718" duration="27434000" />
       <workItem from="1605648140718" duration="28303000" />
 
+=======
+      <workItem from="1605648140718" duration="38712000" />
+      <workItem from="1606680161206" duration="1864000" />
+      <workItem from="1606858083167" duration="221000" />
+      <workItem from="1606862100680" duration="152000" />
+      <workItem from="1606919827782" duration="5187000" />
+      <workItem from="1607078492611" duration="235000" />
+      <workItem from="1607098256972" duration="281000" />
+      <workItem from="1607685442154" duration="13026000" />
+      <workItem from="1608581601510" duration="3278000" />
+      <workItem from="1608738579570" duration="1827000" />
+      <workItem from="1608826505743" duration="1419000" />
+>>>>>>> pedro
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1606146489222">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606146489222" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1605373051542">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1605373051542" />
+    <option name="version" value="3" />
   </component>
 </project>
