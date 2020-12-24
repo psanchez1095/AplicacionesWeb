@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Question</title>
+    <link rel="stylesheet" href="public/css/style_create_question.css" media="screen">
+    <link rel="icon"  type="img/jpg" href="public/img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header id="encabezado">
+    <div class="columna">
+        <div id="divPreguntas"><input type="button" value="Preguntas" id="botonPreguntas"></div>
+        <div id="divSinResponder"><input type="button" value="Sin responder" id="botonSinResponder"></div>
+        <div id="divUsuarios"><input type="button" value="Usuarios" id="botonUsuarios"></div>
+    </div>
+    <div class="columna">
+        <div id="titulo">
+            <h1>
+                FourZeroFour
+            </h1>
+        </div>
+    </div>
+    <div class="columna">
+        <div id="divImgPerfil"><img src="public/img/user1.png" id="imgPerfil"></div>
+        <div id="divNombrePerfil"><span>User_001</span></div>
+        <div id="divDesconectar"><input type="button" value="Cerrar Sesion" id="botonDesconectar"></div>
+    </div>
+</header>
+
+<main class="search">
+    <form form action="" method="get" id="formulario">
+            <span id="buscarFormInput"> <input type="button" value="Buscar" id="searchButton">
+                 <label for="searchButton"> <span>Buscar</span> <img src="public/img/lupa.png" ></label></span>
+        <span id="textoSearchFormInput "><input type="text" placeholder="Buscar por titulo/cuerpo de pregunta" id="textForm"/></span>
+
+    </form>
+</main>
+<main id="contenido">
+    <form form action="" method="get" id="formularioCreateQuestion">
+        <div id="tituloContenido">Formular Una Pregunta</div>
+        <span>Titulo</span>
+        <div id="formTextTitulo"><input type="text" name="" id="textoFormCorreo"></div>
+        <span>Cuerpo</span>
+        <div id="formTextCuerpo"><input type="text" name="" id="textoFormCuerpo"></div>
+        <span>Etiquetas</span>
+        <div id="formTextConfirmarContraseña"><input type="text" name="" id="textoFormConfirmarContraseña"></div>
+
+        <div id="formTextPublicarRespuesta"><input type="button" value="Formular Pregunta" id="publicarButton"></div>
+
+    </form>
+</main>
+
+<footer>
+    <img class="licenseImg" src="public/img/license.png">
+</footer>
+</body>
+</html>

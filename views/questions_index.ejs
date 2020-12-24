@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions</title>
+    <link rel="stylesheet" href="public/css/style_questions.css" media="screen">
+    <link rel="icon"  type="img/jpg" href="public/img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header id="encabezado">
+    <div class="columna">
+        <div id="divPreguntas"><input type="button" value="Preguntas" id="botonPreguntas"></div>
+        <div id="divSinResponder"><input type="button" value="Sin responder" id="botonSinResponder"></div>
+        <div id="divUsuarios"><input type="button" value="Usuarios" id="botonUsuarios"></div>
+    </div>
+    <div class="columna">
+        <div id="titulo">
+            <h1>
+                FourZeroFour
+            </h1>
+        </div>
+    </div>
+    <div class="columna">
+
+        <div id="divImgPerfil"><img src="public/img/user1.png" id="imgPerfil"></div>
+        <div id="divNombrePerfil"><span>User_001</span></div>
+        <div id="divDesconectar"><input type="button" value="Cerrar Sesion" id="botonDesconectar"></div>
+    </div>
+</header>
+
+<main class="search">
+    <form form action="" method="get" id="formulario">
+            <span id="buscarFormInput"> <input type="button" value="Buscar" id="searchButton">
+                 <label for="searchButton"> <span>Buscar</span> <img src="public/img/lupa.png" ></label></span>
+        <span id="textoSearchFormInput "><input type="text" placeholder="Buscar por titulo/cuerpo de pregunta" id="textForm"/></span>
+
+    </form>
+</main>
+<main id="contenido">
+    <span id="tituloContenido">Todas Las Preguntas</span>
+    <div id = "cabeceraContenido">
+        <span>5 Preguntas</span>
+        <a id="botonFormularPregunta" href="createQuestion.html" type="button"  id="botonFormularPregunta">Formular Pregunta</a>
+    </div>
+    <div id="mainContenido">
+
+        <div class="newQuestion">
+            <div class = "nuevaPregunta">
+                <span>TituloPregunta1</span>
+                <p>Esta es el texto de la pregunta numero 1 el cual es bastante simple y lo acabo de escribir</p>
+                <tag>Tag1</tag>
+            </div>
+            <div class = "nuevaPreguntaUsuario">
+                <span>Formulada el 16/07/2019</span>
+                <span2><img class="imgPreguntaPerfil"src="public/img/user1.png"></span2><br>
+                <tag>Xtreme</tag>
+            </div>
+        </div>
+        <div class="newQuestion">
+            <div class = "nuevaPregunta">
+                <span>TituloPregunta1</span>
+                <p>Esta es el texto de la pregunta numero 1 el cual es bastante simple y lo acabo de escribir</p>
+                <tag>Tag1</tag>
+            </div>
+            <div class = "nuevaPreguntaUsuario">
+                <span>Formulada el 16/07/2019</span>
+                <span2><img class="imgPreguntaPerfil"src="public/img/user1.png"></span2><br>
+                <tag>Xtreme</tag>
+            </div>
+        </div>
+
+
+        <div class="newQuestion">
+            <div class = "nuevaPregunta">
+                <span>TituloPregunta2</span>
+                <p>Esta es el texto de la pregunta numero 2 el cual es bastante simple y lo acabo de escribir</p>
+                <tag>Tag2</tag>
+            </div>
+            <div class = "nuevaPreguntaUsuario">
+                <span>Formulada el 16/07/2019</span>
+                <span2><img class="imgPreguntaPerfil"src="public/img/user1.png"></span2><br>
+                <tag>CplusPLUS</tag>
+            </div>
+
+        </div>
+        <div class="newQuestion">
+            <div class = "nuevaPregunta">
+                <span>TituloPregunta3</span>
+                <p>Esta es el texto de la pregunta numero 2 el cual es bastante simple y lo acabo de escribir</p>
+                <tag>Tag3</tag>
+            </div>
+            <div class = "nuevaPreguntaUsuario">
+                <span>Formulada el 16/07/2019</span>
+                <span2><img class="imgPreguntaPerfil"src="public/img/user1.png"></span2><br>
+                <tag>Stacker</tag>
+                </span>
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+</main>
+
+<footer>
+    <img class="licenseImg" src="public/img/license.png">
+</footer>
+</body>
+</html>

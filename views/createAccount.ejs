@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="public/css/style_createAccount.css" media="screen">
+    <link rel="icon"  type="img/jpg" href="public/img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header id="encabezado">
+    <div id="titulo">
+        <h1>
+            FourZeroFour
+        </h1>
+
+    </div>
+    <hour>
+        <div class="reloj">
+
+            <div class="borderClock " id="marginInferiorFecha">
+                <span id="weekDay" class="weekDay"></span>,
+                <span id="day" class="day"></span> de
+                <span id="month" class="month"></span> del
+                <span id="year" class="year"></span>
+            </div>
+            <div class="borderClock2  ">
+                <span id="hours" class="hours"></span> :
+                <span id="minutes" class="minutes"></span> :
+                <span id="seconds" class="seconds"></span>
+            </div>
+        </div>
+    </hour>
+
+</header>
+
+
+
+<main id="contenido">
+
+    <form form action="" method="get" id="formulario">
+
+        <span>Correo</span>
+        <div id="formTextCorreo"><input type="text" name="" id="textoFormCorreo"></div>
+        <span>Contraseña</span>
+        <div id="formTextContraseña"><input type="text" name="" id="textoFormContraseña"></div>
+        <span>Confirmar Contraseña</span>
+        <div id="formTextConfirmarContraseña"><input type="text" name="" id="textoFormConfirmarContraseña"></div>
+        <span>Usuario 404</span>
+        <div id="formTextnickname"><input type="text" name="" id="textoFormNickname"></div>
+        <span>Imagen de Perfil</span>
+        <div id="formImg"><input type="file" name="inputImg" id="inputImg"></div>
+        <label for="inputImg"> <span>Upload File</span> <img src="public/img/iconfinder-upload-4341320_120532.png" ></label>
+
+        <div id="loginCreate">
+
+            <div id="correoFormInput"><input type="button" value="Crear Cuenta" id="loginEmailButton"></div>
+            <a id="createAccountFormInput" href="index.html"><input type="button" value="Iniciar Sesion" id="createAccountButton"></a>
+
+        </div>
+    </form>
+
+
+</main>
+
+<footer>
+    <img class="licenseImg" src="public/img/license.png">
+</footer>
+
+<script src="js/reloj.js"></script>
+
+</body>
+</html>
