@@ -1,6 +1,6 @@
 "use strict";
 
-class DAOUsers {
+class ModelUsers {
 
     constructor(pool) {
         this.pool = pool;
@@ -117,4 +117,4 @@ class DAOUsers {
 
 }
 
-module.exports = DAOUsers;
+module.exports = ModelUsers;

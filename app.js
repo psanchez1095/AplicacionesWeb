@@ -2,27 +2,43 @@
 //          Joel  Garcia Aparicio
 //          Pedro Sánchez Escribano
 "use strict";
-const mysql = require("mysql");
-const DAOUser = require("./DAOUsers");
+//  Modulos propios
+
+//  Configuracion de la conexion a la base de datos y puerto de escucha del serrvidor.
 const config = require("./config");
+const DAOUser = require("./models/modelUsers");
+
+//  Modulos de node
+const mysql = require("mysql");
 const path = require("path");
 const express = require("express");
-const app = express();
 const morgan = require("morgan");
 
-app.use(morgan("dev"))
-app.set('views', path.join(__dirname, 'views'));
+// Framework Express.
+const app = express();
+
+// El modulo de morgan devuelve un middleware que muestra por pantalla las peticiones recividas.
+app.use(morgan("dev"));
+
+// Motor de plantillas y ubicacion de vistas.
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
+// Obtener la ruta a los ficheros estaticos.
+const fEstaticos = path.join(__dirname, "public");
 
+// Compruebas si se solicitan recursos estaticos y si es asi devuelve
+app.use(express.static(fEstaticos));
 
-app.listen(3000, function(err) {
+// Inicializacion del servidor web
+app.listen(config.port, function (err) {
+
     if (err) {
-        console.error("No se pudo inicializar el servidor
-            + err.message);
+        console.error(`No se pudo inicializar el servidor: ${err.message}`);
     } else {
-        console.log("Servidor arrancado en puerto 3000"
+        console.log(`Servidor arrancado en el puerto ${config.port}`);
     }
+
 });
 
 const pool = mysql.createPool(config.mysqlConfig);
@@ -34,12 +50,6 @@ let user = {
     pass: "ucm",
     img: null
 };
-let up_user = {
-    email: "xx@gmail.com",
-    id : 3,
-    pass: "ucm",
-    img: null
-};
 
 let completeTask0 = {
     text: "Crear Servidor Node",
@@ -47,29 +57,7 @@ let completeTask0 = {
     tags: ["JavaScript", "servidor", "tarea"]
 };
 
-let uncompleteTask1 = {
-    text: "Programar con jQuery",
-    done: 0,
-    tags: ["Query", "JS", "AW"]
-};
-let completeTask2 = {
-    text: "Practica 3 Voluntaria (Node+MySql)",
-    done: 1,
-    tags: ["Node", "MySQL", "Xamp", "tarea"]
-};
-
-let uncompleteTask3 = {
-    text: "Practica Obligatoria 404 WebApp",
-    done: 0,
-    tags: ["NODE", "HTML5", "CSS3","JS","JQuery" ]
-};
-//Pruebas
-//oDAOUser.isUserCorrect("xx@gmail.com", "123", cb_isUserCorrect);  // probada
-//oDAOUser.getUserImageName("p@gmail.com",cb_getUserImageName);     //probada
-//oDAOUser.createUser(user, cb_createUser);                         // probada
-//oDAOUser.modifyUser(up_user, cb_modifyUser);                      // probada
-
-// **** CALLBACKS ********************************************************************************
+// CALLBACKS
 
 function cb_isUserCorrect(err, result) {
 
