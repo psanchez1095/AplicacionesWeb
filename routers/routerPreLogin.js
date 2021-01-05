@@ -17,7 +17,6 @@ const multerFactory = multer({ dest: path.join("public","img") });
 // Definimos los manejadores de rutas del router Users
 routerPreLogin.post("/UserValidation", controllerPreLogin.isUserCorrect);
 routerPreLogin.get("/Index", controllerPreLogin.showIndex);
-
 routerPreLogin.get("/User_Index", controllerPreLogin.showCreateUser);
 routerPreLogin.post("/CreateUser", multerFactory.single("imagen"), controllerPreLogin.createUser);
 

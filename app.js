@@ -13,18 +13,27 @@ const mysql = require("mysql");
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
-
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const mysqlSession = require("express-mysql-session");
 // Declaracion de los Routers de la aplicacion.
 const routerPreSLogin = require("./routers/routerPreLogin");
 const routerUsers = require("./routers/routerUsers");
-const routerQuestions= require("./routers/souterQuestions");
-const routerAnswers = require("./routers/routerAnswers");
 
 // Framework Express.
 const app = express();
-
+// Configuramos la BBDD para que almacene la sesion de usuario.
+const mysqlStore = mysqlSession(session);
+const sessionStore = new mysqlStore(config.mysqlConfig);
 // El modulo de morgan devuelve un middleware que muestra por pantalla las peticiones recividas.
 app.use(morgan("dev"));
+// Objeto de sesion de usuario.
+const middlewareSession = session({
+    saveUninitialized: false,
+    secret: "foobar34",
+    resave: false,
+    store: sessionStore
+});
 
 // Motor de plantillas y ubicacion de vistas.
 app.set('view engine', 'ejs');
@@ -35,9 +44,48 @@ const fEstaticos = path.join(__dirname, "public");
 
 // Compruebas si se solicitan recursos estaticos y si es asi devuelve
 app.use(express.static(fEstaticos));
+//Middleware para el uso de los mensajes Flash.
+app.use(function(request, response, next) {
+
+    // Los mensajes Flash estan siempre disponibles al viajar por la cadena de middleware en el response.
+    response.setFlash = function(msg) {
+        // Establece el mensaje Flash dentro de la sesion del usuario.
+        request.session.flashMsg = msg;
+    };
+
+    // El mensaje Flash siempre esta disponible en las vistas al guardarse la funcion en las locals.
+    response.locals.getAndClearFlash = function() {
+        // Obtiene el mensaje Flash de la sesion del usuario y lo borra de la sesion.
+        let msg = request.session.flashMsg;
+        delete request.session.flashMsg;
+        return msg;
+    };
+
+    next();
+
+});
+// Crea el objeto session dentro del objeto request.
+app.use(middlewareSession);
+// Middleware body-parser para acceder a las variables del cuerpo de la peticion (request.body.<var>).
+app.use(bodyParser.urlencoded({ extended: false }));
 // Router que gestiona las rutas que no requieren que el usuario haya iniciado sesion.
 app.use("/usuarios", routerPreSLogin);
 // Inicializacion del servidor web
+// Middleware de control de sesion.
+app.use(function (request, response, next) {
+
+    if (request.session.usuario !== undefined) {
+        // En response.locals podemos meter cualquier cosa, ya que al acabar la peticion se borra.
+        // El response.locals solo existe en el servidor, nunca viaja al usuario.
+        response.locals.usuario = request.session.usuario;
+        next();
+    } else {
+        response.status(200);
+        response.render("index", {errorMsg: "Identifíquese para continuar."});
+    }
+
+});
+
 app.listen(config.port, function (err) {
 
     if (err) {

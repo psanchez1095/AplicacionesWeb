@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login 404App</title>
-    <link rel="icon"  type="img/jpg" href="public/img/favicon.ico">
-    <link rel="stylesheet" href="public/css/style.css" media="screen">
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
+    <%- include("headerindex") %>
 </head>
 <body>
 <header id="encabezado">
@@ -39,17 +34,17 @@
 
 <main id="contenido">
 
-    <form form  action="/usuarios/ValidarUsuario"  method="get" id="formulario">
+    <form form  action="/usuarios/UserValidation"  method="get" id="formulario">
 
         <span>Correo</span>
-        <div id="formTextCorreo"><input type="text" name="" id="textoFormCorreo"></div>
+        <div id="formTextCorreo"><input type="text" name="email" id="textoFormCorreo"></div>
         <span>Contraseña</span>
-        <div id="formTextContraseña"><input type="text" name="" id="textoFormContraseña"></div>
+        <div id="formTextContraseña"><input type="text" name="password" id="textoFormContraseña"></div>
 
         <div id="loginCreate">
 
             <div id="correoFormInput"><input type="button" value="Inicio de Sesión" id="loginEmailButton"></div>
-            <a id="createAccountFormInput" href="createAccount.html"><input type="button" value="Crear Cuenta" id="createAccountButton"></a>
+            <a id="createAccountFormInput" href="createAccount.html"><input type="input" value="CrearCuenta" id="createAccountButton"></a>
 
         </div>
     </form>
