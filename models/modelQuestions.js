@@ -1,6 +1,6 @@
 "use strict";
 
-class DAOTasks {
+class ModelQuestions {
 
     constructor(pool) {
         this.pool = pool;
@@ -156,4 +156,4 @@ class DAOTasks {
     }
 }
 
-module.exports = DAOTasks;
+module.exports = ModelQuestions;

@@ -6,21 +6,17 @@ const express = require("express");
 const multer = require("multer");
 
 // Modulos propios.
-const controllerUsers = require("../controllers/controllerUsers");
+const controllerUsers = require("../controllers/controllerQuestions");
 
 // Declaramos el Router "RouterUsuarios"
-const routerUsers = express.Router();
+const routerQuestions = express.Router();
 
 // MulterFactory para poder trabajar con file/s (archivos de imagen)
 const multerFactory = multer({ dest: path.join("public","img") });
 
 // Definimos los manejadores de rutas del router Users
 
-routerUsers.get("/ShowProfileImage/:id", controllerUsers.cargarImagenDePerfil);
-
-routerUsers.get("/UserProfile", controllerUsers.mostrarPerfilDeUsuario);
-
-routerUsers.get("/LogOut", controllerUsers.cerrarSesion);
 
 
-module.exports = routerUsers;
+
+module.exports = routerQuestions;

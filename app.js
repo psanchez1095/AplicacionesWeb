@@ -14,6 +14,12 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 
+// Declaracion de los Routers de la aplicacion.
+const routerPreSLogin = require("./routers/routerPreLogin");
+const routerUsers = require("./routers/routerUsers");
+const routerQuestions= require("./routers/souterQuestions");
+const routerAnswers = require("./routers/routerAnswers");
+
 // Framework Express.
 const app = express();
 
@@ -29,7 +35,8 @@ const fEstaticos = path.join(__dirname, "public");
 
 // Compruebas si se solicitan recursos estaticos y si es asi devuelve
 app.use(express.static(fEstaticos));
-
+// Router que gestiona las rutas que no requieren que el usuario haya iniciado sesion.
+app.use("/usuarios", routerPreSLogin);
 // Inicializacion del servidor web
 app.listen(config.port, function (err) {
 
