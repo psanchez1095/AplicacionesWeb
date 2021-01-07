@@ -21,7 +21,7 @@ function showIndex(request, response, next) {
 }
 function showCreateUser(request, response, next) {
     response.status(200);
-    response.render("createAccount");
+    response.render("user_index");
 }
 
 function createUser(request, response, next) {
@@ -61,16 +61,18 @@ function createUser(request, response, next) {
 }
 
 function isUserCorrect(request, response, next) {
-
+    console.log("perra");
     daoModelPreLogin.isUserCorrect(request.body.email,
         request.body.password, function (error, usuario) {
+
             if (error) {
                 next(error);
             } else if (usuario != null) {
                 // Graba la sesion en la base  de datos (como un registro).
                 request.session.usuario = usuario;
                 response.status(200);
-                response.redirect("user_index");
+                console.log("perra");
+                response.redirect("UserProfile");
             } else {
                 response.setFlash("Email y/o contraseña no válidos");
                 response.status(200);

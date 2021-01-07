@@ -34,17 +34,16 @@
 
 <main id="contenido">
 
-    <form form  action="/usuarios/UserValidation"  method="get" id="formulario">
+    <form form  action="/usuarios/UserValidation"  method="POST" id="formulario">
 
         <span>Correo</span>
-        <div id="formTextCorreo"><input type="text" name="email" id="textoFormCorreo"></div>
+        <div id="formTextCorreo"><input type="text" name="email" id="textoFormCorreo"required></div>
         <span>Contraseña</span>
-        <div id="formTextContraseña"><input type="text" name="password" id="textoFormContraseña"></div>
+        <div id="formTextContraseña"><input type="text" name="password" id="textoFormContraseña" required></div>
 
         <div id="loginCreate">
-
-            <div id="correoFormInput"><input type="button" value="Inicio de Sesión" id="loginEmailButton"></div>
-            <a id="createAccountFormInput" href="createAccount.html"><input type="input" value="CrearCuenta" id="createAccountButton"></a>
+            <div id="correoFormInput"><input type="submit" value="Inicio de Sesión" id="loginEmailButton"></div>
+            <div id="createAccountFormInput"><input type="submit"  value="CrearCuenta" id="createAccountButton"></div>
 
         </div>
     </form>
@@ -53,7 +52,7 @@
 </main>
 
 <footer>
-    <img class="licenseImg" src="public/img/license.png">
+    <img class="licenseImg" src="/img/license.png">
 </footer>
 
 <script src="../reloj.js"></script>

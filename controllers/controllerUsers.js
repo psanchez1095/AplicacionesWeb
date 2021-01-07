@@ -16,7 +16,7 @@ let daoModelUser = new modelUser(pool);
 
 function mostrarPerfilDeUsuario(request, response) {
     response.status(200);
-    response.render("user_index");
+    response.render("index_postLogin");
 }
 
 function cargarImagenDePerfil(request, response, next) {

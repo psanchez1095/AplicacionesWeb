@@ -85,6 +85,8 @@ app.use(function (request, response, next) {
     }
 
 });
+// Routers que gestionan rutas que requieren que el usuario este validado.
+app.use("/usuarios", routerUsers);
 
 app.listen(config.port, function (err) {
 
