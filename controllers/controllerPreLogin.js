@@ -75,7 +75,7 @@ function isUserCorrect(request, response, next) {
 
                 response.setFlash("Email y/o contraseña no válidos");
                 response.status(200);
-                response.redirect("Show_Index");
+                response.render("index");
             }
         });
 
