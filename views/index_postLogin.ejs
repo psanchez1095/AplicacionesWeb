@@ -22,9 +22,9 @@
     </div>
 
     <div class="columna">
-        <div id="divImgPerfil"><img src="/img/user1.png" id="imgPerfil"></div>
-        <div id="divNombrePerfil"><span>User_001</span></div>
-        <div id="divCerrarSesion"><input type="button" value="Cerrar Sesion" id="botonCerrarSesion"></div>
+        <div id="divImgPerfil"><img src="/usuarios/ShowProfileImage/<%=usuario.id%>" id="imgPerfil"></div>
+        <div id="divNombrePerfil"><span><%=usuario.email%></span></div>
+        <div id="divCerrarSesion"><a  href ="/usuarios/LogOut" value="Cerrar Sesion" id="botonCerrarSesion">Cerrar Sesion</a></div>
     </div>
 
 </header>

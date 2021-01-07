@@ -46,7 +46,23 @@ class ModelPreLogin {
                         connection.release();
 
                         if (err) callback(new Error("Error de acceso a la base de datos."), null);
-                        else callback(null, (filas.length == 1) ? filas[0] : false);
+                        {
+
+                            let usuario = null;
+
+                            if (filas.length == 1) {
+
+                                usuario = {};
+                                usuario.id = filas[0].id;
+                                usuario.email = filas[0].email;
+                                usuario.user_password = filas[0].user_password;
+                                usuario.user_img = filas[0].user_img;
+
+                            }
+
+                            callback(null, usuario);
+
+                        }
 
 
                     }

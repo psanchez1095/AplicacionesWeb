@@ -37,7 +37,7 @@ function cargarImagenDePerfil(request, response, next) {
 function cerrarSesion(request, response) {
     response.setFlash(null);
     response.status(200);
-    response.render("index");
+    response.redirect("/");
     request.session.destroy();
 }
 
