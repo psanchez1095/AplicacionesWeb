@@ -11,7 +11,7 @@ class ModelPreLogin {
         this.pool.getConnection(function (err, conexion) {
 
             if (err) callback(err);
-            if (user.user_password != user.user_passwordX) {callback(null,"Las contraseñas no coinciden, revisalo");}
+            if (user.user_password != user.user_passwordX) {callback( null,"Las contraseñas no coinciden, revisalo");}
 
             else {
 
