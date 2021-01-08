@@ -73,7 +73,7 @@ function isUserCorrect(request, response, next) {
             if (error) {
                 next(error);
             } else if (usuario != null) {
-                // Graba la sesion en la base  de datos (como un registro).
+               //Acumulamos la sesion de dicho usuario, utilizada para el middelware de control de sesion
                 request.session.usuario = usuario;
                 response.status(200);
                 response.redirect("UserProfile");

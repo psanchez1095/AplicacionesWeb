@@ -16,18 +16,22 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const mysqlSession = require("express-mysql-session");
-// Declaracion de los Routers de la aplicacion.
+
+//Routers CuatroZeroCuatroApp.
 const routerPreSLogin = require("./routers/routerPreLogin");
 const routerUsers = require("./routers/routerUsers");
 
-// Framework Express.
+//Express.
 const app = express();
-// Configuramos la BBDD para que almacene la sesion de usuario.
+
+//Configuramos la BBDD para que almacene la sesion de usuario
 const mysqlStore = mysqlSession(session);
 const sessionStore = new mysqlStore(config.mysqlConfig);
-// El modulo de morgan devuelve un middleware que muestra por pantalla las peticiones recividas.
+
+//El modulo de morgan devuelve un middleware que muestra por consola las peticiones tanto GET COMO POST
 app.use(morgan("dev"));
-// Objeto de sesion de usuario.
+
+//Objeto de sesion de usuario.
 const middlewareSession = session({
     saveUninitialized: false,
     secret: "foobar34",
@@ -35,27 +39,28 @@ const middlewareSession = session({
     store: sessionStore
 });
 
-// Motor de plantillas y ubicacion de vistas.
+//Motor de plantillas y ubicacion de vistas.
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Obtener la ruta a los ficheros estaticos.
+//Obtener la ruta dentro del proyecto de los ficheros estaticos.
 const fEstaticos = path.join(__dirname, "public");
 
-// Compruebas si se solicitan recursos estaticos y si es asi devuelve
+//Compruebas si se solicitan recursos estaticos y si es asi devuelve
 app.use(express.static(fEstaticos));
+
 //Middleware para el uso de los mensajes Flash.
 app.use(function(request, response, next) {
 
-    // Los mensajes Flash estan siempre disponibles al viajar por la cadena de middleware en el response.
-    response.setFlash = function(msg) {
-        // Establece el mensaje Flash dentro de la sesion del usuario.
-        request.session.flashMsg = msg;
-    };
+    // Podemos acceder a los mensajes flash a partir del objeto response en la cadena de middlewares
+    // SetFlash hace un set del mensaje dentro del a sesion del usuario
 
-    // El mensaje Flash siempre esta disponible en las vistas al guardarse la funcion en las locals.
-    response.locals.getAndClearFlash = function() {
-        // Obtiene el mensaje Flash de la sesion del usuario y lo borra de la sesion.
+    response.setFlash = function(message) {
+        request.session.flashMsg = message;
+    };
+    // En locals podemos acumular cualquier dato ( solo existe en el servidor)
+    // Accedemos al mensaje a partir de locals -> lo recogemos y lo limpiamos
+    response.locals.getCleanFlash = function() {
         let msg = request.session.flashMsg;
         delete request.session.flashMsg;
         return msg;
@@ -64,19 +69,21 @@ app.use(function(request, response, next) {
     next();
 
 });
-// Crea el objeto session dentro del objeto request.
+
+//Crea el objeto session dentro del objeto request.
 app.use(middlewareSession);
-// Middleware body-parser para acceder a las variables del cuerpo de la peticion (request.body.<var>).
+
+//Middleware body-parser para acceder a las variables del cuerpo de la peticion (request.body.<var>).
 app.use(bodyParser.urlencoded({ extended: false }));
-// Router que gestiona las rutas que no requieren que el usuario haya iniciado sesion.
+
+//Router que gestiona las rutas que no requieren que el usuario haya iniciado sesion.
 app.use("/usuarios", routerPreSLogin);
-// Inicializacion del servidor web
-// Middleware de control de sesion.
+
+//Middleware de control de sesion.
 app.use(function (request, response, next) {
 
     if (request.session.usuario !== undefined) {
-        // En response.locals podemos meter cualquier cosa, ya que al acabar la peticion se borra.
-        // El response.locals solo existe en el servidor, nunca viaja al usuario.
+
         response.locals.usuario = request.session.usuario;
         next();
     } else {
@@ -85,9 +92,11 @@ app.use(function (request, response, next) {
     }
 
 });
-// Routers que gestionan rutas que requieren que el usuario este validado.
+
+//Routers que gestionan rutas que requieren que el usuario este validado.
 app.use("/usuarios", routerUsers);
 
+//Inicializacion del Servidor indicando el puerto en el cual funciona
 app.listen(config.port, function (err) {
 
     if (err) {
@@ -98,21 +107,6 @@ app.listen(config.port, function (err) {
 
 });
 
-const pool = mysql.createPool(config.mysqlConfig);
-
-let oDAOUser = new DAOUser(pool);
-
-let user = {
-    email: "xx@gmail.com",
-    pass: "ucm",
-    img: null
-};
-
-let completeTask0 = {
-    text: "Crear Servidor Node",
-    done: 1,
-    tags: ["JavaScript", "servidor", "tarea"]
-};
 
 // CALLBACKS
 
