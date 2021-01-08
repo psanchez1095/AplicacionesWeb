@@ -30,6 +30,10 @@ body{
 .columna{
     width: 33%;
     float: left;
+
+}
+.columna>div{
+    margin-bottom: 1%;
 }
 
 #titulo {
@@ -78,6 +82,12 @@ h1:hover{
 #divDesconectar{
     margin-top: -1%;
 }
+#divNombrePerfil>span{
+    margin-left: 81%;
+}
+#divNombrePerfil{
+    margin-bottom: 3%;
+}
 .columna>div> input{
     margin-left: 1%;
     background: coral;
@@ -90,6 +100,7 @@ h1:hover{
     border-radius: 11%;
     font-weight: bold;
 }
+
 .columna>div> span{
     font-weight: bold;
     font-family: 'Miriam Libre', sans-serif;
@@ -135,21 +146,31 @@ h1:hover{
     font-weight: bold;
 }
 #botonCerrarSesion{
-    width: 25%;
-    margin-left: 75.5%;
+    width: 30%;
     background: black;
     color: white;
+    margin-left: 1%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-left: 75%;
+    border-radius: 11%;
+    font-weight: bold;
+
 
 }
 #botonCerrarSesion:hover{
-    color: white;
+    color: red;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
 }
 #imgPerfil{
     margin-left: 80.5%;
     background: black;
     border-radius: 45%;
     margin-bottom: 1%;
-    margin-top: 1%;
+    margin-top: 3%;
+    width: 65px; height: 65px;
 }
 #imgPerfil:hover{
     background: ghostwhite;
@@ -166,7 +187,7 @@ h1:hover{
 .search{
 
     position: fixed;
-    margin-top: 141px;
+    margin-top: 145px;
     width: 100%;
     display: flex;
     flex-direction: column;

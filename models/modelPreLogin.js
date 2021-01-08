@@ -58,6 +58,7 @@ class ModelPreLogin {
                                 usuario.email = filas[0].email;
                                 usuario.user_password = filas[0].user_password;
                                 usuario.user_img = filas[0].user_img;
+                                usuario.cuatrozerocuatro_name = filas[0].cuatrozerocuatro_name;
 
                             }
 

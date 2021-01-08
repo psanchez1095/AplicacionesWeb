@@ -21,7 +21,7 @@ function mostrarPerfilDeUsuario(request, response) {
 
 function cargarImagenDePerfil(request, response, next) {
 
-    daoModelUser.getUserImageName(request.params.id, function (err, nombreImagen) {
+    daoModelUser.getUserImageName(request.params.email, function (err, nombreImagen) {
 
         if (err) {
             next(err);

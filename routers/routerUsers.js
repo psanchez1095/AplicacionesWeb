@@ -16,7 +16,7 @@ const multerFactory = multer({ dest: path.join("public","img") });
 
 // Definimos los manejadores de rutas del router Users
 
-routerUsers.get("/ShowProfileImage/:id", controllerUsers.cargarImagenDePerfil);
+routerUsers.get("/ShowProfileImage/:email", controllerUsers.cargarImagenDePerfil);
 
 routerUsers.get("/UserProfile", controllerUsers.mostrarPerfilDeUsuario);
 
