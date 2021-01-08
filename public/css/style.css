@@ -141,6 +141,9 @@ h1:hover{
 #contenido >form > div > input {
     padding: 0.3%;
 }
+#contenido >form > div > a {
+    padding: 0.3%;
+}
 #contenido >form > span {
     font-size: 20px;
 
@@ -176,6 +179,12 @@ h1:hover{
 
 }
 #loginCreate>div>input:hover{
+    background: black;
+    color: coral;
+    border: 6px solid coral;
+
+}
+loginCreate>div>a:hover{
     background: black;
     color: coral;
     border: 6px solid coral;
@@ -220,6 +229,14 @@ div > input{
     border: 6px solid black;
     border-radius: 11%;
     font-family: 'Miriam Libre', sans-serif;
+
+}
+div > a{
+    font-weight: bold;
+    border: 6px solid black;
+    border-radius: 11%;
+    font-family: 'Miriam Libre', sans-serif;
+    text-decoration: none;
 
 }
 

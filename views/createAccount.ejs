@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Account</title>
-    <link rel="stylesheet" href="css/style_createAccount.css" media="screen">
-    <link rel="icon"  type="img/jpg" href="img/favicon.ico">
+    <link rel="stylesheet" href="/css/style_createAccount.css" media="screen">
+    <link rel="icon"  type="img/jpg" href="/img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -38,24 +38,24 @@
 
 <main id="contenido">
 
-    <form form action="" method="get" id="formulario">
+    <form form action="/usuarios/Create_User" method="POST" id="formulario" enctype="multipart/form-data">
 
         <span>Correo</span>
-        <div id="formTextCorreo"><input type="text" name="" id="textoFormCorreo"></div>
+        <div id="formTextCorreo"><input type="text" name="email" id="textoFormCorreo" required></div>
         <span>Contraseña</span>
-        <div id="formTextContraseña"><input type="text" name="" id="textoFormContraseña"></div>
+        <div id="formTextContraseña"><input type="password" name="user_password" title="Por Seguridad, mínimo 8 caracteres." minlength="8" maxlength="50" id="textoFormContraseña" required></div>
         <span>Confirmar Contraseña</span>
-        <div id="formTextConfirmarContraseña"><input type="text" name="" id="textoFormConfirmarContraseña"></div>
+        <div id="formTextConfirmarContraseña"><input type="password" name="user_passwordX" id="textoFormConfirmarContraseña"></div>
         <span>Usuario 404</span>
-        <div id="formTextnickname"><input type="text" name="" id="textoFormNickname"></div>
+        <div id="formTextnickname"><input type="text" name="cuatrozerocuatro_name" id="textoFormNickname" required></div>
         <span>Imagen de Perfil</span>
-        <div id="formImg"><input type="file" name="inputImg" id="inputImg"></div>
-        <label for="inputImg"> <span>Upload File</span> <img src="public/img/iconfinder-upload-4341320_120532.png" ></label>
+        <div id="formImg"><input type="file" name="user_img" accept="image/*" id="inputImg"></div>
+        <label for="inputImg"> <span>Upload File</span> <img src="/img/iconfinder-upload-4341320_120532.png" required></label>
 
         <div id="loginCreate">
 
-            <div id="correoFormInput"><input type="button" value="Crear Cuenta" id="loginEmailButton"></div>
-            <a id="createAccountFormInput" href="index.html"><input type="button" value="Iniciar Sesion" id="createAccountButton"></a>
+            <div id="correoFormInput"><input type="submit" value="Crear Cuenta" id="loginEmailButton"></div>
+            <a id="createAccountFormInput" href="/usuarios/Show_Index"><input type="button" value="Iniciar Sesion" id="createAccountButton"></a>
 
         </div>
     </form>
@@ -64,7 +64,7 @@
 </main>
 
 <footer>
-    <img class="licenseImg" src="public/img/license.png">
+    <img class="licenseImg" src="/img/license.png">
 </footer>
 
 <script src="../reloj.js"></script>

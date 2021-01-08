@@ -19,35 +19,34 @@ function showIndex(request, response, next) {
     response.status(200);
     response.redirect("/index");
 }
-function showCreateUser(request, response, next) {
+function showCreateAccount(request, response, next) {
     response.status(200);
-    response.render("user_index");
+    response.render("CreateAccount");
 }
 
 function createUser(request, response, next) {
 
+    const imgRegExp = /.png$|.jpg$|..bmp$/;
     let fileName = (request.file)? request.file.originalname : "";
-    const imagenRegexp = /.png$|.jpg$|.jpeg$|.bmp$/;
 
-    if(fileName == "" || imagenRegexp.test(fileName)) {
+    if(fileName == "" || imgRegExp.test(fileName)) {
 
-        let usuario = {
-            puntos: 0,
-            sexo: request.body.sexo,
+        let user = {
             email: request.body.email,
-            clave: request.body.clave,
-            nombre: request.body.nombre,
-            fechaNacimiento: request.body.fechaNacimiento,
-            imagen: (request.file)? request.file.filename : null
+            user_password: request.body.user_password,
+            cuatrozerocuatro_name: request.body.cuatrozerocuatro_name,
+            user_img: (request.file)? request.file.filename : null
         };
 
-        daoModelPreLogin.createUser(usuario, function (err) {
+        daoModelPreLogin.createUser(user, function (err) {
 
             if (err) {
                 next(err);
             } else {
                 response.status(200);
-                response.redirect("index");
+                response.setFlash("Usuario Creado con Exito.");
+                response.redirect("/ShowIndex");
+
             }
 
         });
@@ -55,7 +54,7 @@ function createUser(request, response, next) {
     } else {
         response.setFlash("* Imagen no válida.");
         response.status(200);
-        response.redirect("createAccount");
+        response.render("createAccount");
     }
 
 }
@@ -85,6 +84,6 @@ module.exports = {
     showIndex: showIndex,
     createUser: createUser,
     isUserCorrect: isUserCorrect,
-    showCreateUser : showCreateUser,
+    showCreateAccount : showCreateAccount,
 
 };
