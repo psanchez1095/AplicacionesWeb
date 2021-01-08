@@ -34,15 +34,22 @@ function createUser(request, response, next) {
         let user = {
             email: request.body.email,
             user_password: request.body.user_password,
+            user_passwordX: request.body.user_passwordX,
             cuatrozerocuatro_name: request.body.cuatrozerocuatro_name,
             user_img: (request.file)? request.file.filename : null
         };
 
-        daoModelPreLogin.createUser(user, function (err) {
+        daoModelPreLogin.createUser(user, function (err,msg) {
 
-            if (err) {
+             if (err) {
                 next(err);
-            } else {
+            }
+             else if( (msg) == "Las contraseñas no coinciden, revisalo"){
+                response.status(200);
+                response.setFlash(msg);
+                response.redirect("/Show_CreateAccount");
+            }
+            else {
                 response.status(200);
                 response.setFlash("Usuario Creado con Exito.");
                 response.redirect("/ShowIndex");
