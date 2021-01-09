@@ -19,7 +19,7 @@ routerQuestions.get("/QuestionIndex", controllerQuestions.showRandomQuestions);
 
 routerQuestions.get("/ShowCreateQuestion", controllerQuestions.showCreateQuestion); // lleva a la vista
 
-routerQuestions.get("/ShowQuestion/:id", controllerQuestions.showQuestion);
+routerQuestions.get("/ShowQuestion/:id", controllerQuestions.showQuestion_basic);
 
 routerQuestions.get("/AnswerMySelf/:id", controllerQuestions.mostrarContestarPreguntaPorUnoMismo);
 

@@ -28,9 +28,23 @@ function showRandomQuestions(request, response, next) {
     });
 
 }
+function showQuestion_basic(request, response, next) {
+
+    daoModelQuestion.getQuestion(request.params.id,function (err, question) {
+
+        if (err) {
+            next(err);
+        } else {
+            response.status(200);
+            response.render("questions_index", { questions: question });
+        }
+
+    });
+
+}
 
 
-function showQuestion(request, response, next) {
+function showQuestion_extended(request, response, next) {
 
     daoModelQuestion.getQuestion(request.params.id, function (err, preguntaObtenida) {
 
@@ -188,7 +202,7 @@ module.exports = {
     mostrarContestarPreguntaPorUnoMismo: mostrarContestarPreguntaPorUnoMismo,
     showCreateQuestion: showCreateQuestion,
     showRandomQuestions: showRandomQuestions,
-    showQuestion :showQuestion,
+    showQuestion_basic: showQuestion_basic,
 };
 
 

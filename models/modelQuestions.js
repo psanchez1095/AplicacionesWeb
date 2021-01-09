@@ -181,35 +181,6 @@ class ModelQuestions {
         });
     }
 
-    addAnswerMyself(Id_usuario, Id_pregunta, Id_respuesta, callBack) {
-
-        this.pool.getConnection(function (err, connection) {
-
-            if (err) {
-                callBack(new Error("Error de conexión a la base de datos."), null);
-            } else {
-
-                connection.query(
-                    "INSERT INTO usuariorespondeparasi VALUES (?,?,?)",
-                    [Id_usuario, Id_pregunta, Id_respuesta],
-                    function (err, result) {
-
-                        connection.release(); // Liberamos la conexion
-
-                        if (err) {
-                            callBack(new Error("Error al insertar la respuesta de mi mismo en la base de datos."), null);
-                        } else {
-                            callBack(null);
-                        }
-
-                    });
-
-
-            }
-
-        });
-
-    }
 
     getAnswersForQuestion(Id_pregunta, callBack) {
 

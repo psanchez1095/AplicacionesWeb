@@ -278,7 +278,7 @@ label{
     overflow-y: scroll;
     background: whitesmoke;
     margin-top: 3%;
-    width:100%
+    width:100%;
 }
 .nuevaPregunta{
     margin-top: 1%;
@@ -343,10 +343,10 @@ label{
 
 }
 .newQuestion{
+    height: 200px;
     display: flex;
     flex-direction: row;
 }
-
 .columnaHead{
     width: 49%;
     height: 100%;
