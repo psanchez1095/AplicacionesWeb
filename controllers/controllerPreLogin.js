@@ -74,7 +74,7 @@ function isUserCorrect(request, response, next) {
                 next(error);
             } else if (usuario != null) {
                //Acumulamos la sesion de dicho usuario, utilizada para el middelware de control de sesion
-                request.session.usuario = usuario;
+                request.session.user = usuario;
                 response.status(200);
                 response.redirect("UserProfile");
             } else {

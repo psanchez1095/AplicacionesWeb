@@ -6,7 +6,7 @@ const express = require("express");
 const multer = require("multer");
 
 // Modulos propios.
-const controllerUsers = require("../controllers/controllerQuestions");
+const controllerQuestions = require("../controllers/controllerQuestions");
 
 // Declaramos el Router "RouterUsuarios"
 const routerQuestions = express.Router();
@@ -15,8 +15,15 @@ const routerQuestions = express.Router();
 const multerFactory = multer({ dest: path.join("public","img") });
 
 // Definimos los manejadores de rutas del router Users
+routerQuestions.get("/RandomQuestions", controllerQuestions.showRandomQuestions);
 
+routerQuestions.get("/ShowCreateQuestion", controllerQuestions.showCreateQuestion); // lleva a la vista
 
+routerQuestions.get("/ShowQuestion/:id", controllerQuestions.showQuestion);
+
+routerQuestions.get("/AnswerMySelf/:id", controllerQuestions.mostrarContestarPreguntaPorUnoMismo);
+
+routerQuestions.post("/AddAnswer", controllerQuestions.anadirRespuesta);
 
 
 module.exports = routerQuestions;

@@ -154,6 +154,174 @@ class ModelQuestions {
         });
 
     }
+    getQuestion(Id_Pregunta, callBack){
+
+        this.pool.getConnection(function (err, connection) {
+            if (err) {
+                callBack(new Error("Error de conexión a la base de datos."), null);
+            }
+            else{
+                connection.query(
+                    "SELECT * FROM questions WHERE Id = ?",
+                    [Id_Pregunta],
+                    function (err, result) {
+
+                        connection.release(); // Liberamos la conexion
+
+                        if (err) {
+                            callBack(new Error("Error al insertar la pregunta en la bases de datos."), null);
+                        } else {
+                            callBack(null,result[0]);
+                        }
+
+                    });
+
+            }
+
+        });
+    }
+
+    addAnswerMyself(Id_usuario, Id_pregunta, Id_respuesta, callBack) {
+
+        this.pool.getConnection(function (err, connection) {
+
+            if (err) {
+                callBack(new Error("Error de conexión a la base de datos."), null);
+            } else {
+
+                connection.query(
+                    "INSERT INTO usuariorespondeparasi VALUES (?,?,?)",
+                    [Id_usuario, Id_pregunta, Id_respuesta],
+                    function (err, result) {
+
+                        connection.release(); // Liberamos la conexion
+
+                        if (err) {
+                            callBack(new Error("Error al insertar la respuesta de mi mismo en la base de datos."), null);
+                        } else {
+                            callBack(null);
+                        }
+
+                    });
+
+
+            }
+
+        });
+
+    }
+
+    getAnswersForQuestion(Id_pregunta, callBack) {
+
+        this.pool.getConnection(function (err, connection) {
+
+            if (err) {
+                callBack(new Error("Error de conexión a la base de datos."), null);
+            } else {
+
+                connection.query(
+                    "SELECT * FROM answers WHERE Question_id = ?",
+                    [Id_pregunta],
+                    function (err, result) {
+
+                        connection.release(); // Liberamos la conexion
+
+                        if (err) {
+                            callBack(new Error("Error al extraer respuestas de una pregunta."), null);
+                        } else {
+                            callBack(null,result);
+                        }
+
+                    });
+
+            }
+
+        });
+
+    }
+
+    addQuestion(question, callBack) {
+
+        this.pool.getConnection(function (err, connection) {
+
+            if (err) {
+                callBack(new Error("Error de conexión a la base de datos."), null);
+            } else {
+                connection.query(
+                    "INSERT INTO questions (text) VALUES (?)",
+                    [question],
+                    function (err, result) {
+
+                        connection.release(); // Liberamos la conexion
+                        if (err) {
+                            callBack(new Error("Error al insertar la pregunta en la bases de datos."));
+                        } else {
+                            callBack(null, result.insertId);
+                        }
+
+                    });
+
+            }
+
+        });
+
+    }
+
+    addAnswer(answer, callBack) {
+
+        this.pool.getConnection(function (err, connection) {
+
+            if (err) {
+                callBack(new Error("Error de conexión a la base de datos."), null);
+            } else {
+
+                connection.query(
+                    "INSERT INTO answers (Question_id,text) VALUES ?",
+                    [answer],
+                    function (err, result) {
+
+                        connection.release(); // Liberamos la conexion
+
+                        if (err) {
+                            callBack(new Error("Error al insertar la pregunta en la bases de datos."), null);
+                        } else {
+                            callBack(null, result.insertId);
+                        }
+
+                    });
+            }
+        });
+
+    }
+
+    getRandomQuestions(callBack) {
+
+        this.pool.getConnection(function (err, connection) {
+
+            if (err) {
+                callBack(new Error("Error de conexión a la base de datos."));
+            } else {
+
+                connection.query(
+                    "SELECT * FROM questions ORDER BY RAND() LIMIT 5",
+                    function (err, result) {
+
+                        connection.release(); // Liberamos la coenxion
+
+                        if (err) {
+                            callBack(new Error("Error al extraer las preguntas de la base de datos."));
+                        } else {
+                            callBack(null, result);
+                        }
+
+                    });
+
+            }
+
+        });
+
+    }
+
 }
 
 module.exports = ModelQuestions;

@@ -82,9 +82,9 @@ app.use("/usuarios", routerPreSLogin);
 //Middleware de control de sesion.
 app.use(function (request, response, next) {
 
-    if (request.session.usuario !== undefined) {
+    if (request.session.user !== undefined) {
 
-        response.locals.usuario = request.session.usuario;
+        response.locals.user= request.session.user;
         next();
     } else {
         response.status(200);
