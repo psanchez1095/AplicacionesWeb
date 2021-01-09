@@ -16,13 +16,13 @@ let daoModelQuestion = new modelQuestion(pool);
 
 function showRandomQuestions(request, response, next) {
 
-    daoModelQuestion.getRandomQuestions(function (err, listaPreguntas) {
+    daoModelQuestion.getRandomQuestions(function (err, questionList) {
 
         if (err) {
             next(err);
         } else {
             response.status(200);
-            response.render("question_index", { preguntas: listaPreguntas });
+            response.render("questions_index", { questions: questionList });
         }
 
     });

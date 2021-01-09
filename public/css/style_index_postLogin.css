@@ -32,9 +32,6 @@ body{
     float: left;
 
 }
-.columna>div{
-    margin-bottom: 1%;
-}
 
 #titulo {
     float: left;
@@ -72,6 +69,20 @@ h1:hover{
 /********CABECERA-BOTONES**********/
 #divPreguntas{
     height: 33.3%;
+    margin-top: 5%;
+}
+#divPreguntas>a{
+    margin-left: 4%;
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-top: 10%;
+    margin-left: 2%;
+    border-radius: 11%;
+    font-weight: bold;
+    text-decoration: none;
 }
 #divUsuarios{
     height: 33.3%;
@@ -120,7 +131,7 @@ h1:hover{
     width: 40%;
     border: 6px solid black;
     font-family: 'Miriam Libre', sans-serif;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-left: 2%;
     border-radius: 11%;
     font-weight: bold;
@@ -187,7 +198,7 @@ h1:hover{
 .search{
 
     position: fixed;
-    margin-top: 145px;
+    margin-top: 150px;
     width: 100%;
     display: flex;
     flex-direction: column;

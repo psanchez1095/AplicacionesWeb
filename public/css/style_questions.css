@@ -35,7 +35,9 @@ body{
     margin-right: 3%;
 }
 #divNombrePerfil{
-    margin-right: 3%;
+    margin-right: 2%;
+    margin-bottom: 5%;
+
 }
 #titulo {
     float: left;
@@ -141,22 +143,31 @@ h1:hover{
 }
 #botonDesconectar{
 
-    width: 25%;
-    margin-left: 73.5%;
+    width: 30%;
     background: black;
     color: white;
+    margin-left: 1%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-left: 75%;
+    border-radius: 11%;
+    font-weight: bold;
 
 }
 #botonDesconectar:hover{
-    color: white;
+    color: red;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    text-decoration: none;
 }
 #imgPerfil{
-    width: 50px; height: 50px;
     margin-left: 80.5%;
     background: black;
     border-radius: 45%;
     margin-bottom: 1%;
-    margin-top: 1%;
+    margin-top: 3%;
+    width: 65px; height: 65px;
 }
 #imgPerfil:hover{
     background: ghostwhite;
@@ -394,4 +405,7 @@ footer {
     margin-right: 0.5%;
     background-color:  rgba(0,0,0,.0); /*Para que no haya background*/
 
+}
+.nameuser{
+    width: 100px;
 }

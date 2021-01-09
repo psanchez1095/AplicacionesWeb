@@ -20,7 +20,7 @@ const mysqlSession = require("express-mysql-session");
 //Routers CuatroZeroCuatroApp.
 const routerPreSLogin = require("./routers/routerPreLogin");
 const routerUsers = require("./routers/routerUsers");
-
+const routerQuestions = require("./routers/routerQuestions")
 //Express.
 const app = express();
 
@@ -95,6 +95,7 @@ app.use(function (request, response, next) {
 
 //Routers que gestionan rutas que requieren que el usuario este validado.
 app.use("/usuarios", routerUsers);
+app.use("/preguntas", routerQuestions);
 
 //Inicializacion del Servidor indicando el puerto en el cual funciona
 app.listen(config.port, function (err) {
