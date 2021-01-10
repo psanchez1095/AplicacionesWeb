@@ -274,7 +274,7 @@ class ModelQuestions {
             } else {
 
                 connection.query(
-                    "SELECT * FROM questions ORDER BY RAND() LIMIT 5",
+                    "SELECT * FROM questions",
                     function (err, result) {
 
                         connection.release(); // Liberamos la coenxion
