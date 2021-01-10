@@ -281,21 +281,22 @@ label{
     width:100%;
 }
 .nuevaPregunta{
+    width: 70%;
+    max-width: 70%;
     margin-top: 1%;
     background-color: white;
     border-radius: 11%;
     margin-right: 1.5%;
     margin-left: 1%;
-
 }
 .nuevaPreguntaUsuario{
+    width: 30%;
     margin-top: 1%;
     background: lightcoral;
 }
 .nuevaPreguntaUsuario>span {
      color: darkred;
-     width: 100%;
-     margin-left: 2%;
+     width: 100px;
 
  }
 
@@ -328,8 +329,6 @@ label{
 .nuevaPregunta>span {
     color: darkred;
     margin-left: 1.5%;
-
-
 }
 .nuevaPregunta>tag{
     margin-left: 2%;
@@ -340,12 +339,10 @@ label{
     padding-left: 2%;
     padding-right: 2%;
 
-
 }
 .newQuestion{
     height: 200px;
     display: flex;
-    flex-direction: row;
 }
 .columnaHead{
     width: 49%;
