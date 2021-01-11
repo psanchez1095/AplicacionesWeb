@@ -28,6 +28,21 @@ function showRandomQuestions(request, response, next) {
     });
 
 }
+function addQuestion(request, response, next) {
+
+    daoModelQuestion.addQuestion(request.body.title,request.body.text,function (err, question) {
+
+        if (err) {
+            next(err);
+        } else {
+            response.status(200);
+            console.log("vamos bien")
+            response.redirect("/preguntas/QuestionIndex");
+        }
+
+    });
+
+}
 function showQuestion_basic(request, response, next) {
 
     daoModelQuestion.getQuestion(request.params.id,function (err, question) {
@@ -42,6 +57,8 @@ function showQuestion_basic(request, response, next) {
     });
 
 }
+
+
 
 
 function showQuestion_extended(request, response, next) {
@@ -127,13 +144,13 @@ function addAnswer(request, response, next) {
 
         if(request.body.texto.trim() != "") {
 
-            daoModelQuestion.addAnswers([[request.body.Id_pregunta, request.body.texto]], function (err, Id_respuesta) {
+            daoModelQuestion.addAnswers([[request.body.title, request.body.text]], function (err, Id_respuesta) {
 
                 if (err) {
                     next(err);
                 } else {
 
-                    daoModelQuestion.addAnswerMyself(request.session.usuario.Id, request.body.Id_pregunta, Id_respuesta, function (err) {
+                    daoModelQuestion.addAnswerMyself(request.session.usuario.id, request.body.title, Id_respuesta, function (err) {
 
                         if (err) {
                             next(err);
@@ -203,6 +220,7 @@ module.exports = {
     showCreateQuestion: showCreateQuestion,
     showRandomQuestions: showRandomQuestions,
     showQuestion_basic: showQuestion_basic,
+    addQuestion: addQuestion,
 };
 
 

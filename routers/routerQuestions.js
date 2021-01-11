@@ -24,6 +24,7 @@ routerQuestions.get("/ShowQuestion/:id", controllerQuestions.showQuestion_basic)
 routerQuestions.get("/AnswerMySelf/:id", controllerQuestions.mostrarContestarPreguntaPorUnoMismo);
 
 routerQuestions.post("/AddAnswer", controllerQuestions.addAnswer);
+routerQuestions.post("/AddQuestion", controllerQuestions.addQuestion);
 
 
 module.exports = routerQuestions;

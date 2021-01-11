@@ -23,31 +23,31 @@
         </div>
     </div>
     <div class="columna">
-        <div id="divImgPerfil"><img src="public/img/user1.png" id="imgPerfil"></div>
-        <div id="divNombrePerfil"><span>User_001</span></div>
-        <div id="divDesconectar"><input type="button" value="Cerrar Sesion" id="botonDesconectar"></div>
+        <div id="divImgPerfil"><img src="/usuarios/ShowProfileImage/<%=user.email%>" id="imgPerfil"></div>
+        <div id="divNombrePerfil"><span><%=user.cuatrozerocuatro_name%></span></div>
+        <div id="divDesconectar"><a href="usuarios/LogOut" type="button" id="botonDesconectar">Cerrar Sesión</a></div>
     </div>
 </header>
 
 <main class="search">
     <form form action="" method="get" id="formulario">
             <span id="buscarFormInput"> <input type="button" value="Buscar" id="searchButton">
-                 <label for="searchButton"> <span>Buscar</span> <img src="public/img/lupa.png" ></label></span>
+                 <label for="searchButton"> <span>Buscar</span> <img src="/img/lupa.png" ></label></span>
         <span id="textoSearchFormInput "><input type="text" placeholder="Buscar por titulo/cuerpo de pregunta" id="textForm"/></span>
 
     </form>
 </main>
 <main id="contenido">
-    <form form action="" method="get" id="formularioCreateQuestion">
+    <form action ="/preguntas/AddQuestion"  method="POST" id="formularioCreateQuestion">
         <div id="tituloContenido">Formular Una Pregunta</div>
         <span>Titulo</span>
-        <div id="formTextTitulo"><input type="text" name="" id="textoFormCorreo"></div>
+        <div id="formTextTitulo"><input type="text" name="title" id="textoFormCorreo"  maxlength="30" required></div>
         <span>Cuerpo</span>
-        <div id="formTextCuerpo"><input type="text" name="" id="textoFormCuerpo"></div>
+        <div id="formTextCuerpo"><input type="text" name="text" id="textoFormCuerpo" required></div>
         <span>Etiquetas</span>
-        <div id="formTextConfirmarContraseña"><input type="text" name="" id="textoFormConfirmarContraseña"></div>
+        <div id="formTextConfirmarContraseña"><input type="text" name="tags" id="textoFormConfirmarContraseña"></div>
 
-        <div id="formTextPublicarRespuesta"><input type="button" value="Formular Pregunta" id="publicarButton"></div>
+        <div id="formTextPublicarRespuesta"><input type="submit" value="Formular Pregunta" id="publicarButton"></div>
 
     </form>
 </main>

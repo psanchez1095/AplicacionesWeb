@@ -114,6 +114,18 @@ h1:hover{
     border-radius: 11%;
     font-weight: bold;
 }
+.columna>div> a{
+    margin-left: 1%;
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-top: 3%;
+    margin-left: 2%;
+    border-radius: 11%;
+    font-weight: bold;
+}
 .columna>div> span{
     font-weight: bold;
     font-family: 'Miriam Libre', sans-serif;
@@ -143,14 +155,15 @@ h1:hover{
 
 }
 #botonDesconectar:hover{
-    color: white;
+    color: red;
 }
 #imgPerfil{
     margin-left: 80.5%;
     background: black;
     border-radius: 45%;
     margin-bottom: 1%;
-    margin-top: 1%;
+    margin-top: 3%;
+    width: 65px; height: 65px;
 }
 #imgPerfil:hover{
     background: ghostwhite;
