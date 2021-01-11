@@ -7,6 +7,39 @@ class ModelUsers {
     }
 
 
+    getUser(id, callback) {
+        console.log(id);
+        this.pool.getConnection(function (err, connection) {
+
+            if (err) {
+                callback(new Error("Error de conexión a la base de datos."), null);
+
+            } else {
+
+                connection.query("SELECT * FROM users WHERE id = ?", [id],
+
+                    (err, filas) => {
+
+                        connection.release();
+
+                        if (err) callback(new Error("Usuario Incorrecto o Imagen No Disponible."), null);
+
+                        else {
+
+                            if (filas.length == 0)  callback(new Error("No existe el usuario."), null);
+                            else callback(null, filas[0]);
+
+                        }
+
+                    }
+
+                );
+
+            }
+
+        });
+
+    }
 
     modifyUser(user,callback){
         this.pool.getConnection(function(err,conexion){
@@ -41,6 +74,40 @@ class ModelUsers {
                 connection.query("SELECT user_img FROM users WHERE email = ?", [email],
 
                      (err, filas) => {
+
+                        connection.release();
+
+                        if (err) callback(new Error("Usuario Incorrecto o Imagen No Disponible."), null);
+
+                        else {
+
+                            if (filas.length == 0)  callback(new Error("No existe el usuario."), null);
+                            else callback(null, filas[0].user_img);
+
+                        }
+
+                    }
+
+                );
+
+            }
+
+        });
+
+    }
+    getUserImageNameById(email, callback) {
+
+        this.pool.getConnection(function (err, connection) {
+
+            if (err) {
+
+                callback(new Error("Error de conexión a la base de datos."), null);
+
+            } else {
+
+                connection.query("SELECT user_img FROM users WHERE id = ?", [email],
+
+                    (err, filas) => {
 
                         connection.release();
 

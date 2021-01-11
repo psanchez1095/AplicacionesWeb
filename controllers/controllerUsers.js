@@ -32,6 +32,31 @@ function cargarImagenDePerfil(request, response, next) {
     });
 
 }
+function cargarImagenDePerfilById(request, response, next) {
+
+    daoModelUser.getUserImageNameById(request.params.id, function (err, nombreImagen) {
+
+        if (err) {
+            next(err);
+        } else {
+            response.sendFile(path.join(__dirname, "..", "public", "img", (nombreImagen) ? nombreImagen : "user.png"));
+        }
+
+    });
+
+}
+function getUser(request, response, next) {
+    daoModelUser.getUser(request.params.id, function (err, user) {
+
+        if (err) {
+            next(err);
+        } else {
+        response.send(user.cuatrozerocuatro_name);
+        }
+
+    });
+
+}
 
 
 function cerrarSesion(request, response) {
@@ -45,5 +70,6 @@ module.exports = {
     cerrarSesion: cerrarSesion,
     cargarImagenDePerfil: cargarImagenDePerfil,
     mostrarPerfilDeUsuario: mostrarPerfilDeUsuario,
-
+    cargarImagenDePerfilById: cargarImagenDePerfilById,
+    getUser: getUser,
 };

@@ -16,7 +16,7 @@ let daoModelQuestion = new modelQuestion(pool);
 
 function showRandomQuestions(request, response, next) {
 
-    daoModelQuestion.getRandomQuestions(function (err, questionList) {
+    daoModelQuestion.getQuestions(function (err, questionList) {
 
         if (err) {
             next(err);
@@ -36,7 +36,6 @@ function addQuestion(request, response, next) {
             next(err);
         } else {
             response.status(200);
-            console.log("vamos bien")
             response.redirect("/preguntas/QuestionIndex");
         }
 

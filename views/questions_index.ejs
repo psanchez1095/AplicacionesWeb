@@ -48,17 +48,18 @@
         <% questions.forEach(question => { %>
 
         <div class="newQuestion">
-            <div class = "nuevaPregunta" href="/preguntas/ShowQuestion/<%=question.id%>">
+            <div class = "nuevaPregunta" >
                 <span><%=question.title%></span>
                 <p class="texto"><%=question.text%></p>
             </div>
-            <div class = "nuevaPreguntaUsuario">
+            <div class = "nuevaPreguntaUsuario" >
                 <span>Formulada el 16/07/2019</span>
-                <span2><img class="imgPreguntaPerfil"src="public/img/user1.png"></span2><br>
-                <tag>Xtreme</tag>
+                <span2><img class="imagenUsuario "src="/usuarios/ShowProfileImageById/<%=question.idQuestion%>"></span2><br>
+                <tag><%=question.cuatrozerocuatro_name%></tag>
             </div>
 
         </div>
+    </div>
         <% })%>
 
 

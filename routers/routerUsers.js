@@ -18,6 +18,10 @@ const multerFactory = multer({ dest: path.join("public","img") });
 
 routerUsers.get("/ShowProfileImage/:email", controllerUsers.cargarImagenDePerfil);
 
+routerUsers.get("/ShowProfileImageById/:id", controllerUsers.cargarImagenDePerfilById);
+
+routerUsers.get("/GetUser/:id", controllerUsers.getUser);
+
 routerUsers.get("/UserProfile", controllerUsers.mostrarPerfilDeUsuario);
 
 routerUsers.get("/LogOut", controllerUsers.cerrarSesion);

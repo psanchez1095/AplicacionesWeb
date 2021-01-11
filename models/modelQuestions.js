@@ -265,33 +265,51 @@ class ModelQuestions {
 
     }
 
-    getRandomQuestions(callBack) {
-
-        this.pool.getConnection(function (err, connection) {
-
-            if (err) {
-                callBack(new Error("Error de conexión a la base de datos."));
-            } else {
-
-                connection.query(
-                    "SELECT * FROM questions",
-                    function (err, result) {
-
-                        connection.release(); // Liberamos la coenxion
-
-                        if (err) {
-                            callBack(new Error("Error al extraer las preguntas de la base de datos."));
-                        } else {
-                            callBack(null, result);
-                        }
-
-                    });
-
+    getQuestions(callback){
+        this.pool.getConnection(function(err,connection){
+            if(err){
+                callback(err);
             }
+            else{
+                var sql = "SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.user_id,p.title,p.text from users u INNER join questions p on u.id = p.user_id "
+                connection.query(sql,function(error,rows){
 
-        });
+                    if(error){
+                        callback(error);
+                    }
+                    else{
+
+
+                        let todasPreguntas=[]
+                        console.log(rows.length);
+                        rows.forEach(element => {
+                            if(todasPreguntas.every(function(t){
+                                return(t.id!==element.user_id)
+                            })){
+                                todasPreguntas.push({idUser:element.user,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,tags:[]})
+                            }
+                        })
+
+
+                       /* rows.forEach(function(el){
+                            todasPreguntas.forEach(function(fila){
+                                if(el.IDPREGUNTA_FK === fila.id){
+                                    fila.tags.push({nombre:el.NOMBRE,etiqueta_id:el.etiquetas_id});
+                                }
+                            })
+                        })*/
+                        console.log(todasPreguntas);
+                        callback(null,todasPreguntas);
+
+                    }
+
+                })
+                connection.release();
+            }
+        })
 
     }
+
 
 }
 
