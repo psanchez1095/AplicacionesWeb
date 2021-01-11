@@ -76,6 +76,19 @@ h1:hover{
 #divPreguntas{
     height: 33.3%;
 }
+#divPreguntas>a{
+    margin-left: 4%;
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-top: 10%;
+    margin-left: 2%;
+    border-radius: 11%;
+    font-weight: bold;
+    text-decoration: none;
+}
 #divUsuarios{
     height: 33.3%;
 }
