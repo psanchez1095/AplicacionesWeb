@@ -211,7 +211,7 @@ class ModelQuestions {
 
     }
 
-    addQuestion(question_title,question_text, callBack) {
+    addQuestion(question_title,question_text,user_id, callBack) {
 
         this.pool.getConnection(function (err, connection) {
 
@@ -219,8 +219,8 @@ class ModelQuestions {
                 callBack(new Error("Error de conexión a la base de datos."), null);
             } else {
                 connection.query(
-                    "INSERT INTO questions (title,text) VALUES (?,?)",
-                    [question_title,question_text],
+                    "INSERT INTO questions (title,user_id,text) VALUES (?,?,?)",
+                    [question_title,user_id,question_text],
                     function (err, result) {
 
                         connection.release(); // Liberamos la conexion
