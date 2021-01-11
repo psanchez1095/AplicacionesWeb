@@ -26,6 +26,16 @@ CREATE TABLE answers (
     FOREIGN KEY (question_id) REFERENCES questions(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+CREATE TABLE tags (
+    id integer,
+    question_id integer,
+    text varchar(300),
+    FOREIGN KEY (question_id) REFERENCES questions(id),
+    PRIMARY KEY (id)
+)
+ALTER TABLE tags
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1
 ALTER TABLE questions
   ADD `question_like` INT NOT NULL DEFAULT '0' AFTER `Text`;
 

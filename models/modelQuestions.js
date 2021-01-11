@@ -5,6 +5,92 @@ class ModelQuestions {
     constructor(pool) {
         this.pool = pool;
     }
+    addQuestion(question_title,question_text,tags,user_id, callBack) {
+
+        this.pool.getConnection(function (err, connection) {
+
+            if (err) {
+                callBack(new Error("Error de conexión a la base de datos."), null);
+            } else {
+                connection.query(
+                    "INSERT INTO questions (title,user_id,text) VALUES (?,?,?)",
+                    [question_title,user_id,question_text],
+                    function (err, result) {
+
+                        if (err) {
+                            callBack(new Error("Error al insertar la pregunta en la bases de datos."));
+                        } else {
+                            var idQuestion = result.insertId;
+                            console.log(idQuestion);
+                            connection.query(
+                                "INSERT INTO tags (question_id,text) VALUES (?,?)",
+                                [idQuestion,tags],
+                                function (err, result) {
+
+                                    connection.release(); // Liberamos la conexion
+                                    if (err) {
+                                        callBack(new Error("Error al insertar la etiqueta en la bases de datos."));
+                                    } else {
+                                        callBack(null, result.insertId);
+                                    }
+
+                                });
+                        }
+
+                    });
+
+            }
+
+        });
+
+
+    }
+
+    getQuestions(callback){
+        this.pool.getConnection(function(err,connection){
+            if(err){
+                callback(err);
+            }
+            else{
+                var sql = "SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,e.text as etext from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id "
+                connection.query(sql,function(error,rows){
+
+                    if(error){
+                        callback(error);
+                    }
+                    else{
+
+
+                        let todasPreguntas=[]
+                        console.log(rows.length);
+                        rows.forEach(element => {
+                            if(todasPreguntas.every(function(t){
+                                return(t.id!==element.user_id)
+                            })){
+                                todasPreguntas.push({idUser:element.user,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,tags:element.etext})
+                            }
+                        })
+
+
+                        /* rows.forEach(function(el){
+                             todasPreguntas.forEach(function(fila){
+                                 if(el.IDPREGUNTA_FK === fila.id){
+                                     fila.tags.push({nombre:el.NOMBRE,etiqueta_id:el.etiquetas_id});
+                                 }
+                             })
+                         })*/
+                        console.log(todasPreguntas);
+                        callback(null,todasPreguntas);
+
+                    }
+
+                })
+                connection.release();
+            }
+        })
+
+    }
+
 
     getAllTasks(email, callback) {
         this.pool.getConnection(function (err, connection) {
@@ -211,32 +297,6 @@ class ModelQuestions {
 
     }
 
-    addQuestion(question_title,question_text,user_id, callBack) {
-
-        this.pool.getConnection(function (err, connection) {
-
-            if (err) {
-                callBack(new Error("Error de conexión a la base de datos."), null);
-            } else {
-                connection.query(
-                    "INSERT INTO questions (title,user_id,text) VALUES (?,?,?)",
-                    [question_title,user_id,question_text],
-                    function (err, result) {
-
-                        connection.release(); // Liberamos la conexion
-                        if (err) {
-                            callBack(new Error("Error al insertar la pregunta en la bases de datos."));
-                        } else {
-                            callBack(null, result.insertId);
-                        }
-
-                    });
-
-            }
-
-        });
-
-    }
 
     addAnswer(answer, callBack) {
 
@@ -265,50 +325,6 @@ class ModelQuestions {
 
     }
 
-    getQuestions(callback){
-        this.pool.getConnection(function(err,connection){
-            if(err){
-                callback(err);
-            }
-            else{
-                var sql = "SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.user_id,p.title,p.text from users u INNER join questions p on u.id = p.user_id "
-                connection.query(sql,function(error,rows){
-
-                    if(error){
-                        callback(error);
-                    }
-                    else{
-
-
-                        let todasPreguntas=[]
-                        console.log(rows.length);
-                        rows.forEach(element => {
-                            if(todasPreguntas.every(function(t){
-                                return(t.id!==element.user_id)
-                            })){
-                                todasPreguntas.push({idUser:element.user,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,tags:[]})
-                            }
-                        })
-
-
-                       /* rows.forEach(function(el){
-                            todasPreguntas.forEach(function(fila){
-                                if(el.IDPREGUNTA_FK === fila.id){
-                                    fila.tags.push({nombre:el.NOMBRE,etiqueta_id:el.etiquetas_id});
-                                }
-                            })
-                        })*/
-                        console.log(todasPreguntas);
-                        callback(null,todasPreguntas);
-
-                    }
-
-                })
-                connection.release();
-            }
-        })
-
-    }
 
 
 }

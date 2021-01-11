@@ -30,7 +30,7 @@ function showRandomQuestions(request, response, next) {
 }
 function addQuestion(request, response, next) {
 
-    daoModelQuestion.addQuestion(request.body.title,request.body.text, request.session.user.id ,function (err, question) {
+    daoModelQuestion.addQuestion(request.body.title,request.body.text,request.body.tags, request.session.user.id ,function (err, question) {
 
         if (err) {
             next(err);

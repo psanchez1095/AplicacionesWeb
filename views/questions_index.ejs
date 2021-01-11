@@ -51,6 +51,12 @@
             <div class = "nuevaPregunta" >
                 <span><%=question.title%></span>
                 <p class="texto"><%=question.text%></p>
+                <% if (question.tags==undefined) { %>
+                <tag>Sin Etiquetas</tag>
+                <%} else { %>
+                <tag><%=question.tags%></tag>
+                <% } %>
+
             </div>
             <div class = "nuevaPreguntaUsuario" >
                 <span>Formulada el 16/07/2019</span>
