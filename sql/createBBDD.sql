@@ -2,7 +2,8 @@ CREATE TABLE users
 (id integer,
 email varchar(30),
 user_password varchar(30),
-user_img mediumblob,
+user_img varchar(1000),
+cuatrozerocuatro_name varchar(100),
 PRIMARY KEY (ID));
 ALTER TABLE users
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
@@ -10,9 +11,11 @@ ALTER TABLE users
 CREATE TABLE questions
 (id integer,
 title varchar(30),
+user_id integer,
 tags varchar(30),
-text varchar(300),
-PRIMARY KEY (ID));
+text varchar(300)
+FOREIGN KEY (user_id) REFERENCES users(id),
+PRIMARY KEY (id));
 ALTER TABLE questions
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
@@ -31,10 +34,3 @@ CREATE TABLE medals (
     type_medal varchar(300),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
-INSERT INTO users
-VALUES ('001', 'xx@gmail.com', '123');
-INSERT INTO users
-VALUES ('002', 'xx2@gmail.com', '345');
-INSERT INTO medals
-VALUES ('001', 'Oro');
