@@ -100,14 +100,20 @@ class ModelQuestions {
 
     }
 
-    getQuestionsByText(text,modoBusqueda,callback){
-        console.log(text);
+    getQuestionsByTextTag(text,modoBusqueda,callback){
+        console.log(modoBusqueda);
         this.pool.getConnection(function(err,connection){
             if(err){
                 callback(err);
             }
             else{
-                var sql = " SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id where p.text LIKE CONCAT ('%', ?, '%') " ;
+                var sql=undefined
+                if(modoBusqueda!=undefined){
+
+                }else{
+                    sql = " SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id where p.text LIKE CONCAT ('%', ?, '%') " ;
+                }
+
                 connection.query(sql,[text],function(error,rows){
 
                     if(error){

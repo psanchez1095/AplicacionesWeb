@@ -308,15 +308,7 @@ label{
     margin-right: 1.5%;
     margin-left: 1%;
 }
-.checkbox{
-    text-decoration: none;
-    background: coral;
-    color: black;
-    border: 6px solid black;
-    font-family: 'Miriam Libre', sans-serif;
-    border-radius: 10%;
-    font-weight: bold;
-}
+
 .nuevaPreguntaUsuario{
     width: 30%;
     margin-top: 1%;

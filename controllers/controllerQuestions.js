@@ -30,7 +30,7 @@ function showRandomQuestions(request, response, next) {
 }
 function showQuestionsByText(request, response, next) {
 
-    daoModelQuestion.getQuestionsByText(request.body.textSearch ,request.body.modoBusqueda,function (err, questionList) {
+    daoModelQuestion.getQuestionsByTextTag(request.body.textSearch ,request.body.modoBusqueda,function (err, questionList) {
 
         if (err) {
             next(err);
