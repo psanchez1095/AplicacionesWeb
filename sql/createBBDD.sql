@@ -12,8 +12,8 @@ CREATE TABLE questions
 (id integer,
 title varchar(30),
 user_id integer,
-tags varchar(30),
-text varchar(300)
+text varchar(300),
+fecha date,
 FOREIGN KEY (user_id) REFERENCES users(id),
 PRIMARY KEY (id));
 ALTER TABLE questions

@@ -12,29 +12,41 @@ class ModelQuestions {
             if (err) {
                 callBack(new Error("Error de conexión a la base de datos."), null);
             } else {
+                var date;
+                date = new Date();
+                date = date.getUTCFullYear() + '-' +
+                    ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
+                    ('00' + date.getUTCDate()).slice(-2) + ' ' +
+                    ('00' + date.getUTCHours()).slice(-2) + ':' +
+                    ('00' + date.getUTCMinutes()).slice(-2) + ':' +
+                console.log(date);
                 connection.query(
-                    "INSERT INTO questions (title,user_id,text) VALUES (?,?,?)",
-                    [question_title,user_id,question_text],
+                    "INSERT INTO questions (title,user_id,text,fecha) VALUES (?,?,?,?)",
+                    [question_title,user_id,question_text,date],
                     function (err, result) {
 
                         if (err) {
                             callBack(new Error("Error al insertar la pregunta en la bases de datos."));
                         } else {
                             var idQuestion = result.insertId;
-                            console.log(idQuestion);
-                            connection.query(
+                            let auxTags = [];
+                            let auxTag = {
+                                tags:tags.split(",")
+                            };
+                            console.log(auxTag.tags);
+                            auxTag.tags.forEach(function (tag){connection.query(
                                 "INSERT INTO tags (question_id,text) VALUES (?,?)",
-                                [idQuestion,tags],
+                                [idQuestion,tag],
                                 function (err, result) {
 
-                                    connection.release(); // Liberamos la conexion
                                     if (err) {
                                         callBack(new Error("Error al insertar la etiqueta en la bases de datos."));
                                     } else {
-                                        callBack(null, result.insertId);
+
                                     }
 
-                                });
+                                })});
+                            callBack(null, result.insertId);
                         }
 
                     });
@@ -46,13 +58,68 @@ class ModelQuestions {
 
     }
 
+    getQuestions2(callback){
+
+        this.pool.getConnection(function (err, connection) {
+            let todasPreguntas=[]
+            var x=[]
+            if (err) {
+                callback(new Error("Error de conexión a la base de datos."), null);
+            } else {
+                connection.query(
+                    "SELECT DISTINCT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha from users u INNER join questions p on u.id = p.user_id",
+                    function (err, result) {
+
+                        if (err) {
+                            callback(new Error("Error al insertar la pregunta en la bases de datos."));
+                        } else {
+
+                            result.forEach(element => {
+                                if(todasPreguntas.every(function(t){
+                                    return(t.id!==element.id)
+                                })){
+                                    todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags2:[]})
+                                }
+                            })
+
+                            todasPreguntas.forEach(function (tag){connection.query(
+                                "SELECT * from tags",
+                                function (err, result) {
+
+                                    if (err) {
+                                        callback(new Error("Error al insertar la etiqueta en la bases de datos."));
+                                    } else {
+
+                                        result.forEach(function(el){
+                                            todasPreguntas.forEach(function(fila){
+                                                if(el.question_id === fila.idp){
+
+                                                    fila.tags2.push(el.text);
+                                                }
+                                            })
+                                        })
+                                    }
+
+
+                                })});
+                            connection.release();
+                            callback(null, todasPreguntas);
+                        }
+
+                    });
+
+            }
+
+        });
+
+    }
     getQuestions(callback){
         this.pool.getConnection(function(err,connection){
             if(err){
                 callback(err);
             }
             else{
-                var sql = "SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,e.text as etext from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id "
+                var sql = "SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id "
                 connection.query(sql,function(error,rows){
 
                     if(error){
@@ -62,24 +129,20 @@ class ModelQuestions {
 
 
                         let todasPreguntas=[]
-                        console.log(rows.length);
                         rows.forEach(element => {
                             if(todasPreguntas.every(function(t){
-                                return(t.id!==element.user_id)
+                                return(t.idp!==element.id)
                             })){
-                                todasPreguntas.push({idUser:element.user,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,tags:element.etext})
+                                todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags2:[]})
                             }
                         })
-
-
-                        /* rows.forEach(function(el){
-                             todasPreguntas.forEach(function(fila){
-                                 if(el.IDPREGUNTA_FK === fila.id){
-                                     fila.tags.push({nombre:el.NOMBRE,etiqueta_id:el.etiquetas_id});
-                                 }
-                             })
-                         })*/
-                        console.log(todasPreguntas);
+                        rows.forEach(el=>{
+                            todasPreguntas.forEach(fila=> {
+                                if(el.question_id === fila.idp){
+                                    fila.tags2.push({text:el.textTag,tag_id:el.tagId});
+                                }
+                            })
+                        })
                         callback(null,todasPreguntas);
 
                     }

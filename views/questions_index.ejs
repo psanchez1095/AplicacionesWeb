@@ -51,22 +51,28 @@
             <div class = "nuevaPregunta" >
                 <span><%=question.title%></span>
                 <p class="texto"><%=question.text%></p>
-                <% if (question.tags==undefined) { %>
+
+                <% if (question.tags2==undefined){ %>
                 <tag>Sin Etiquetas</tag>
                 <%} else { %>
-                <tag><%=question.tags%></tag>
-                <% } %>
+                    <% question.tags2.forEach(tag => { %>
+                <tag> <%= tag.text %> </tag>
+                        <% });%>
+                <%} %>
+
 
             </div>
             <div class = "nuevaPreguntaUsuario" >
-                <span>Formulada el 16/07/2019</span>
+                <div><%=question.fecha%></div>
                 <span2><img class="imagenUsuario "src="/usuarios/ShowProfileImageById/<%=question.idQuestion%>"></span2><br>
                 <tag><%=question.cuatrozerocuatro_name%></tag>
             </div>
 
         </div>
+        <% });%>
+
     </div>
-        <% })%>
+
 
 
 
