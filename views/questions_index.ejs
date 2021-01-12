@@ -31,11 +31,13 @@
 </header>
 
 <main class="search">
-    <form form action="" method="get" id="formulario">
-            <span id="buscarFormInput"> <input type="button" value="Buscar" id="searchButton">
-                 <label for="searchButton"> <span>Buscar</span> <img src="/img/lupa.png" ></label></span>
-        <span id="textoSearchFormInput "><input type="text" placeholder="Buscar por titulo/cuerpo de pregunta" id="textForm"/></span>
-
+    <form form  action="/preguntas/QuestionByText"  method="post"id="formulario">
+            <span id="buscarFormInput"> <input type="submit" value="Buscar" id="searchButton">
+                 <label for="searchButton"> <span>Buscar</span> <img src="/img/lupa.png" ></label>
+            </span>
+        <span id="textoSearchFormInput "><input type="text" name="textSearch"  placeholder="Buscar por titulo/cuerpo de pregunta" id="textForm" required></span>
+        <span><input class="checkbox" id="checkbox"type="checkbox" name ="modoBusqueda" value="Buscar por Tag"></span>
+        <label for="checkbox"> <span class="checkbox">Buscar Por Tag</span></label>
     </form>
 </main>
 <main id="contenido">
@@ -52,10 +54,10 @@
                 <span><%=question.title%></span>
                 <p class="texto"><%=question.text%></p>
 
-                <% if (question.tags2==undefined){ %>
+                <% if (question.tags==undefined){ %>
                 <tag>Sin Etiquetas</tag>
                 <%} else { %>
-                    <% question.tags2.forEach(tag => { %>
+                    <% question.tags.forEach(tag => { %>
                 <tag> <%= tag.text %> </tag>
                         <% });%>
                 <%} %>
@@ -63,9 +65,9 @@
 
             </div>
             <div class = "nuevaPreguntaUsuario" >
-                <div><%=question.fecha%></div>
+                <div class="fecha"><%=question.fecha%></div>
                 <span2><img class="imagenUsuario "src="/usuarios/ShowProfileImageById/<%=question.idQuestion%>"></span2><br>
-                <tag><%=question.cuatrozerocuatro_name%></tag>
+                <div class="cuatrozerocuatroname"><%=question.cuatrozerocuatro_name%></div>
             </div>
 
         </div>

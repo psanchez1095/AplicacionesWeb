@@ -58,61 +58,7 @@ class ModelQuestions {
 
     }
 
-    getQuestions2(callback){
 
-        this.pool.getConnection(function (err, connection) {
-            let todasPreguntas=[]
-            var x=[]
-            if (err) {
-                callback(new Error("Error de conexión a la base de datos."), null);
-            } else {
-                connection.query(
-                    "SELECT DISTINCT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha from users u INNER join questions p on u.id = p.user_id",
-                    function (err, result) {
-
-                        if (err) {
-                            callback(new Error("Error al insertar la pregunta en la bases de datos."));
-                        } else {
-
-                            result.forEach(element => {
-                                if(todasPreguntas.every(function(t){
-                                    return(t.id!==element.id)
-                                })){
-                                    todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags2:[]})
-                                }
-                            })
-
-                            todasPreguntas.forEach(function (tag){connection.query(
-                                "SELECT * from tags",
-                                function (err, result) {
-
-                                    if (err) {
-                                        callback(new Error("Error al insertar la etiqueta en la bases de datos."));
-                                    } else {
-
-                                        result.forEach(function(el){
-                                            todasPreguntas.forEach(function(fila){
-                                                if(el.question_id === fila.idp){
-
-                                                    fila.tags2.push(el.text);
-                                                }
-                                            })
-                                        })
-                                    }
-
-
-                                })});
-                            connection.release();
-                            callback(null, todasPreguntas);
-                        }
-
-                    });
-
-            }
-
-        });
-
-    }
     getQuestions(callback){
         this.pool.getConnection(function(err,connection){
             if(err){
@@ -133,13 +79,55 @@ class ModelQuestions {
                             if(todasPreguntas.every(function(t){
                                 return(t.idp!==element.id)
                             })){
-                                todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags2:[]})
+                                todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags:[]})
                             }
                         })
                         rows.forEach(el=>{
                             todasPreguntas.forEach(fila=> {
                                 if(el.question_id === fila.idp){
-                                    fila.tags2.push({text:el.textTag,tag_id:el.tagId});
+                                    fila.tags.push({text:el.textTag,tag_id:el.tagId});
+                                }
+                            })
+                        })
+                        callback(null,todasPreguntas);
+
+                    }
+
+                })
+                connection.release();
+            }
+        })
+
+    }
+
+    getQuestionsByText(text,modoBusqueda,callback){
+        console.log(text);
+        this.pool.getConnection(function(err,connection){
+            if(err){
+                callback(err);
+            }
+            else{
+                var sql = " SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id where p.text LIKE CONCAT ('%', ?, '%') " ;
+                connection.query(sql,[text],function(error,rows){
+
+                    if(error){
+                        callback(error);
+                    }
+                    else{
+
+
+                        let todasPreguntas=[]
+                        rows.forEach(element => {
+                            if(todasPreguntas.every(function(t){
+                                return(t.idp!==element.id)
+                            })){
+                                todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags:[]})
+                            }
+                        })
+                        rows.forEach(el=>{
+                            todasPreguntas.forEach(fila=> {
+                                if(el.question_id === fila.idp){
+                                    fila.tags.push({text:el.textTag,tag_id:el.tagId});
                                 }
                             })
                         })

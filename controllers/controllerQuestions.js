@@ -28,6 +28,20 @@ function showRandomQuestions(request, response, next) {
     });
 
 }
+function showQuestionsByText(request, response, next) {
+
+    daoModelQuestion.getQuestionsByText(request.body.textSearch ,request.body.modoBusqueda,function (err, questionList) {
+
+        if (err) {
+            next(err);
+        } else {
+            response.status(200);
+            response.render("questions_index", { questions: questionList });
+        }
+
+    });
+
+}
 function addQuestion(request, response, next) {
 
     daoModelQuestion.addQuestion(request.body.title,request.body.text,request.body.tags, request.session.user.id ,function (err, question) {
@@ -220,6 +234,7 @@ module.exports = {
     showRandomQuestions: showRandomQuestions,
     showQuestion_basic: showQuestion_basic,
     addQuestion: addQuestion,
+    showQuestionsByText:showQuestionsByText
 };
 
 
