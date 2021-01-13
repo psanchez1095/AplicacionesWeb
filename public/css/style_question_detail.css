@@ -135,14 +135,23 @@ h1:hover{
     font-weight: bold;
 }
 #botonDesconectar{
-    width: 25%;
-    margin-left: 76%;
+    width: 30%;
     background: black;
     color: white;
+    margin-left: 1%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-left: 75%;
+    border-radius: 11%;
+    font-weight: bold;
 }
 
 #botonDesconectar:hover{
-    color: white;
+    color: red;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    text-decoration: none;
 }
 
 #imgPerfil{
@@ -151,6 +160,7 @@ h1:hover{
     border-radius: 45%;
     margin-bottom: 1%;
     margin-top: 1%;
+    width: 65px; height: 65px;
 }
 
 #imgPerfil:hover{
@@ -258,16 +268,36 @@ label{
     background: black;
     color: coral;
 }
+
+.textoPregunta{
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    background: white;
+    border: 6px solid white;
+    border-radius:20%;
+    margin-top: 3%;
+
+}
+#divPreguntas>a{
+    margin-left: 4%;
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    margin-top: 10%;
+    margin-left: 2%;
+    border-radius: 11%;
+    font-weight: bold;
+    text-decoration: none;
+}
 #tituloContenido{
-    font-size: 22px;
-    margin-left: 20%;
+    text-align: center;
+    font-size : 24px;
+    font-weight: bold;
 }
-#contenido>span{
 
-    margin-left: 33%;
-    font-size: 28px;
-
-}
 
 #votosPregunta{
     padding: 0.1%;

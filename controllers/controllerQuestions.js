@@ -28,7 +28,7 @@ function showRandomQuestions(request, response, next) {
     });
 
 }
-function showQuestionsByText(request, response, next) {
+function showQuestionsByTextTag(request, response, next) {
 
     daoModelQuestion.getQuestionsByTextTag(request.body.textSearch ,request.body.modoBusqueda,function (err, questionList) {
 
@@ -56,15 +56,29 @@ function addQuestion(request, response, next) {
     });
 
 }
-function showQuestion_basic(request, response, next) {
+function addAnswer(request, response, next) {
 
-    daoModelQuestion.getQuestion(request.params.id,function (err, question) {
+    daoModelQuestion.addAnswer( request.body.answer,request.body.question_id,request.session.user.id ,function (err, question) {
 
         if (err) {
             next(err);
         } else {
             response.status(200);
-            response.render("questions_index", { questions: question });
+            response.redirect("/preguntas/QuestionIndex");
+        }
+
+    });
+}
+
+function showQuestion_basic(request, response, next) {
+
+    daoModelQuestion.getQuestion(request.body.question_id,function (err, question) {
+
+        if (err) {
+            next(err);
+        } else {
+            response.status(200);
+            response.render("question_detail", { questions: question });
         }
 
     });
@@ -136,57 +150,6 @@ function mostrarContestarPreguntaPorUnoMismo(request, response, next) {
 
 }
 
-function addAnswer(request, response, next) {
-
-    // Si la respuesta ya existe.
-    if (request.body.respuesta != -1) {
-
-        daoModelQuestion.addAnswerMyself(request.session.usuario.Id, request.body.Id_pregunta, request.body.respuesta, function (err) {
-
-            if (err) {
-                next(err);
-            } else {
-                response.status(200);
-                response.setFlash("¡Tu respuesta ha sido añadida!");
-                response.redirect("/preguntas/RandomQuestions");
-            }
-
-        });
-
-    } else { // Si hemos creado una nueva respuesta.
-
-        if(request.body.texto.trim() != "") {
-
-            daoModelQuestion.addAnswers([[request.body.title, request.body.text]], function (err, Id_respuesta) {
-
-                if (err) {
-                    next(err);
-                } else {
-
-                    daoModelQuestion.addAnswerMyself(request.session.usuario.id, request.body.title, Id_respuesta, function (err) {
-
-                        if (err) {
-                            next(err);
-                        } else {
-                            response.status(200);
-                            response.redirect("/preguntas/RandomQuestions");
-                        }
-
-                    });
-
-                }
-
-            });
-
-        } else {
-            response.status(200);
-            response.setFlash("* Este campo no puede quedar vacío cuando es seleccionado.");
-            response.redirect(`/preguntas/AnswerMySelf/${request.body.Id_pregunta}`);
-        }
-
-    }
-
-}
 
 function showCreateQuestion(request, response, next) {
     response.status(200);
@@ -234,7 +197,7 @@ module.exports = {
     showRandomQuestions: showRandomQuestions,
     showQuestion_basic: showQuestion_basic,
     addQuestion: addQuestion,
-    showQuestionsByText:showQuestionsByText
+    showQuestionsByTextTag:showQuestionsByTextTag
 };
 
 

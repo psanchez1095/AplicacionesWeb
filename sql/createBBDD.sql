@@ -14,6 +14,8 @@ title varchar(30),
 user_id integer,
 text varchar(300),
 fecha date,
+visitas integer,
+    votos integer,
 FOREIGN KEY (user_id) REFERENCES users(id),
 PRIMARY KEY (id));
 ALTER TABLE questions
@@ -23,6 +25,7 @@ CREATE TABLE answers (
     Question_id int NOT NULL PRIMARY KEY,
     user_id int NOT NULL,
     text varchar(300),
+       votos integer,
     FOREIGN KEY (question_id) REFERENCES questions(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );

@@ -101,7 +101,6 @@ class ModelQuestions {
     }
 
     getQuestionsByTextTag(text,modoBusqueda,callback){
-        console.log(modoBusqueda);
         this.pool.getConnection(function(err,connection){
             if(err){
                 callback(err);
@@ -109,12 +108,12 @@ class ModelQuestions {
             else{
                 var sql=undefined
                 if(modoBusqueda!=undefined){
-
+                    sql = " SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id where e.text LIKE CONCAT ('%', ?, '%') " ;
                 }else{
                     sql = " SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id where p.text LIKE CONCAT ('%', ?, '%') " ;
                 }
-
                 connection.query(sql,[text],function(error,rows){
+
 
                     if(error){
                         callback(error);
@@ -130,6 +129,7 @@ class ModelQuestions {
                                 todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags:[]})
                             }
                         })
+
                         rows.forEach(el=>{
                             todasPreguntas.forEach(fila=> {
                                 if(el.question_id === fila.idp){
@@ -137,6 +137,7 @@ class ModelQuestions {
                                 }
                             })
                         })
+
                         callback(null,todasPreguntas);
 
                     }
@@ -298,7 +299,7 @@ class ModelQuestions {
 
     }
     getQuestion(Id_Pregunta, callBack){
-
+        console.log(Id_Pregunta);
         this.pool.getConnection(function (err, connection) {
             if (err) {
                 callBack(new Error("Error de conexión a la base de datos."), null);
@@ -355,8 +356,8 @@ class ModelQuestions {
     }
 
 
-    addAnswer(answer, callBack) {
-
+    addAnswer(answer,idPregunta,idUser, callBack) {
+        console.log(idPregunta,idUser);
         this.pool.getConnection(function (err, connection) {
 
             if (err) {
@@ -364,8 +365,8 @@ class ModelQuestions {
             } else {
 
                 connection.query(
-                    "INSERT INTO answers (Question_id,text) VALUES ?",
-                    [answer],
+                    "INSERT INTO answers (  Question_id,user_id,text) VALUES (?,?,?)",
+                    [idPregunta,idUser,answer],
                     function (err, result) {
 
                         connection.release(); // Liberamos la conexion

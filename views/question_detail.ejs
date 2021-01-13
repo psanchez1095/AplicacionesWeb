@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Question Detail</title>
     <link rel="stylesheet" href="/css/style_question_detail.css" media="screen">
-    <link rel="icon"  type="/img/jpg" href="public/img/favicon.ico">
+    <link rel="icon"  type="/img/jpg" href="/img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header id="encabezado">
     <div class="columna">
-        <div id="divPreguntas"><input type="button" value="Preguntas" id="botonPreguntas"></div>
+        <div id="divPreguntas"><a href="/preguntas/QuestionIndex/" id="botonPreguntas">Preguntas</a></div>
         <div id="divSinResponder"><input type="button" value="Sin responder" id="botonSinResponder"></div>
         <div id="divUsuarios"><input type="button" value="Usuarios" id="botonUsuarios"></div>
     </div>
@@ -23,34 +23,37 @@
         </div>
     </div>
     <div class="columna">
-        <div id="divImgPerfil"><img src="public/img/user1.png" id="imgPerfil"></div>
-        <div id="divNombrePerfil"><span>User_001</span></div>
-        <div id="divDesconectar"><input type="button" value="Cerrar Sesion" id="botonDesconectar"></div>
+        <div id="divImgPerfil"><img src="/usuarios/ShowProfileImage/<%=user.email%>" id="imgPerfil"></div>
+        <div id="divNombrePerfil"><span ><%=user.cuatrozerocuatro_name%></span></div>
+        <div id="divDesconectar"><a href ="/usuarios/LogOut" id="botonDesconectar">Cerrar Sesion</a></div>
     </div>
 </header>
 
 <main class="search">
     <form form action="" method="get" id="formulario">
             <span id="buscarFormInput"> <input type="button" value="Buscar" id="searchButton">
-                 <label for="searchButton"> <span>Buscar</span> <img src="public/img/lupa.png" ></label></span>
+                 <label for="searchButton"> <span>Buscar</span> <img src="/img/lupa.png" ></label></span>
         <span id="textoSearchFormInput "><input type="text" placeholder="Buscar por titulo/cuerpo de pregunta" id="textForm"/></span>
 
     </form>
 </main>
 <main id="contenido">
-    <form form action="" method="get" id="formularioCreateQuestion">
-        <div id="tituloContenido"> ¿Se puede usar jQuery y javascript a la vez? </div>
-        <div id="votosPregunta">5 votos</div>
-        <span>Titulo</span>
-        <div id="formTextTitulo"><input type="text" name="" id="textoFormCorreo"></div>
-        <span>Cuerpo</span>
-        <div id="formTextCuerpo"><input type="text" name="" id="textoFormCuerpo"></div>
-        <span>Etiquetas</span>
-        <div id="formTextConfirmarContraseña"><input type="text" name="" id="textoFormConfirmarContraseña"></div>
 
-        <div id="formTextPublicarRespuesta"><input type="button" value="Formular Pregunta" id="publicarButton"></div>
+        <div id="tituloContenido"> <%=questions.title%></div>
+        <div id="votosPregunta">5 votos</div>
+        <div class="textoPregunta"><span><%=questions.text%></span></div>
+
+
+
+    <form action="/preguntas/AddAnswer" method="POST" id="formularioCreateQuestion">
+        <input type="hidden" name="question_id" value="<%=questions.id%>">
+        <span>Respuesta</span>
+        <div id="formTextCuerpo"><input placeholder="CuatroZeroCuatro vigila las respuestas, por una comunidad sana"  type="text" name="answer" id="textoFormCuerpo" required></div>
+
+        <div id="formTextPublicarRespuesta"><input type="submit" value="Formular Respuesta" id="publicarButton"></div>
 
     </form>
+
 </main>
 
 <footer>
