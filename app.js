@@ -73,7 +73,7 @@ app.use(function(request, response, next) {
 //Crea el objeto session dentro del objeto request.
 app.use(middlewareSession);
 
-//Middleware body-parser para acceder a las variables del cuerpo de la peticion (request.body.<var>).
+//Middleware body-parser para acceder a las variables del cuerpo de la peticion (request.body)
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //Router que gestiona las rutas que no requieren que el usuario haya iniciado sesion.
@@ -106,5 +106,11 @@ app.listen(config.port, function (err) {
         console.log(`Servidor arrancado en el puerto ${config.port}`);
     }
 
+});
+
+// Middleware para el control del error 404 (recurso no encontrado).
+app.use(function(request, response, next) {
+    response.status(404);
+    response.render("404", { urlNotFound: request.url });
 });
 
