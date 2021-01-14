@@ -1,20 +1,20 @@
 "use strict";
 
-// Modulos de Node.js
+//node modules
 const path = require("path");
 const express = require("express");
 const multer = require("multer");
 
-// Modulos propios.
+//Modulos propios de la app
 const controllerQuestions = require("../controllers/controllerQuestions");
 
-// Declaramos el Router "RouterUsuarios"
+//RouterQuestions
 const routerQuestions = express.Router();
 
-// MulterFactory para poder trabajar con file/s (archivos de imagen)
+//MulterFactory para poder trabajar con archivos(imagenes)
 const multerFactory = multer({ dest: path.join("public","img") });
 
-// Definimos los manejadores de rutas del router Users
+//Definimos las rutas del  del routerQuestions
 routerQuestions.get("/QuestionIndex", controllerQuestions.showRandomQuestions);
 
 routerQuestions.get("/QuestionWithoutAnswer", controllerQuestions.showQuestionsWithoutAnswers);

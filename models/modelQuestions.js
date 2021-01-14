@@ -31,21 +31,27 @@ class ModelQuestions {
                             var idQuestion = result.insertId;
                             let auxTags = [];
                             let auxTag = {
-                                tags:tags.split(",")
+                                tags:tags.split("@",5)
+
                             };
                             console.log(auxTag.tags);
-                            auxTag.tags.forEach(function (tag){connection.query(
-                                "INSERT INTO tags (question_id,text) VALUES (?,?)",
-                                [idQuestion,tag],
-                                function (err, result) {
+                            auxTag.tags.forEach(function (tag){
 
-                                    if (err) {
-                                        callBack(new Error("Error al insertar la etiqueta en la bases de datos."));
-                                    } else {
+                                if(tag!="") {
+                                    connection.query(
+                                        "INSERT INTO tags (question_id,text) VALUES (?,?)",
+                                        [idQuestion, tag],
+                                        function (err, result) {
 
-                                    }
+                                            if (err) {
+                                                callBack(new Error("Error al insertar la etiqueta en la bases de datos."));
+                                            } else {
 
-                                })});
+                                            }
+
+                                        })
+                                }
+                                });
                             callBack(null, result.insertId);
                         }
 

@@ -1,14 +1,9 @@
 //Grupo 21
-//          Joel  Garcia Aparicio
 //          Pedro Sánchez Escribano
+//          Joel  Garcia Aparicio
 "use strict";
-//  Modulos propios
 
-//  Configuracion de la conexion a la base de datos y puerto de escucha del serrvidor.
-const config = require("./config");
-const DAOUser = require("./models/modelUsers");
-
-//  Modulos de node
+//node modules
 const mysql = require("mysql");
 const path = require("path");
 const express = require("express");
@@ -17,10 +12,15 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const mysqlSession = require("express-mysql-session");
 
+//404 Modules
+//Configuración del puerto y conexion de la BBDD
+const config = require("./config");
+
 //Routers CuatroZeroCuatroApp.
 const routerPreSLogin = require("./routers/routerPreLogin");
 const routerUsers = require("./routers/routerUsers");
 const routerQuestions = require("./routers/routerQuestions")
+
 //Express.
 const app = express();
 
@@ -28,7 +28,7 @@ const app = express();
 const mysqlStore = mysqlSession(session);
 const sessionStore = new mysqlStore(config.mysqlConfig);
 
-//El modulo de morgan devuelve un middleware que muestra por consola las peticiones tanto GET COMO POST
+//Morgan es un middleware que muestra por consola las peticiones tanto GET COMO POST en ejecución
 app.use(morgan("dev"));
 
 //Objeto de sesion de usuario.
@@ -51,9 +51,6 @@ app.use(express.static(fEstaticos));
 
 //Middleware para el uso de los mensajes Flash.
 app.use(function(request, response, next) {
-
-    // Podemos acceder a los mensajes flash a partir del objeto response en la cadena de middlewares
-    // SetFlash hace un set del mensaje dentro del a sesion del usuario
 
     response.setFlash = function(message) {
         request.session.flashMsg = message;
@@ -82,18 +79,17 @@ app.use("/usuarios", routerPreSLogin);
 //Middleware de control de sesion.
 app.use(function (request, response, next) {
 
-    if (request.session.user !== undefined) {
-
+    if (request.session.user !== undefined){
         response.locals.user= request.session.user;
         next();
-    } else {
+    }else {
         response.status(200);
         response.render("index", {errorMsg: "Identifíquese para continuar."});
     }
 
 });
 
-//Routers que gestionan rutas que requieren que el usuario este validado.
+//Router que administran rutas con el usuarios ya logueado
 app.use("/usuarios", routerUsers);
 app.use("/preguntas", routerQuestions);
 
@@ -115,9 +111,9 @@ app.use(function(request, response, next) {
 });
 
 //Middleware para el control de errores , en concreto el error 500 que se da cuando ocurre un error interno de la app
-app.use(function(request, response, next) {
+app.use(function(error, response, next) {
     response.status(500);
-    response.render("500", { msgText: request.message });
+    response.render("500", { msgText: error.message });
 });
 
 

@@ -1,20 +1,20 @@
 "use strict";
 
-// Modulos de Node.js
+//node modules
 const path = require("path");
 const express = require("express");
 const multer = require("multer");
 
-// Modulos propios.
+//Modulos propios de la app
 const controllerUsers = require("../controllers/controllerUsers");
 
-// Declaramos el Router "RouterUsuarios"
+//RouterUsers
 const routerUsers = express.Router();
 
-// MulterFactory para poder trabajar con file/s (archivos de imagen)
+//MulterFactory para poder trabajar con archivos(imagenes)
 const multerFactory = multer({ dest: path.join("public","img") });
 
-// Definimos los manejadores de rutas del router Users
+//Definimos las rutas del routerUsers
 
 routerUsers.get("/ShowProfileImage/:email", controllerUsers.cargarImagenDePerfil);
 
