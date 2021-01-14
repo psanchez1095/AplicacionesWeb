@@ -42,7 +42,7 @@
 <main id="contenido">
 
         <div id="tituloContenido"> <%=questions[0].title%></div>
-        <div id="votosPregunta">5 votos</div>
+        <div id="votosPregunta">0 votos</div>
         <div class="textoPregunta"><span><%=questions[0].text%></span></div>
 
             <div id="mainContenido">
@@ -56,8 +56,8 @@
     <%} %>
     <form action="/preguntas/AddAnswer" method="POST" id="formularioCreateQuestion">
         <input type="hidden" name="question_id" value="<%=questions[0].idp%>">
-        <span>Nueva Respuesta</span>
-        <div id="formTextCuerpo"><input placeholder="CuatroZeroCuatro vigila las respuestas, por una comunidad sana"  type="text" name="answer" id="textoFormCuerpo" required></div>
+        <div id="nuevarespuesta" >Nueva Respuesta</div>
+        <div id="textoRespuesta"><input placeholder="CuatroZeroCuatro vigila las respuestas, por una comunidad sana"  type="text" name="answer" id="textoFormCuerpo" required></div>
 
         <div id="formTextPublicarRespuesta"><input type="submit" value="Formular Respuesta" id="publicarButton"></div>
 

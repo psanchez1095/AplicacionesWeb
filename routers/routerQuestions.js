@@ -21,7 +21,7 @@ routerQuestions.get("/QuestionWithoutAnswer", controllerQuestions.showQuestionsW
 
 routerQuestions.post("/QuestionByTextOrTag", controllerQuestions.showQuestionsByTextTag);
 
-routerQuestions.get("/ShowCreateQuestion", controllerQuestions.showCreateQuestion); // lleva a la vista
+routerQuestions.get("/ShowCreateQuestion", controllerQuestions.showCreateQuestion);
 
 routerQuestions.post("/ShowQuestion", controllerQuestions.showQuestion_basic);
 

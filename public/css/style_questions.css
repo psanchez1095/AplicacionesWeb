@@ -301,7 +301,7 @@ label{
 .nuevaPregunta{
     width: 70%;
     max-width: 70%;
-    margin-top: 1%;
+    margin-top: 3%;
     background-color: white;
     border-radius: 11%;
     margin-right: 1.5%;
@@ -368,7 +368,8 @@ label{
 
 }
 .newQuestion{
-    height: 200px;
+    min-height: 200px;
+    max-height: 300px;
     display: flex;
 }
 .columnaHead{

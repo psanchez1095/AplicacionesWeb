@@ -89,6 +89,7 @@ h1:hover{
     margin-left: 2%;
     border-radius: 11%;
     font-weight: bold;
+    text-decoration: none;
 }
 .columna>div> span{
     font-weight: bold;
@@ -125,6 +126,12 @@ h1:hover{
     margin-left: 2%;
     border-radius: 11%;
     font-weight: bold;
+    text-decoration: none;
+}
+#divNombrePerfil{
+    margin-right: 2%;
+    margin-bottom: 5%;
+
 }
 .columna>div> span{
     font-weight: bold;
@@ -304,7 +311,7 @@ label{
     width:100%
 }
 .nuevaPregunta{
-    margin-top: 1%;
+    margin-top: 5%;
     background-color: white;
     border-radius: 11%;
     margin-right: 1.5%;

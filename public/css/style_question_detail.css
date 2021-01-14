@@ -314,6 +314,28 @@ label{
     background: black;
     color: coral;
 }
+#nuevarespuesta{
+    font-size: 23px;
+    text-align: center;
+}
+#textoRespuesta{
+    width:80%;
+
+}
+#formularioCreateQuestion{
+    margin-top: 6%;
+}
+#textoFormCuerpo{
+    width: 40%;
+    float: right;
+    background: coral;
+    color: black;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 5%;
+    font-weight: bold;
+    text-align: center;
+}
 
 .textoPregunta{
     margin-left: 15%;
@@ -325,19 +347,23 @@ label{
     margin-top: 3%;
 
 }.textoRespuesta{
+     padding:2% ;
      margin-left: 15%;
      margin-right: 15%;
-     text-align: center;
-     background: black;
-     border: 6px solid white;
+     max-height: 280px;
+     overflow-x: scroll;
+     text-align: justify;
+     background: coral;
+     border: 6px solid black;
      border-radius:15%;
      margin-top: 3%;
-     color: white;
+     color: black;
 
 
  }
 .marginTop{
     margin-top: 3%;
+    text-align: center;
 }
 #tituloContenido{
     text-align: center;

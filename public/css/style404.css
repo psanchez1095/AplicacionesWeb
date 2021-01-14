@@ -300,6 +300,22 @@ label:hover {
     text-align: center;
 
 }
+.div500error{;
+    background: whitesmoke;
+    border: 3px solid black;
+    padding: 3%;
+    border-radius: 25%;
+    text-align: center;
+    width: 1000px;
+    margin-right: 30%;
+
+}
+.div500error>span{
+
+    width: 200px;
+
+
+}
 .divErrorInterno{
     background: black;
     border: 3px solid black;

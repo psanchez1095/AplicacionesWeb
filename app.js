@@ -111,10 +111,12 @@ app.use(function(request, response, next) {
 });
 
 //Middleware para el control de errores , en concreto el error 500 que se da cuando ocurre un error interno de la app
-app.use(function(error, response, next) {
-    response.status(500);
-    response.render("500", { msgText: error.message });
+
+app.use(function (err, req, res, next) {
+    res.status(500);
+    res.render("500", { msgText: err.message , pila: err.stack });
 });
+
 
 
 

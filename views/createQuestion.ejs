@@ -12,8 +12,8 @@
 <header id="encabezado">
     <div class="columna">
         <div id="divPreguntas"><a href="/preguntas/QuestionIndex/" id="botonPreguntas">Preguntas</a></div>
-        <div id="divSinResponder"><input type="button" value="Sin responder" id="botonSinResponder"></div>
-        <div id="divUsuarios"><input type="button" value="Usuarios" id="botonUsuarios"></div>
+        <div id="divSinResponder"><a href="/" id="botonPreguntas">Sin Responder</a></div>
+        <div id="divUsuarios"><a href="/preguntas/QuestionWithoutAnswer/" id="botonPreguntas">Usuarios</a></div>
     </div>
     <div class="columna">
         <div id="titulo">
@@ -30,11 +30,13 @@
 </header>
 
 <main class="search">
-    <form form action="" method="get" id="formulario">
-            <span id="buscarFormInput"> <input type="button" value="Buscar" id="searchButton">
-                 <label for="searchButton"> <span>Buscar</span> <img src="/img/lupa.png" ></label></span>
-        <span id="textoSearchFormInput "><input type="text" placeholder="Buscar por titulo/cuerpo de pregunta" id="textForm"/></span>
-
+    <form form  action="/preguntas/QuestionByTextOrTag"  method="post"id="formulario">
+            <span id="buscarFormInput"> <input type="submit" value="Buscar" id="searchButton">
+                 <label for="searchButton"> <span>Buscar</span> <img src="/img/lupa.png" ></label>
+            </span>
+        <span id="textoSearchFormInput "><input type="text" name="textSearch"  placeholder="Buscar por titulo/cuerpo de pregunta" id="textForm" required></span>
+        <span><input class="checkbox" id="checkbox"type="checkbox" name ="modoBusqueda" value="Buscar por Tag"></span>
+        <label for="checkbox"> <span class="checkbox">Buscar Por Tag</span></label>
     </form>
 </main>
 <main id="contenido">
