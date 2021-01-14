@@ -231,6 +231,7 @@ label{
     background: wheat;
     position: absolute;
     width: 750px;
+
     top: 179px;
     margin-left:20%;
     font-family: 'Miriam Libre', sans-serif;
@@ -278,6 +279,20 @@ label{
     border-radius:20%;
     margin-top: 3%;
 
+}.textoRespuesta{
+     margin-left: 15%;
+     margin-right: 15%;
+     text-align: center;
+     background: black;
+     border: 6px solid white;
+     border-radius:15%;
+     margin-top: 3%;
+     color: white;
+
+
+ }
+.marginTop{
+    margin-top: 3%;
 }
 #divPreguntas>a{
     margin-left: 4%;
@@ -334,6 +349,8 @@ label{
 }
 
 #mainContenido{
+    min-height: 370px;
+    max-height: 370px;
     overflow-y: scroll;
     background: whitesmoke;
     margin-top: 3%;

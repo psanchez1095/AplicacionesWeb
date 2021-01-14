@@ -85,7 +85,7 @@ class ModelQuestions {
                         rows.forEach(el=>{
                             todasPreguntas.forEach(fila=> {
                                 if(el.question_id === fila.idp){
-                                    fila.tags.push({text:el.textTag,tag_id:el.tagId});
+                                    fila.tags.push(el.textTag);
                                 }
                             })
                         })
@@ -101,44 +101,49 @@ class ModelQuestions {
     }
 
     getQuestionsByTextTag(text,modoBusqueda,callback){
+
         this.pool.getConnection(function(err,connection){
             if(err){
                 callback(err);
             }
             else{
-                var sql=undefined
+                var sql=undefined;
+
                 if(modoBusqueda!=undefined){
-                    sql = " SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id where e.text LIKE CONCAT ('%', ?, '%') " ;
+                    sql = " SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id " ;
                 }else{
-                    sql = " SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id where p.text LIKE CONCAT ('%', ?, '%') " ;
+                    sql = " SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id where p.text LIKE CONCAT ('%', ?, '%')  or  p.title LIKE CONCAT ('%', ?, '%')" ;
                 }
-                connection.query(sql,[text],function(error,rows){
+
+                connection.query(sql,[text,text],function(error,rows){
 
 
                     if(error){
                         callback(error);
                     }
                     else{
-
-
-                        let todasPreguntas=[]
+                        let listQuestions=[]
                         rows.forEach(element => {
-                            if(todasPreguntas.every(function(t){
+                            if(listQuestions.every(function(t){
                                 return(t.idp!==element.id)
                             })){
-                                todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags:[]})
+                                listQuestions.push(
+                                    {idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags:[]})
                             }
                         })
 
                         rows.forEach(el=>{
-                            todasPreguntas.forEach(fila=> {
+                            listQuestions.forEach(fila=> {
                                 if(el.question_id === fila.idp){
-                                    fila.tags.push({text:el.textTag,tag_id:el.tagId});
+                                    fila.tags.push(el.textTag);
                                 }
                             })
                         })
+                        console.log(listQuestions);
 
-                        callback(null,todasPreguntas);
+
+
+                        callback(null,listQuestions);
 
                     }
 
@@ -149,6 +154,82 @@ class ModelQuestions {
 
     }
 
+    getQuestion(Id_Pregunta, callBack){
+        console.log(Id_Pregunta);
+        this.pool.getConnection(function (err, connection) {
+            if (err) {
+                callBack(new Error("Error de conexión a la base de datos."), null);
+            }
+            else{
+                connection.query(
+                    /*SELECT p.id,p.user_id,p.title,p.text,a.id as answer_id ,a.user_id AS answer_user_id,a.text,DATE_FORMAT(p.fecha, '%d/%m/%y')AS fecha from questions p INNER join answers a on p.id = a.Question_id*/
+                    "SELECT a.text as answerText, p.id,p.user_id,p.title,p.text as perro ,a.Question_id,a.id as answer_id ,a.user_id AS answer_user_id,a.text,DATE_FORMAT(p.fecha, '%d/%m/%y')AS fecha  from questions p  INNER join  answers a on p.id = a.Question_id  and Question_id = ? ",
+                    [Id_Pregunta],
+                    function (err, result) {
+
+                        connection.release(); // Liberamos la conexion
+
+                        if (err) {
+                            callBack(new Error("Error al insertar la pregunta en la bases de datos."), null);
+                        } else {
+                            let todasPreguntas=[]
+                            result.forEach(element => {
+                                if(todasPreguntas.every(function(t){
+                                    return (t.idp !== result.id)
+                                })){
+                                        todasPreguntas.push({idp:element.id,id_question_answer:element.Question_id,title:element.title,text:element.perro,fecha:element.fecha,answers:[]})
+                                    }
+                                })
+
+
+
+                            result.forEach(el=>{
+                                todasPreguntas.forEach(fila=> {
+
+                                    if(el.Question_id=== fila.idp){
+                                        fila.answers.push({text:el.answerText,a_id:el.answer_id});
+                                    }
+                                })
+                            })
+
+                            console.log(todasPreguntas);
+                            callBack(null,todasPreguntas);
+
+                        }
+
+                    });
+
+            }
+
+        });
+    }
+
+    addAnswer(answer,idPregunta,idUser, callBack) {
+
+        this.pool.getConnection(function (err, connection) {
+
+            if (err) {
+                callBack(new Error("Error de conexión a la base de datos."), null);
+            } else {
+
+                connection.query(
+                    "INSERT INTO answers (  Question_id,user_id,text) VALUES (?,?,?)",
+                    [idPregunta,idUser,answer],
+                    function (err, result) {
+
+                        connection.release(); // Liberamos la conexion
+
+                        if (err) {
+                            callBack(new Error("Error al insertar la pregunta en la bases de datos."), null);
+                        } else {
+                            callBack(null, result.insertId);
+                        }
+
+                    });
+            }
+        });
+
+    }
 
     getAllTasks(email, callback) {
         this.pool.getConnection(function (err, connection) {
@@ -298,92 +379,6 @@ class ModelQuestions {
         });
 
     }
-    getQuestion(Id_Pregunta, callBack){
-        console.log(Id_Pregunta);
-        this.pool.getConnection(function (err, connection) {
-            if (err) {
-                callBack(new Error("Error de conexión a la base de datos."), null);
-            }
-            else{
-                connection.query(
-                    "SELECT * FROM questions WHERE Id = ?",
-                    [Id_Pregunta],
-                    function (err, result) {
-
-                        connection.release(); // Liberamos la conexion
-
-                        if (err) {
-                            callBack(new Error("Error al insertar la pregunta en la bases de datos."), null);
-                        } else {
-                            callBack(null,result[0]);
-                        }
-
-                    });
-
-            }
-
-        });
-    }
-
-
-    getAnswersForQuestion(Id_pregunta, callBack) {
-
-        this.pool.getConnection(function (err, connection) {
-
-            if (err) {
-                callBack(new Error("Error de conexión a la base de datos."), null);
-            } else {
-
-                connection.query(
-                    "SELECT * FROM answers WHERE Question_id = ?",
-                    [Id_pregunta],
-                    function (err, result) {
-
-                        connection.release(); // Liberamos la conexion
-
-                        if (err) {
-                            callBack(new Error("Error al extraer respuestas de una pregunta."), null);
-                        } else {
-                            callBack(null,result);
-                        }
-
-                    });
-
-            }
-
-        });
-
-    }
-
-
-    addAnswer(answer,idPregunta,idUser, callBack) {
-        console.log(idPregunta,idUser);
-        this.pool.getConnection(function (err, connection) {
-
-            if (err) {
-                callBack(new Error("Error de conexión a la base de datos."), null);
-            } else {
-
-                connection.query(
-                    "INSERT INTO answers (  Question_id,user_id,text) VALUES (?,?,?)",
-                    [idPregunta,idUser,answer],
-                    function (err, result) {
-
-                        connection.release(); // Liberamos la conexion
-
-                        if (err) {
-                            callBack(new Error("Error al insertar la pregunta en la bases de datos."), null);
-                        } else {
-                            callBack(null, result.insertId);
-                        }
-
-                    });
-            }
-        });
-
-    }
-
-
 
 }
 

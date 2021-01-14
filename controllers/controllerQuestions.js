@@ -35,6 +35,15 @@ function showQuestionsByTextTag(request, response, next) {
         if (err) {
             next(err);
         } else {
+            console.log(request.body.textSearch);
+            if(request.body.modoBusqueda !== undefined) {
+                questionList = questionList.filter(element => {
+                        return element.tags.includes(request.body.textSearch);
+
+                    });
+                console.log(questionList);
+
+            }
             response.status(200);
             response.render("questions_index", { questions: questionList });
         }
@@ -72,7 +81,7 @@ function addAnswer(request, response, next) {
 
 function showQuestion_basic(request, response, next) {
 
-    daoModelQuestion.getQuestion(request.body.question_id,function (err, question) {
+    daoModelQuestion.getQuestion(request.body.idnecesario,function (err, question) {
 
         if (err) {
             next(err);

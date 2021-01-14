@@ -47,6 +47,9 @@
         <a id="botonFormularPregunta" href="/preguntas/ShowCreateQuestion"  id="botonFormularPregunta">Formular Pregunta</a>
     </div>
     <div id="mainContenido">
+
+
+
         <% questions.forEach(question => { %>
 
         <div class="newQuestion">
@@ -58,13 +61,12 @@
                 <tag>Sin Etiquetas</tag>
                 <%} else { %>
                     <% question.tags.forEach(tag => { %>
-                <tag> <%= tag.text %> </tag>
+                <tag> <%= tag %> </tag>
                         <% });%>
                 <%} %>
-
                 <form action="/preguntas/ShowQuestion" method="POST">
-                    <input type="hidden" name="question_id" value="<%=question.idp%>">
-                <input type="submit" id="botonFormularPregunta" value="Ir a la Pregunta">
+                    <input type="hidden" name="idnecesario" value=<%=question.idp%>>
+                    <input type="submit" id="botonFormularPregunta" value="Ir a la Pregunta">
                 </form>
             </div>
             <div class = "nuevaPreguntaUsuario" >
