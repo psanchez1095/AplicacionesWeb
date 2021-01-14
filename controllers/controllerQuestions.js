@@ -36,6 +36,13 @@ function showQuestionsWithoutAnswers(request, response, next) {
         if (err) {
             next(err);
         } else {
+            questionList = questionList.filter(element => {
+                if(element.answers[0]  === null){
+                    return element;
+                }
+
+            });
+
             response.status(200);
             response.render("questions_index", { questions: questionList });
         }

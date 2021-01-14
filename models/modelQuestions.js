@@ -106,7 +106,7 @@ class ModelQuestions {
                 callback(err);
             }
             else{
-                var sql = "SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id "
+                var sql = "SELECT u.id as user,u.cuatrozerocuatro_name,u.user_img,p.id,p.user_id,p.title,p.text,DATE_FORMAT(p.fecha, '%d/%m/%y') AS fecha , e.id as tagId ,e.text as textTag,e.question_id,a.text as anstext from users u INNER join questions p on u.id = p.user_id LEFT JOIN tags e on e.question_id = p.id LEFT JOIN answers a on a.question_id = p.id  "
                 connection.query(sql,function(error,rows){
 
                     if(error){
@@ -120,13 +120,14 @@ class ModelQuestions {
                             if(todasPreguntas.every(function(t){
                                 return(t.idp!==element.id)
                             })){
-                                todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags:[]})
+                                todasPreguntas.push({idUser:element.user,idp:element.id,idQuestion:element.user_id,title:element.title,text:element.text,cuatrozerocuatro_name:element.cuatrozerocuatro_name,imagen:element.user_img,fecha:element.fecha,tags:[],answers:[]})
                             }
                         })
                         rows.forEach(el=>{
                             todasPreguntas.forEach(fila=> {
                                 if(el.question_id === fila.idp){
                                     fila.tags.push(el.textTag);
+                                    fila.answers.push(el.anstext);
                                 }
                             })
                         })

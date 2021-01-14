@@ -108,9 +108,17 @@ app.listen(config.port, function (err) {
 
 });
 
-// Middleware para el control del error 404 (recurso no encontrado).
+//Middleware para el control de errores , en concreto el error 404 que se da cuando no se encuentra el recurso.
 app.use(function(request, response, next) {
     response.status(404);
     response.render("404", { urlNotFound: request.url });
 });
+
+//Middleware para el control de errores , en concreto el error 500 que se da cuando ocurre un error interno de la app
+app.use(function(request, response, next) {
+    response.status(500);
+    response.render("500", { msgText: request.message });
+});
+
+
 
