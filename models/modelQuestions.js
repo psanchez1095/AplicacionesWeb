@@ -155,7 +155,7 @@ class ModelQuestions {
     }
 
     getQuestion(Id_Pregunta, callBack){
-        console.log(Id_Pregunta);
+
         this.pool.getConnection(function (err, connection) {
             if (err) {
                 callBack(new Error("Error de conexión a la base de datos."), null);
@@ -163,7 +163,7 @@ class ModelQuestions {
             else{
                 connection.query(
                     /*SELECT p.id,p.user_id,p.title,p.text,a.id as answer_id ,a.user_id AS answer_user_id,a.text,DATE_FORMAT(p.fecha, '%d/%m/%y')AS fecha from questions p INNER join answers a on p.id = a.Question_id*/
-                    "SELECT a.text as answerText, p.id,p.user_id,p.title,p.text as perro ,a.Question_id,a.id as answer_id ,a.user_id AS answer_user_id,a.text,DATE_FORMAT(p.fecha, '%d/%m/%y')AS fecha  from questions p  INNER join  answers a on p.id = a.Question_id  and Question_id = ? ",
+                    "SELECT a.text as answerText, p.id,p.user_id,p.title,p.text as perro ,a.Question_id,a.id as answer_id ,a.user_id AS answer_user_id,a.text,DATE_FORMAT(p.fecha, '%d/%m/%y')AS fecha  from questions p  left join  answers a on p.id = a.Question_id  and Question_id = ? ",
                     [Id_Pregunta],
                     function (err, result) {
 
@@ -191,8 +191,6 @@ class ModelQuestions {
                                     }
                                 })
                             })
-
-                            console.log(todasPreguntas);
                             callBack(null,todasPreguntas);
 
                         }

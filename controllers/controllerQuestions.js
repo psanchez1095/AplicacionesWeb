@@ -65,6 +65,7 @@ function addQuestion(request, response, next) {
     });
 
 }
+
 function addAnswer(request, response, next) {
 
     daoModelQuestion.addAnswer( request.body.answer,request.body.question_id,request.session.user.id ,function (err, question) {
@@ -86,122 +87,29 @@ function showQuestion_basic(request, response, next) {
         if (err) {
             next(err);
         } else {
+
+            question = question.filter(element => {
+                    if(element.idp  == request.body.idnecesario){
+                        return element;
+                    }
+            });
+
             response.status(200);
             response.render("question_detail", { questions: question });
-        }
-
-    });
-
-}
-
-
-
-
-function showQuestion_extended(request, response, next) {
-
-    daoModelQuestion.getQuestion(request.params.id, function (err, preguntaObtenida) {
-
-        if (err) {
-            next(err);
-        }
-        else {
-
-            daoModelQuestion.preguntaRespondida(request.session.usuario.Id, request.params.id, function (err, estacontestada) {
-
-                if (err) {
-                    next(err);
-                } else {
-
-                    oModeloCuestiones.obtenerAmigosQueHanRespondidoPregunta(request.session.usuario.Id, request.params.id, function (err, listaAmigos) {
-
-                        if (err) {
-                            next(err);
-                        } else {
-
-                            response.status(200);
-                            response.render("VistaDePregunta", { amigos: listaAmigos, pregunta: preguntaObtenida, contestada: estacontestada });
-
-                        }
-
-                    });
-
-                }
-
-            });
-        }
-
-    });
-
-}
-
-function mostrarContestarPreguntaPorUnoMismo(request, response, next) {
-
-    oModeloCuestiones.obtenerPregunta(request.params.id, function (err, pregunta) {
-
-        if (err) {
-            next(err);
-        } else {
-
-            oModeloCuestiones.obtenerRespuestasDeUnaPregunta(request.params.id, function (err, listaRespuestas) {
-
-                if (err) {
-                    next(err);
-                } else {
-                    response.status(200);
-                    response.render("ResponderUnaPreguntaParaSiMismo", { pregunta: pregunta, respuestas: listaRespuestas });
-                }
-
-            });
 
         }
 
     });
 
 }
-
 
 function showCreateQuestion(request, response, next) {
     response.status(200);
     response.render("createQuestion");
 }
 
-function insertarPreguntaRespuesta(request, response, next) {
-
-    oModeloCuestiones.insertarPregunta(request.body.pregunta, function (err, Id_pregunta) {
-
-        if (err) {
-            next(err);
-        }
-        else {
-
-            let respuestas = [];
-            respuestas.push([Id_pregunta, request.body.respuesta0]);
-            respuestas.push([Id_pregunta, request.body.respuesta1]);
-            respuestas.push([Id_pregunta, request.body.respuesta2]);
-            respuestas.push([Id_pregunta, request.body.respuesta3]);
-
-            oModeloCuestiones.insertarRespuestas(respuestas, function (err, Id_respuesta) {
-
-                if (err) {
-                    next(err);
-                } else {
-                    response.status(200);
-                    response.setFlash("¡Se ha añadido tu pregunta!");
-                    response.redirect("/cuestiones/ListadoAleatorioDePreguntas");
-                }
-
-            });
-
-        }
-
-    });
-
-
-}
-
 module.exports = {
     addAnswer: addAnswer,
-    mostrarContestarPreguntaPorUnoMismo: mostrarContestarPreguntaPorUnoMismo,
     showCreateQuestion: showCreateQuestion,
     showRandomQuestions: showRandomQuestions,
     showQuestion_basic: showQuestion_basic,
