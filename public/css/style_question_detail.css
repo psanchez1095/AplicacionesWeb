@@ -31,6 +31,10 @@ body{
     width: 33%;
     float: left;
 }
+.columna2{
+    width: 33%;
+    float: left;
+}
 
 #titulo {
     float: left;
@@ -68,15 +72,57 @@ h1:hover{
 /********CABECERA-BOTONES**********/
 #divPreguntas{
     height: 33.3%;
+    margin-top :4%;
 }
+#divPreguntas>a{
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 11%;
+    font-weight: bold;
+    text-decoration: none;
+
+    margin-left: 2%;
+}
+
 #divUsuarios{
     height: 33.3%;
 }
 #divSinResponder{
     height: 33.3%;
 }
+#divSinResponder>a{
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 11%;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 2%;
+}
+#divUsuarios>input{
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 11%;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 2%;
+}
+
 #divDesconectar{
     margin-top: -1%;
+}
+#divNombrePerfil{
+    margin-right: 4%;
+    margin-bottom: 5%;
+
 }
 .columna>div> input{
     margin-left: 1%;
@@ -114,17 +160,19 @@ h1:hover{
     border-radius: 11%;
     font-weight: bold;
 }
+
 .columna>div> span{
     font-weight: bold;
     font-family: 'Miriam Libre', sans-serif;
-    margin-left: 79%;
+    margin-left: 80%;
     background: black;
     color: white;
+    width: 111%;
     border-radius: 11%;
     border: 6px solid black;
+    height: 10%;
 
 }
-
 .columna>div> input:hover{
     background: black;
     color: coral; font-family: 'Miriam Libre', sans-serif;
@@ -178,7 +226,7 @@ h1:hover{
 /*******SEARCH*****************/
 .search{
     position: fixed;
-    margin-top: 141px;
+    margin-top: 145px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -231,7 +279,6 @@ label{
     background: wheat;
     position: absolute;
     width: 750px;
-
     top: 179px;
     margin-left:20%;
     font-family: 'Miriam Libre', sans-serif;
@@ -293,19 +340,6 @@ label{
  }
 .marginTop{
     margin-top: 3%;
-}
-#divPreguntas>a{
-    margin-left: 4%;
-    background: coral;
-    color: black;
-    width: 40%;
-    border: 6px solid black;
-    font-family: 'Miriam Libre', sans-serif;
-    margin-top: 10%;
-    margin-left: 2%;
-    border-radius: 11%;
-    font-weight: bold;
-    text-decoration: none;
 }
 #tituloContenido{
     text-align: center;

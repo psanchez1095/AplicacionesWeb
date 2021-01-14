@@ -17,13 +17,13 @@ const multerFactory = multer({ dest: path.join("public","img") });
 // Definimos los manejadores de rutas del router Users
 routerQuestions.get("/QuestionIndex", controllerQuestions.showRandomQuestions);
 
+routerQuestions.get("/QuestionWithoutAnswer", controllerQuestions.showQuestionsWithoutAnswers);
+
 routerQuestions.post("/QuestionByTextOrTag", controllerQuestions.showQuestionsByTextTag);
 
 routerQuestions.get("/ShowCreateQuestion", controllerQuestions.showCreateQuestion); // lleva a la vista
 
 routerQuestions.post("/ShowQuestion", controllerQuestions.showQuestion_basic);
-
-routerQuestions.get("/AnswerMySelf/:id", controllerQuestions.mostrarContestarPreguntaPorUnoMismo);
 
 routerQuestions.post("/AddAnswer", controllerQuestions.addAnswer);
 

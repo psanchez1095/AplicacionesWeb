@@ -67,19 +67,18 @@ h1:hover{
 }
 
 /********CABECERA-BOTONES**********/
+/********CABECERA-BOTONES**********/
 #divPreguntas{
+    margin-top :4%;
+    margin-left: 2%;
     height: 33.3%;
-    margin-top: 5%;
 }
 #divPreguntas>a{
-    margin-left: 4%;
     background: coral;
     color: black;
     width: 40%;
     border: 6px solid black;
     font-family: 'Miriam Libre', sans-serif;
-    margin-top: 10%;
-    margin-left: 2%;
     border-radius: 11%;
     font-weight: bold;
     text-decoration: none;
@@ -88,8 +87,20 @@ h1:hover{
     height: 33.3%;
 }
 #divSinResponder{
+    margin-left: 2%;
     height: 33.3%;
 }
+#divSinResponder>a{
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 11%;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 #divDesconectar{
     margin-top: -1%;
 }
@@ -97,8 +108,10 @@ h1:hover{
     margin-left: 81%;
 }
 #divNombrePerfil{
+    margin-right: 5%;
     margin-bottom: 3%;
 }
+
 .columna>div> input{
     margin-left: 1%;
     background: coral;
@@ -106,32 +119,6 @@ h1:hover{
     width: 40%;
     border: 6px solid black;
     font-family: 'Miriam Libre', sans-serif;
-    margin-top: 3%;
-    margin-left: 2%;
-    border-radius: 11%;
-    font-weight: bold;
-}
-
-.columna>div> span{
-    font-weight: bold;
-    font-family: 'Miriam Libre', sans-serif;
-    margin-left: 80%;
-    background: black;
-    color: white;
-    width: 111%;
-    border-radius: 11%;
-    border: 6px solid black;
-    height: 10%;
-
-}
-.columna>div> input{
-    margin-left: 1%;
-    background: coral;
-    color: black;
-    width: 40%;
-    border: 6px solid black;
-    font-family: 'Miriam Libre', sans-serif;
-    margin-top: 1%;
     margin-left: 2%;
     border-radius: 11%;
     font-weight: bold;

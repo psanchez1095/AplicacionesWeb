@@ -74,17 +74,16 @@ h1:hover{
 
 /********CABECERA-BOTONES**********/
 #divPreguntas{
+    margin-top :4%;
+    margin-left: 2%;
     height: 33.3%;
 }
 #divPreguntas>a{
-    margin-left: 4%;
     background: coral;
     color: black;
     width: 40%;
     border: 6px solid black;
     font-family: 'Miriam Libre', sans-serif;
-    margin-top: 10%;
-    margin-left: 2%;
     border-radius: 11%;
     font-weight: bold;
     text-decoration: none;
@@ -93,7 +92,18 @@ h1:hover{
     height: 33.3%;
 }
 #divSinResponder{
+    margin-left: 2%;
     height: 33.3%;
+}
+#divSinResponder>a{
+    background: coral;
+    color: black;
+    width: 40%;
+    border: 6px solid black;
+    font-family: 'Miriam Libre', sans-serif;
+    border-radius: 11%;
+    font-weight: bold;
+    text-decoration: none;
 }
 #divDesconectar{
     margin-top: -1%;
@@ -105,7 +115,6 @@ h1:hover{
     width: 40%;
     border: 6px solid black;
     font-family: 'Miriam Libre', sans-serif;
-    margin-top: 3%;
     margin-left: 2%;
     border-radius: 11%;
     font-weight: bold;
@@ -122,18 +131,7 @@ h1:hover{
     height: 10%;
 
 }
-.columna>div> input{
-    margin-left: 1%;
-    background: coral;
-    color: black;
-    width: 40%;
-    border: 6px solid black;
-    font-family: 'Miriam Libre', sans-serif;
-    margin-top: 3%;
-    margin-left: 2%;
-    border-radius: 11%;
-    font-weight: bold;
-}
+
 .columna>div> span{
     font-weight: bold;
     font-family: 'Miriam Libre', sans-serif;
@@ -197,7 +195,7 @@ h1:hover{
 .search{
 
     position: fixed;
-    margin-top: 141px;
+    margin-top: 150px;
     width: 100%;
     display: flex;
     flex-direction: column;

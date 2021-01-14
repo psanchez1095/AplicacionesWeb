@@ -28,6 +28,21 @@ function showRandomQuestions(request, response, next) {
     });
 
 }
+
+function showQuestionsWithoutAnswers(request, response, next) {
+
+    daoModelQuestion.getQuestionsWithoutAnswers(function (err, questionList) {
+
+        if (err) {
+            next(err);
+        } else {
+            response.status(200);
+            response.render("questions_index", { questions: questionList });
+        }
+
+    });
+
+}
 function showQuestionsByTextTag(request, response, next) {
 
     daoModelQuestion.getQuestionsByTextTag(request.body.textSearch ,request.body.modoBusqueda,function (err, questionList) {
@@ -109,12 +124,19 @@ function showCreateQuestion(request, response, next) {
 }
 
 module.exports = {
-    addAnswer: addAnswer,
     showCreateQuestion: showCreateQuestion,
     showRandomQuestions: showRandomQuestions,
+    showQuestionsByTextTag:showQuestionsByTextTag,
+    showQuestionsWithoutAnswers :showQuestionsWithoutAnswers,
     showQuestion_basic: showQuestion_basic,
     addQuestion: addQuestion,
-    showQuestionsByTextTag:showQuestionsByTextTag
+    addAnswer: addAnswer,
+
+
+
+
+
+
 };
 
 
