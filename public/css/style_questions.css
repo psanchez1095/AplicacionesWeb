@@ -278,6 +278,7 @@ label{
     border: 6px solid black;
 }
 #botonFormularPregunta{
+    margin-top: 3%;
     text-decoration: none;
     width: 40%;
     float: right;

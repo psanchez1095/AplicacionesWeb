@@ -41,7 +41,17 @@
     </form>
 </main>
 <main id="contenido">
-    <span id="tituloContenido">Todas Las Preguntas</span>
+        <% if (model=="index"){ %>
+        <span id="tituloContenido">Todas Las Preguntas</span>
+        <%} else if(model==="sinresponder"){ %>
+        <span id="tituloContenido">Preguntas Sin Respuesta</span>
+        <%}else if(model==="buscar"){ %>
+                <span id="tituloContenido">Preguntas Filtradas</span>
+            <%} %>
+
+
+
+
     <div id = "cabeceraContenido">
         <span><%=questions.length%> preguntas</span>
         <a id="botonFormularPregunta" href="/preguntas/ShowCreateQuestion"  id="botonFormularPregunta">Formular Pregunta</a>

@@ -22,7 +22,8 @@ function showRandomQuestions(request, response, next) {
             next(err);
         } else {
             response.status(200);
-            response.render("questions_index", { questions: questionList });
+            var modo="index";
+            response.render("questions_index", { questions: questionList,model: modo });
         }
 
     });
@@ -44,7 +45,8 @@ function showQuestionsWithoutAnswers(request, response, next) {
             });
 
             response.status(200);
-            response.render("questions_index", { questions: questionList });
+            var modo="sinresponder";
+            response.render("questions_index", { questions: questionList , model: modo });
         }
 
     });
@@ -67,7 +69,8 @@ function showQuestionsByTextTag(request, response, next) {
 
             }
             response.status(200);
-            response.render("questions_index", { questions: questionList });
+            var modo="buscar";
+            response.render("questions_index", { questions: questionList , model: modo });
         }
 
     });
