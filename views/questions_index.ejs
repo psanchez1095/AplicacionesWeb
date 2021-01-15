@@ -61,8 +61,8 @@
         <div class="newQuestion">
             <div class = "nuevaPregunta"  >
                 <span><%=question.title%></span>
-                <% if (question.text.length > 300){ %>
-                <%question.text = question.text.slice(0,300);%>
+                <% if (question.text.length > 150){ %>
+                <%question.text = question.text.slice(0,150);%>
                 <%}%>
                 <p class="texto" ><%=question.text%></p>
                 <% if (question.tags==undefined){ %>

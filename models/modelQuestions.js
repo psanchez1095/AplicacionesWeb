@@ -19,7 +19,7 @@ class ModelQuestions {
                     ('00' + date.getUTCDate()).slice(-2) + ' ' +
                     ('00' + date.getUTCHours()).slice(-2) + ':' +
                     ('00' + date.getUTCMinutes()).slice(-2) + ':' +
-                console.log(date);
+
                 connection.query(
                     "INSERT INTO questions (title,user_id,text,fecha) VALUES (?,?,?,?)",
                     [question_title,user_id,question_text,date],
@@ -31,10 +31,9 @@ class ModelQuestions {
                             var idQuestion = result.insertId;
                             let auxTags = [];
                             let auxTag = {
-                                tags:tags.split("@",5)
+                                tags:tags.split("@",6)
 
                             };
-                            console.log(auxTag.tags);
                             auxTag.tags.forEach(function (tag){
 
                                 if(tag!="") {
@@ -75,7 +74,7 @@ class ModelQuestions {
                 connection.query(sql,function(error,rows){
 
                     if(error){
-                        callback(error);
+                        callback(new Error("Error al recoger todas las preguntas de la bases de datos."), null);
                     }
                     else{
 
@@ -116,7 +115,7 @@ class ModelQuestions {
                 connection.query(sql,function(error,rows){
 
                     if(error){
-                        callback(error);
+                        callback(new Error("Error al recoger la preguntas buscadas de la bases de datos."), null);
                     }
                     else{
 
@@ -167,7 +166,7 @@ class ModelQuestions {
 
 
                     if(error){
-                        callback(error);
+                        callback(new Error("Error al recoger la preguntas buscadas de la bases de datos."), null);
                     }
                     else{
                         let listQuestions=[]
@@ -187,9 +186,6 @@ class ModelQuestions {
                                 }
                             })
                         })
-                        console.log(listQuestions);
-
-
 
                         callback(null,listQuestions);
 
@@ -210,15 +206,14 @@ class ModelQuestions {
             }
             else{
                 connection.query(
-                    /*SELECT p.id,p.user_id,p.title,p.text,a.id as answer_id ,a.user_id AS answer_user_id,a.text,DATE_FORMAT(p.fecha, '%d/%m/%y')AS fecha from questions p INNER join answers a on p.id = a.Question_id*/
-                    "SELECT a.text as answerText, p.id,p.user_id,p.title,p.text as perro ,a.Question_id,a.id as answer_id ,a.user_id AS answer_user_id,a.text,DATE_FORMAT(p.fecha, '%d/%m/%y')AS fecha  from questions p  left join  answers a on p.id = a.Question_id  and Question_id = ? ",
+                    "SELECT a.text as answerText, p.id,p.user_id,p.title,p.text as perro ,a.Question_id,a.id as answer_id ,a.user_id AS answer_user_id,a.text,DATE_FORMAT(p.fecha, '%d/%m/%y')AS fecha,DATE_FORMAT(a.fecha, '%d/%m/%y')AS afecha  from questions p  left join  answers a on p.id = a.Question_id  and Question_id = ? ",
                     [Id_Pregunta],
                     function (err, result) {
 
                         connection.release(); // Liberamos la conexion
 
                         if (err) {
-                            callBack(new Error("Error al insertar la pregunta en la bases de datos."), null);
+                            callBack(new Error("Error al recoger la pregunta de la bases de datos."), null);
                         } else {
                             let todasPreguntas=[]
                             result.forEach(element => {
@@ -235,7 +230,7 @@ class ModelQuestions {
                                 todasPreguntas.forEach(fila=> {
 
                                     if(el.Question_id=== fila.idp){
-                                        fila.answers.push({text:el.answerText,a_id:el.answer_id});
+                                        fila.answers.push({text:el.answerText,a_id:el.answer_id,fecha:el.afecha});
                                     }
                                 })
                             })
@@ -257,16 +252,22 @@ class ModelQuestions {
             if (err) {
                 callBack(new Error("Error de conexión a la base de datos."), null);
             } else {
-
+                var date;
+                date = new Date();
+                date = date.getUTCFullYear() + '-' +
+                    ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
+                    ('00' + date.getUTCDate()).slice(-2) + ' ' +
+                    ('00' + date.getUTCHours()).slice(-2) + ':' +
+                    ('00' + date.getUTCMinutes()).slice(-2) + ':' +
                 connection.query(
-                    "INSERT INTO answers (  Question_id,user_id,text) VALUES (?,?,?)",
-                    [idPregunta,idUser,answer],
+                    "INSERT INTO answers (fecha,Question_id,user_id,text) VALUES (?,?,?,?)",
+                    [date,idPregunta,idUser,answer],
                     function (err, result) {
 
                         connection.release(); // Liberamos la conexion
 
                         if (err) {
-                            callBack(new Error("Error al insertar la pregunta en la bases de datos."), null);
+                            callBack(new Error("Error al insertar la respuesta en la bases de datos."), null);
                         } else {
                             callBack(null, result.insertId);
                         }

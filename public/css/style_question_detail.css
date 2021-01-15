@@ -340,17 +340,20 @@ label{
 .textoPregunta{
     margin-left: 15%;
     margin-right: 15%;
+    max-height: 165px;
+    overflow-y: scroll;
     text-align: center;
     background: white;
     border: 6px solid white;
-    border-radius:20%;
+    border-top-left-radius: 15%;
+    border-top-right-radius:15%;
+    padding: 3%;
     margin-top: 3%;
 
 }.textoRespuesta{
-     padding:2% ;
+     padding:5% ;
      margin-left: 15%;
      margin-right: 15%;
-     max-height: 280px;
      overflow-x: scroll;
      text-align: justify;
      background: coral;
