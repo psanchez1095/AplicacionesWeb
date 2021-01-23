@@ -1,33 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Question</title>
-    <link rel="stylesheet" href="/css/style_create_question.css" media="screen">
-    <link rel="icon"  type="img/jpg" href="/img/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
-</head>
-<body>
 
-<header id="encabezado">
-    <div class="columna">
-        <div id="divPreguntas"><a href="/preguntas/QuestionIndex/" id="botonPreguntas">Preguntas</a></div>
-        <div id="divSinResponder"><a href="/" id="botonPreguntas">Sin Responder</a></div>
-        <div id="divUsuarios"><a href="/preguntas/QuestionWithoutAnswer/" id="botonPreguntas">Usuarios</a></div>
-    </div>
-    <div class="columna">
-        <div id="titulo">
-            <h1>
-                FourZeroFour
-            </h1>
-        </div>
-    </div>
-    <div class="columna">
-        <div id="divImgPerfil"><img src="/usuarios/ShowProfileImage/<%=user.email%>" id="imgPerfil"></div>
-        <div id="divNombrePerfil"><span><%=user.cuatrozerocuatro_name%></span></div>
-        <div id="divDesconectar"><a href="usuarios/LogOut" type="button" id="botonDesconectar">Cerrar Sesión</a></div>
-    </div>
-</header>
+<%- include("partials/header_general") %>
 
 <main class="search">
     <form form  action="/preguntas/QuestionByTextOrTag"  method="post"id="formulario">
@@ -39,9 +13,9 @@
         <label for="checkbox"> <span class="checkbox">Buscar Por Tag</span></label>
     </form>
 </main>
-<main id="contenido">
+<main id="contenidoCreateQuestionQuestionDetail">
     <form action ="/preguntas/AddQuestion"  method="POST" id="formularioCreateQuestion">
-        <div id="tituloContenido">Formular Una Pregunta</div>
+        <div id="tituloContenidoCreateQuestion">Formular Una Pregunta</div>
         <span>Titulo</span>
         <div id="formTextTitulo"><input type="text" name="title" id="textoFormCorreo"  maxlength="30" required></div>
         <span>Cuerpo</span>

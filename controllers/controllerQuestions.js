@@ -59,13 +59,12 @@ function showQuestionsByTextTag(request, response, next) {
         if (err) {
             next(err);
         } else {
-            console.log(request.body.textSearch);
+
             if(request.body.modoBusqueda !== undefined) {
                 questionList = questionList.filter(element => {
                         return element.tags.includes(request.body.textSearch);
 
                     });
-                console.log(questionList);
 
             }
             response.status(200);

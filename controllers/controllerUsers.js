@@ -26,7 +26,7 @@ function cargarImagenDePerfil(request, response, next) {
         if (err) {
             next(err);
         } else {
-            response.sendFile(path.join(__dirname, "..", "public", "img", (nombreImagen) ? nombreImagen : "user.png"));
+            response.sendFile(path.join(__dirname, "..", "public", "img", (nombreImagen) ? nombreImagen : "user1.png"));
         }
 
     });
@@ -39,7 +39,7 @@ function cargarImagenDePerfilById(request, response, next) {
         if (err) {
             next(err);
         } else {
-            response.sendFile(path.join(__dirname, "..", "public", "img", (nombreImagen) ? nombreImagen : "user.png"));
+            response.sendFile(path.join(__dirname, "..", "public", "img", (nombreImagen) ? nombreImagen : "user1.png"));
         }
 
     });

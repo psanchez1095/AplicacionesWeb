@@ -15,6 +15,8 @@ class ModelPreLogin {
 
             else {
 
+
+
                 conexion.query("INSERT INTO users(email, user_password, user_img, cuatrozerocuatro_name) VALUES (?, ?, ?,?)",
                     [user.email, user.user_password, user.user_img,user.cuatrozerocuatro_name],
 

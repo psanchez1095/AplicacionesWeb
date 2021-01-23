@@ -1,4 +1,4 @@
-/***************BASICO*****************/
+/***************NO SE UTIILIZA PERO SERVIRA EN UN FUTURO*****************/
 
 @import url('https://fonts.googleapis.com/css2?family=Miriam+Libre&family=Xanh+Mono&display=swap');
 * {
@@ -8,7 +8,7 @@
 }
 
 body{
-    background-image: url(../img/fondo.jpg);
+    background-image: url(../../img/fondo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -35,6 +35,7 @@ body{
 
 #titulo {
     float: left;
+    position: fixed;
     font-size: 40px;
     margin-top: 25px;
     color: whitesmoke;
@@ -63,36 +64,6 @@ h1:hover{
     40%, 60% {
         transform: translate3d(4px, 0, 0);
     }
-}
-
-/***********FOOTER***************/
-footer {
-
-    text-align:center;
-    margin-bottom: 2px;
-    width: 100%;
-    height: 4%;
-    bottom:0;
-    position:fixed;
-    left:0;
-    font-family: neon;
-    color: white;
-    font-size: 0.5cm;
-    padding-bottom: 0.5%;
-    padding-top:0.5% ;
-
-}
-.licenseImg{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 75%;
-    object-fit: cover;
-    object-position: center center;
-    margin-bottom: 0.2%;
-    margin-right: 0.5%;
-    background-color:  transparent; /*Para que no haya background*/
-
 }
 
 /********CABECERA-BOTONES**********/
@@ -162,10 +133,9 @@ footer {
 
 /*******SEARCH*****************/
 .search{
-
+    position: fixed;
     margin-top: 131px;
     width: 100%;
-    height: 30px;
 }
 
 #idButton{
@@ -173,12 +143,9 @@ footer {
     height: 25px;
     float: left;
     position: fixed;
-    margin-left: 10%;
-    margin-top: 1%;
+    margin-left: 25%;
 }
-.celda{
-    margin-bottom:2%;
-}
+
 #botonBuscar{
 
     margin-left: 1%;
@@ -187,7 +154,6 @@ footer {
     width: 20%;
     border: 6px solid black;
     font-family: 'Miriam Libre', sans-serif;
-    margin-left: 2%;
     border-radius: 11%;
     font-weight: bold;
 }
@@ -199,7 +165,7 @@ footer {
 
 #searchterm{
     padding-left: 1%;
-    margin-left: 0%;
+    margin-left: 1%;
     background: white;
     color: coral;
     width: 40%;
@@ -207,61 +173,87 @@ footer {
     font-family: 'Miriam Libre', sans-serif;
     border-radius: 11%;
 }
+
 
 /********CONTENIDO***************/
 
 #contenido{
     margin-top: 20px;
     position: absolute;
-    width: 1000px;
-    top:180px;
-    margin-left:10%;
+    width: 750px;
+    height: 500px;
+    top:160px;
+    margin-left:20%;
     font-family: 'Miriam Libre', sans-serif;
     font-weight: bold;
-    background-color: papayawhip;
-    border-top-right-radius: 20%;
-    border-top-left-radius: 20%;
 }
 
-.search2{
-    margin-left:20% ;
-    width: 100%;
-    height: 30px;
-}
-
-#idButton2{
-    width: 70%;
-    height: 25px;
+.columnaHead{
+    width: 49%;
+    height: 100%;
     float: left;
-    margin-left:4.5%;
 }
-
-#botonBuscar2{
-    margin-left: 1%;
-    background-color: black;
-    color: coral;
-    width: 20%;
-    border: 6px solid black;
-    font-family: 'Miriam Libre', sans-serif;
+#infoLeft{
+    background: papayawhip;
+    border-top-left-radius:15%;
+    border-top-right-radius:15%;
+}
+#infoRigth{
     margin-left: 2%;
-    border-radius: 11%;
-    font-weight: bold;
-}
+    background: wheat;
+    border-bottom-left-radius:15%;
+    border-bottom-right-radius:15%;
 
-#botonBuscar2:hover{
-    background-color: black;
+}
+#infoRigth>div{
+    margin-top: 2%;
+
+}
+#infoRigth>div:hover{
     color: white;
+    border:none
+
+}
+#infoUsuario {
+    width: 200px;
+    margin-left: 20px;
 }
 
-#searchterm2{
-    padding-left: 1%;
-    margin-left: 1%;
-    background: white;
+#fotoPerfil {
+    float:left;
+}
+
+#fotoPerfil > img {
+    width: 80px;
+    height: 80px;
+}
+
+#textoPerfil{
+    width: 300px;
+    height: 30px;
+    font-size: 10px;
+}
+
+.columnaBody{
+    width: 33%;
+    height: 100%;
+    float: left;
+}
+
+
+.estadisticas{
+
+    height:35px;
+    line-height:35px;
+    border:5px solid coral;
+    text-align:center;
+    background-color: black;
     color: coral;
-    width: 40%;
-    border: 6px solid black;
-    font-family: 'Miriam Libre', sans-serif;
-    border-radius: 11%;
+}
+.estadisticas>span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
 }
 
 .espacio{
@@ -270,43 +262,24 @@ footer {
     height:15px;
     background-color: transparent;
 }
-#tituloContenido {
-    margin-bottom:1%;
-    text-align: center;
-    width: 50%;
-    margin-left: 23%;
-    font-size: 28px;
-    background-color: rosybrown;
-    border-bottom-right-radius: 25% ;
-    border-bottom-left-radius: 25%;
-}
-/****************TABLA**********************/
 
-.grid {
-    display: grid;
-    grid-template-columns: [x0] 1fr [x1] 1fr [x2] 1fr [x3];
-    grid-template-rows: [y0] 1fr [y1] 1fr [y2] 1fr [y3];
+.puntos{
+    width:40%;
+    line-height:35px;
+    border:1.8px solid coral;
+    text-align:center;
+    background-color: black;
+    color: coral;
+    margin-left: 30%;
 }
-
-.columnaHead{
-    width: 49%;
-    height: 90%;
-    float: left;
-    margin-left: 20%;
-}
-#infoLeft{
-    background: papayawhip;
-    border-top-left-radius:15%;
-    border-top-right-radius:15%;
-}
-
-#infoUsuario {
-    width: 150px;
-    margin-left: 20px;
+.puntos>span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
 }
 
 .fotoPerfil{
-    margin-top: 2px;
+    margin-top: 10px;
     text-align:center;
     background-color: transparent;
 
@@ -318,15 +291,100 @@ footer {
 }
 
 .info{
-
-    border:3px solid coral;
+    line-height:35px;
+    border:1px solid coral;
     text-align:center;
     background-color: lightsalmon;
     color: black;
 
 }
+#infoFechaAltaUsuario{
+
+    height: 100px;
+}
 .info>span {
     display:inline-block;
     vertical-align:middle;
     line-height:normal;
+}
+
+/*********************MEDALLAS*******/
+
+#medallas{
+    width:100%;
+    height:35px;
+    margin-top: 32%;
+    line-height:35px;
+    border:5px solid coral;
+    text-align:center;
+    background-color: black;
+    color: coral;
+    border-radius: 5%;
+}
+
+.metales{
+    width:100%;
+    height:35px;
+    line-height:35px;
+    border:5px solid coral;
+    text-align:center;
+    background-color: black;
+    color: coral;
+}
+
+.metales>span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
+}
+#medallas:hover + #infoRigth{
+    background: black;
+}
+
+.tags{
+    width: 80%;
+    margin-left: 9%;
+    border:3.5px solid black;
+    text-align:center;
+    background-color: coral;
+    color: white;
+    border-radius: 15%;
+    margin-bottom: 3%;
+    text-shadow: 2px 1px black;
+}
+.tags>span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
+
+}
+
+/***********FOOTER***************/
+footer {
+
+    text-align:center;
+    margin-bottom: 2px;
+    width: 100%;
+    height: 4%;
+    bottom:0;
+    position:fixed;
+    left:0;
+    font-family: neon;
+    color: white;
+    font-size: 0.5cm;
+    padding-bottom: 0.5%;
+    padding-top:0.5% ;
+
+}
+.licenseImg{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 75%;
+    object-fit: cover;
+    object-position: center center;
+    margin-bottom: 0.2%;
+    margin-right: 0.5%;
+    background-color:  rgba(0,0,0,.0); /*Para que no haya background*/
+
 }

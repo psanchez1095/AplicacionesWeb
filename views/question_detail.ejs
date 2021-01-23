@@ -1,33 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Question Detail</title>
-    <link rel="stylesheet" href="/css/style_question_detail.css" media="screen">
-    <link rel="icon"  type="/img/jpg" href="/img/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
-</head>
-<body>
 
-<header id="encabezado">
-    <div class="columna2">
-        <div id="divPreguntas"><a href="/preguntas/QuestionIndex/" id="botonPreguntas">Preguntas</a></div>
-        <div id="divSinResponder"><a href="/preguntas/QuestionWithoutAnswer/" id="botonPreguntas">Sin Responder</a></div>
-        <div id="divUsuarios"><input type="button" value="Usuarios" id="botonUsuarios"></div>
-    </div>
-    <div class="columna">
-        <div id="titulo">
-            <h1>
-                FourZeroFour
-            </h1>
-        </div>
-    </div>
-    <div class="columna">
-        <div id="divImgPerfil"><img src="/usuarios/ShowProfileImage/<%=user.email%>" id="imgPerfil"></div>
-        <div id="divNombrePerfil"><span ><%=user.cuatrozerocuatro_name%></span></div>
-        <div id="divDesconectar"><a href ="/usuarios/LogOut" id="botonDesconectar">Cerrar Sesion</a></div>
-    </div>
-</header>
+<%- include("partials/header_general") %>
 
 <main class="search">
     <form form  action="/preguntas/QuestionByTextOrTag"  method="post"id="formulario">
@@ -39,30 +13,30 @@
         <label for="checkbox"> <span class="checkbox"> Buscar Por Tag</span></label>
     </form>
 </main>
-<main id="contenido">
+
+<main id="contenidoCreateQuestionQuestionDetail">
 
         <div id="votosPregunta">0 votos</div>
-        <div id="tituloContenido"> <%=questions[0].title%></div>
+        <div id="tituloQuestion"> <%=questions[0].title%></div>
         <div class="textoPregunta"><span><%=questions[0].text%></span></div>
 
-            <div id="mainContenido">
+    <div id="mainContenidoQuestionDetail">
         <% if (questions[0].answers==undefined){ %>
         <div>Sin Respuestas</div>
          <%} else { %>
         <% questions[0].answers.forEach(answer => { %>
-            <div class="marginTop"> Respuesta publicada el <%=answer.fecha%></div>
+            <div class="marginTopEntreRespuestas"> Respuesta publicada el <%=answer.fecha%></div>
             <div class="textoRespuesta"> <%= answer.text %> </div>
         <% });%>
     <%} %>
-    <form action="/preguntas/AddAnswer" method="POST" id="formularioCreateQuestion">
-        <input type="hidden" name="question_id" value="<%=questions[0].idp%>">
-        <div id="nuevarespuesta" >Nueva Respuesta</div>
-        <div id="textoRespuesta"><input placeholder="CuatroZeroCuatro vigila las respuestas, por una comunidad sana"  type="text" name="answer" id="textoFormCuerpo" required></div>
+         <form action="/preguntas/AddAnswer" method="POST" id="formularioCreateQuestion">
+                <input type="hidden" name="question_id" value="<%=questions[0].idp%>">
+                <div id="nuevarespuesta" >Nueva Respuesta</div>
+                <div id="textoRespuesta"><input placeholder="CuatroZeroCuatro vigila las respuestas, por una comunidad sana"  type="text" name="answer" id="textoFormCuerpo" required></div>
+                <div id="formTextPublicarRespuesta"><input type="submit" value="Formular Respuesta" id="publicarButton"></div>
 
-        <div id="formTextPublicarRespuesta"><input type="submit" value="Formular Respuesta" id="publicarButton"></div>
-
-    </form>
-            </div>
+         </form>
+    </div>
 
 </main>
 

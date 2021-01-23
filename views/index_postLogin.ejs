@@ -1,33 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include("partials/header_index_postLogin") %>
-</head>
-<body>
 
-<header id="encabezado">
-
-    <div class="columna">
-        <div id="divPreguntas"><a href="/preguntas/QuestionIndex/" id="botonPreguntas">Preguntas</a></div>
-        <div id="divSinResponder"><a href="/preguntas/QuestionWithoutAnswer/" id="botonPreguntas">Sin Responder</a></div>
-        <div id="divUsuarios"><input type="button" value="Usuarios" id="botonUsuarios"></div>
-    </div>
-
-    <div class="columna">
-        <div id="titulo">
-            <h1>
-                FourZeroFour
-            </h1>
-        </div>
-    </div>
-
-    <div class="columna">
-        <div id="divImgPerfil"><img src="/usuarios/ShowProfileImage/<%=user.email%>" id="imgPerfil"></div>
-        <div id="divNombrePerfil"><span><%=user.cuatrozerocuatro_name%></span></div>
-        <div id="divCerrarSesion"><a  href ="/usuarios/LogOut" value="Cerrar Sesion" id="botonCerrarSesion">Cerrar Sesion</a></div>
-    </div>
-
-</header>
+<%- include("partials/header_general") %>
 
 <main class="search">
     <form form  action="/preguntas/QuestionByTextOrTag"  method="post"id="formulario">
@@ -39,6 +13,10 @@
         <label for="checkbox"> <span class="checkbox">Buscar Por Tag</span></label>
     </form>
 </main>
+
+<flash>
+    <%- include("flash") %>
+</flash>
 
 <footer>
     <img class="licenseImg" src="/img/license.png">

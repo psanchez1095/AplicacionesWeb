@@ -1,34 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Questions</title>
-    <link rel="stylesheet" href="/css/style_questions.css" media="screen">
-    <link rel="icon"  type="img/jpg" href="/img/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
-</head>
-<body>
 
-<header id="encabezado">
-    <div class="columna">
-        <div id="divPreguntas"><a href="/preguntas/QuestionIndex/" id="botonPreguntas">Preguntas</a></div>
-        <div id="divSinResponder"><a href="/preguntas/QuestionWithoutAnswer/" id="botonPreguntas">Sin Responder</a></div>
-        <div id="divUsuarios"><input type="button" value="Usuarios" id="botonUsuarios"></div>
-    </div>
-    <div class="columna">
-        <div id="titulo">
-            <h1>
-                FourZeroFour
-            </h1>
-        </div>
-    </div>
-    <div class="columna">
-
-        <div id="divImgPerfil"><img src="/usuarios/ShowProfileImage/<%=user.email%>" id="imgPerfil"></div>
-        <div id="divNombrePerfil"><span ><%=user.cuatrozerocuatro_name%></span></div>
-        <div id="divDesconectar"><a href ="/usuarios/LogOut" id="botonDesconectar">Cerrar Sesion</a></div>
-    </div>
-</header>
+<%- include("partials/header_general") %>
 
 <main class="search">
     <form form  action="/preguntas/QuestionByTextOrTag"  method="post"id="formulario">
@@ -36,11 +9,12 @@
                  <label for="searchButton"> <span>Buscar</span> <img src="/img/lupa.png" ></label>
             </span>
         <span id="textoSearchFormInput "><input type="text" name="textSearch"  placeholder="Buscar por titulo/cuerpo de pregunta" id="textForm" required></span>
-        <span><input class="checkbox" id="checkbox"type="checkbox" name ="modoBusqueda"></span>
-        <label for="checkbox"> <span class="checkbox"> Buscar Por Tag</span></label>
+        <span><input class="checkbox" id="checkbox"type="checkbox" name ="modoBusqueda" value="Buscar por Tag"></span>
+        <label for="checkbox"> <span class="checkbox">Buscar Por Tag</span></label>
     </form>
 </main>
-<main id="contenido">
+
+<main id="contenidoQuestionsIndex">
         <% if (model=="index"){ %>
         <span id="tituloContenido">Todas Las Preguntas</span>
         <%} else if(model==="sinresponder"){ %>
@@ -48,11 +22,11 @@
         <%}else if(model==="buscar"){ %>
                 <span id="tituloContenido">Preguntas Filtradas</span>
             <%} %>
-    <div id = "cabeceraContenido">
+    <div id = "cabeceracontenidoQuestionsIndex">
         <span><%=questions.length%> preguntas</span>
         <a id="botonFormularPregunta" href="/preguntas/ShowCreateQuestion"  id="botonFormularPregunta">Formular Pregunta</a>
     </div>
-    <div id="mainContenido">
+    <div id="mainContenidoQuestionsIndex">
 
 
 
@@ -78,7 +52,7 @@
                 </form>
             </div>
             <div class = "nuevaPreguntaUsuario" >
-                <div class="fecha"><%=question.fecha%></div>
+                <div class="divfechaQuestion"><%=question.fecha%></div>
                 <span2><img class="imagenUsuario "src="/usuarios/ShowProfileImageById/<%=question.idQuestion%>"></span2><br>
                 <div class="cuatrozerocuatroname"><%=question.cuatrozerocuatro_name%></div>
             </div>
