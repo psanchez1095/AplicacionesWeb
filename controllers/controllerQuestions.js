@@ -37,8 +37,9 @@ function showQuestionsWithoutAnswers(request, response, next) {
         if (err) {
             next(err);
         } else {
+            console.log(questionList);
             questionList = questionList.filter(element => {
-                if(element.answers[0]  === null){
+                if(element.answers[0]  === null || element.answers[0] ===undefined){
                     return element;
                 }
 
