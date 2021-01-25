@@ -15,6 +15,7 @@
 </main>
 
 <main id="contenidoQuestionsIndex">
+
         <% if (model=="index"){ %>
         <span id="tituloContenido">Todas Las Preguntas</span>
         <%} else if(model==="sinresponder"){ %>
@@ -22,13 +23,13 @@
         <%}else if(model==="buscar"){ %>
                 <span id="tituloContenido">Preguntas Filtradas</span>
             <%} %>
+
     <div id = "cabeceracontenidoQuestionsIndex">
         <span><%=questions.length%> preguntas</span>
         <a id="botonFormularPregunta" href="/preguntas/ShowCreateQuestion"  id="botonFormularPregunta">Formular Pregunta</a>
     </div>
+
     <div id="mainContenidoQuestionsIndex">
-
-
 
         <% questions.forEach(question => { %>
 
@@ -61,8 +62,6 @@
         <% });%>
 
     </div>
-
-
 
 
 </main>

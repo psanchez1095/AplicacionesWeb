@@ -535,7 +535,8 @@ div > a{
     position: absolute;
     width: 750px;
     top: 191px;
-    margin-left:20%;
+    margin-left:25%;
+    margin-right: 25%;
     font-family: 'Miriam Libre', sans-serif;
     font-weight: bold;
 
@@ -619,6 +620,17 @@ div > a{
 
 
  }
+#nuevarespuesta{
+    margin-left: 45%;
+}
+#textoFormCuerpoAnswer{
+    height: 185px;
+    width: 350px;
+    margin-left: 10%;
+}
+#publicarButton{
+    margin-bottom: 6%;
+}
 #mainContenidoQuestionDetail{
     min-height: 370px;
     max-height: 370px;
@@ -634,6 +646,12 @@ div > a{
 #formularioCreateQuestion{
     margin-top: 6%;
 }
+.formularioAddAnswer{
+    margin-top: 6%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
 /***********FOOTER***************/
 footer {
 

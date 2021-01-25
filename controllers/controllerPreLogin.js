@@ -61,7 +61,7 @@ function createUser(request, response, next) {
     } else {
         response.setFlash("* Imagen no válida.");
         response.status(200);
-        response.render("createAccount");
+        response.redirect("/Show_CreateAccount");
     }
 
 }

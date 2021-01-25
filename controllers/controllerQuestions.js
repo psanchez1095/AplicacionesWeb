@@ -82,6 +82,7 @@ function addQuestion(request, response, next) {
         if (err) {
             next(err);
         } else {
+            response.setFlash("Pregunta Creada, puedes localizarla en la lista");
             response.status(200);
             response.redirect("/preguntas/QuestionIndex");
         }

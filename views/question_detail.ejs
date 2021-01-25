@@ -29,10 +29,10 @@
             <div class="textoRespuesta"> <%= answer.text %> </div>
         <% });%>
     <%} %>
-         <form action="/preguntas/AddAnswer" method="POST" id="formularioCreateQuestion">
+         <form action="/preguntas/AddAnswer" method="POST" class="formularioAddAnswer">
                 <input type="hidden" name="question_id" value="<%=questions[0].idp%>">
                 <div id="nuevarespuesta" >Nueva Respuesta</div>
-                <div id="textoRespuesta"><input placeholder="CuatroZeroCuatro vigila las respuestas, por una comunidad sana"  type="text" name="answer" id="textoFormCuerpo" required></div>
+                <div id="textoRespuesta"><input placeholder="CuatroZeroCuatro vigila las respuestas, por una comunidad sana"  type="text" name="answer" id="textoFormCuerpoAnswer" required></div>
                 <div id="formTextPublicarRespuesta"><input type="submit" value="Formular Respuesta" id="publicarButton"></div>
 
          </form>
