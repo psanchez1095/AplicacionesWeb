@@ -4,6 +4,8 @@
   "description": "Proyecto Aplicacion Node.js",
   "main": "app.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,12 +15,14 @@
   ],
   "author": "Pedro Sanchez",
   "license": "MIT",
+  "homepage": "https://psanchez1095.github.io/AplicacionesWeb",
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-mysql-session": "^2.1.5",
     "express-session": "^1.17.1",
+    "gh-pages": "^3.1.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "mysql": "^2.18.1"
